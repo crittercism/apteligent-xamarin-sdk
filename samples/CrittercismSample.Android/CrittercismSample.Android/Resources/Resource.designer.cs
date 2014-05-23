@@ -61,7 +61,22 @@ namespace CrittercismSample.Android
 		{
 			
 			// aapt resource value: 0x7f050000
-			public const int myButton = 2131034112;
+			public const int buttonAttachMeta = 2131034112;
+			
+			// aapt resource value: 0x7f050005
+			public const int buttonBreadcrumb = 2131034117;
+			
+			// aapt resource value: 0x7f050004
+			public const int buttonCLRException = 2131034116;
+			
+			// aapt resource value: 0x7f050003
+			public const int buttonCrashCLR = 2131034115;
+			
+			// aapt resource value: 0x7f050001
+			public const int buttonCrashNative = 2131034113;
+			
+			// aapt resource value: 0x7f050002
+			public const int buttonNativeException = 2131034114;
 			
 			static Id()
 			{

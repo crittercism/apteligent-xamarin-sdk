@@ -1,14 +1,36 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    >
-<Button  
-    android:id="@+id/myButton"
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content" 
-    android:text="@string/hello"
-    />
+    android:layout_height="fill_parent">
+    <Button
+        android:id="@+id/buttonAttachMeta"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hello" />
+    <Button
+        android:text="Crash native"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonCrashNative" />
+    <Button
+        android:text="Native exception"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonNativeException" />
+    <Button
+        android:text="Crash CLR"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonCrashCLR" />
+    <Button
+        android:text="CLR exception"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonCLRException" />
+    <Button
+        android:text="Leave breadcrumb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonBreadcrumb" />
 </LinearLayout>
-

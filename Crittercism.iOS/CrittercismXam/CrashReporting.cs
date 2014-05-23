@@ -20,7 +20,7 @@ namespace CrittercismXam
 
 		enum Signal { SIGBUS = 10, SIGSEGV = 11 }
 
-		public static void EnableCrashReporting ( string appId )
+		public static void EnableCrashReportingWithMonoSigRestore ( string appId )
 		{
 
 			IntPtr sigbus = Marshal.AllocHGlobal (512);
@@ -63,7 +63,7 @@ namespace CrittercismXam
 			 */
 
 			// Enable crash reporting libraries
-			EnableCrashReportingUnsafe ( appId );
+			EnableCrashReporting ( appId );
 
 			// Restore Mono SIGSEGV and SIGBUS handlers
 			sigaction (Signal.SIGBUS, sigbus, IntPtr.Zero);
@@ -73,7 +73,7 @@ namespace CrittercismXam
 			Marshal.FreeHGlobal (sigsegv);
 		}//end EnableCrashReporting
 
-		public static void EnableCrashReportingUnsafe ( string appId )
+		public static void EnableCrashReporting ( string appId )
 		{
 			// Run your crash reporting library initialization code here--
 			Crittercism.Crittercism.EnableWithAppID("5342d5a70ee9483d74000007");

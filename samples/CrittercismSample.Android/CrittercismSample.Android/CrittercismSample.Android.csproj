@@ -60,4 +60,10 @@
     <AndroidResource Include="Resources\drawable\Icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Crittercism.Android\Crittercism.Android\Crittercism.Android.csproj">
+      <Project>{850B1EAD-8B68-4984-943B-C456C84682C2}</Project>
+      <Name>Crittercism.Android</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

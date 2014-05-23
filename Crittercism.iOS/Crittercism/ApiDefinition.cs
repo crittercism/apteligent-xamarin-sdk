@@ -86,6 +86,12 @@ namespace Crittercism
 		[Static, Export ("logHandledException:")]
 		bool LogHandledException (NSException exception);
 
+		//[Static, Export ("logHandledException:")]
+		//bool LogHandledException (NSException exception);
+
+		//[Static, Export ("logHandledException:")]
+		//bool LogHandledException (NSException exception);
+
 		[Static, Export ("optOutStatus")]//, Verify ("ObjC method massaged into setter property", "/Users/matt/Desktop/oppertunities/crittercism-xamarin/sdks/Crittercism_v4_3_3/CrittercismSDK/Crittercism.h", Line = 120)]
 		bool OptOutStatus { set; }
 
@@ -109,6 +115,12 @@ namespace Crittercism
 
 		[Static, Export ("didCrashOnLastLoad")]//, Verify ("ObjC method massaged into getter property", "/Users/matt/Desktop/oppertunities/crittercism-xamarin/sdks/Crittercism_v4_3_3/CrittercismSDK/Crittercism.h", Line = 173)]
 		bool DidCrashOnLastLoad { get; }
+
+		// MAS TODO
+		// https://github.com/crittercism/crittercism-unity-ios/blob/feature/exception-cleanup/Plugins/Crittercism_IOS_Scripts/CrittercismIOS.cs#L169 
+		//Crittercism_LogUnhandledException (name, message, stacktrace);
+		//Crittercism_LogUnhandledException( string name, string message, string stacktrace);
+
 	}
 
 	// The first step to creating a binding is to add your native library ("libNativeLibrary.a")

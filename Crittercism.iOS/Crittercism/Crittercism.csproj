@@ -45,12 +45,12 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Xamarin.ObjcBinding.CSharp.targets" />
   <ItemGroup>
-    <ObjcBindingNativeLibrary Include="libCrittercism_v4_3_3.a" />
+    <ObjcBindingNativeLibrary Include="libCrittercism.a" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="libCrittercism_v4_3_3.linkwith.cs">
-      <DependentUpon>libCrittercism_v4_3_3.a</DependentUpon>
-    </Compile>
     <Compile Include="ErrorHandling.cs" />
+    <Compile Include="libCrittercism.linkwith.cs">
+      <DependentUpon>libCrittercism.a</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>
