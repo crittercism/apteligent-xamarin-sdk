@@ -1,0 +1,31 @@
+# Version: 7.2.1.101 (2f75908)
+# [first argument, ignore] # /Users/matt/trees/github.com/crittercism/xamarin/samples/CrittercismSample.iOS/CrittercismSample.iOS/bin/iPhoneSimulator/Debug/mtouch.exe
+/Developer/MonoTouch/usr/bin/mtouch \
+	-sdkroot \
+	/Applications/Xcode.app/Contents/Developer \
+	--cache \
+	/Users/matt/trees/github.com/crittercism/xamarin/samples/CrittercismSample.iOS/CrittercismSample.iOS/obj/iPhoneSimulator/Debug/mtouch-cache \
+	--nomanifest \
+	--nosign \
+	-sim \
+	/Users/matt/trees/github.com/crittercism/xamarin/samples/CrittercismSample.iOS/CrittercismSample.iOS/bin/iPhoneSimulator/Debug/CrittercismSampleiOS.app \
+	-r \
+	/Users/matt/trees/github.com/crittercism/xamarin/Crittercism.iOS/CrittercismXam/bin/Debug/CrittercismXam.dll \
+	-r \
+	/Users/matt/trees/github.com/crittercism/xamarin/Crittercism.iOS/Crittercism/bin/Debug/Crittercism.dll \
+	-r \
+	/Developer/MonoTouch/usr/lib/mono/2.1/System.dll \
+	-r \
+	/Developer/MonoTouch/usr/lib/mono/2.1/System.Xml.dll \
+	-r \
+	/Developer/MonoTouch/usr/lib/mono/2.1/System.Core.dll \
+	-r \
+	/Developer/MonoTouch/usr/lib/mono/2.1/monotouch.dll \
+	-debug \
+	-nolink \
+	-sdk \
+	7.1 \
+	-targetver \
+	7.0 \
+	--abi=i386 \
+	/Users/matt/trees/github.com/crittercism/xamarin/samples/CrittercismSample.iOS/CrittercismSample.iOS/bin/iPhoneSimulator/Debug/CrittercismSampleiOS.exe \

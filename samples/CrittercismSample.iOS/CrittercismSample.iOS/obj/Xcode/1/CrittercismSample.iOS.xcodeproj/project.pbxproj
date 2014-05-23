@@ -1,0 +1,238 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8FC4FDB00000000000000000 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8D5C7900000000000000000 /* UIKit.framework */; };
+		2A91F30E0000000000000000 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E22FFAC0000000000000000 /* MapKit.framework */; };
+		3FC55BA60000000000000000 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 356684400000000000000000 /* Foundation.framework */; };
+		33303DEF0000000000000000 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C14A8D0000000000000000 /* CoreGraphics.framework */; };
+		2A6642000000000000000000 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63770BE00000000000000000 /* Default-568h@2x.png */; };
+		17D9CCB80000000000000000 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B6AD9560000000000000000 /* Info.plist */; };
+		6048DA200000000000000000 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9959A4000000000000000000 /* Entitlements.plist */; };
+		342F4E8C0000000000000000 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37C05B2A0000000000000000 /* MainStoryboard.storyboard */; };
+		1084D0600000000000000000 /* button-backround.png in Resources */ = {isa = PBXBuildFile; fileRef = 1415DCFE0000000000000000 /* button-backround.png */; };
+		177406800000000000000000 /* crittercism_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B05131E0000000000000000 /* crittercism_icon.png */; };
+		1CB427DF0000000000000000 /* AppDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 2045347D0000000000000000 /* AppDelegate.h */; };
+		3AB8BE740000000000000000 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E49CB120000000000000000 /* AppDelegate.m */; };
+		2E23A0BD0000000000000000 /* CrittercismSample_iOSViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 31B4AD5B0000000000000000 /* CrittercismSample_iOSViewController.h */; };
+		1D97B0300000000000000000 /* CrittercismSample_iOSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB943F000000000000000000 /* CrittercismSample_iOSViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		356000230000000000000000 /* CrittercismSample.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "CrittercismSample.iOS.app"; path = "CrittercismSample.iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8D5C7900000000000000000 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "UIKit.framework"; path = "System/Library/Frameworks/UIKit.framework"; sourceTree = SDKROOT; };
+		2E22FFAC0000000000000000 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "MapKit.framework"; path = "System/Library/Frameworks/MapKit.framework"; sourceTree = SDKROOT; };
+		356684400000000000000000 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Foundation.framework"; path = "System/Library/Frameworks/Foundation.framework"; sourceTree = SDKROOT; };
+		36C14A8D0000000000000000 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreGraphics.framework"; path = "System/Library/Frameworks/CoreGraphics.framework"; sourceTree = SDKROOT; };
+		63770BE00000000000000000 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		1B6AD9560000000000000000 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info.plist"; path = "Info.plist"; sourceTree = "<group>"; };
+		9959A4000000000000000000 /* Entitlements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Entitlements.plist"; path = "Entitlements.plist"; sourceTree = "<group>"; };
+		37C05B2A0000000000000000 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "MainStoryboard.storyboard"; path = "MainStoryboard.storyboard"; sourceTree = "<group>"; };
+		1415DCFE0000000000000000 /* button-backround.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-backround.png"; path = "button-backround.png"; sourceTree = "<group>"; };
+		1B05131E0000000000000000 /* crittercism_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "crittercism_icon.png"; path = "crittercism_icon.png"; sourceTree = "<group>"; };
+		2045347D0000000000000000 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "AppDelegate.h"; path = "AppDelegate.h"; sourceTree = "<group>"; };
+		3E49CB120000000000000000 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate.m"; path = "AppDelegate.m"; sourceTree = "<group>"; };
+		31B4AD5B0000000000000000 /* CrittercismSample_iOSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CrittercismSample_iOSViewController.h"; path = "CrittercismSample_iOSViewController.h"; sourceTree = "<group>"; };
+		FB943F000000000000000000 /* CrittercismSample_iOSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CrittercismSample_iOSViewController.m"; path = "CrittercismSample_iOSViewController.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2930A8A40000000000000000 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FC4FDB00000000000000000 /* UIKit.framework in Frameworks */,
+				2A91F30E0000000000000000 /* MapKit.framework in Frameworks */,
+				3FC55BA60000000000000000 /* Foundation.framework in Frameworks */,
+				33303DEF0000000000000000 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2EA3AD1F0000000000000000 = {
+			isa = PBXGroup;
+			children = (
+				33E3CE7E0000000000000000 /* CrittercismSample.iOS */,
+				3956D2F90000000000000000 /* Frameworks */,
+				23F087450000000000000000 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		23F087450000000000000000 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				356000230000000000000000 /* CrittercismSample.iOS.app */,
+			);
+			name = "Products";
+			sourceTree = "<group>";
+		};
+		3956D2F90000000000000000 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C8D5C7900000000000000000 /* UIKit.framework */,
+				2E22FFAC0000000000000000 /* MapKit.framework */,
+				356684400000000000000000 /* Foundation.framework */,
+				36C14A8D0000000000000000 /* CoreGraphics.framework */,
+			);
+			name = "Frameworks";
+			sourceTree = "<group>";
+		};
+		33E3CE7E0000000000000000 /* CrittercismSample.iOS */ = {
+			isa = PBXGroup;
+			children = (
+				2045347D0000000000000000 /* AppDelegate.h */,
+				1415DCFE0000000000000000 /* button-backround.png */,
+				1B05131E0000000000000000 /* crittercism_icon.png */,
+				31B4AD5B0000000000000000 /* CrittercismSample_iOSViewController.h */,
+				63770BE00000000000000000 /* Default-568h@2x.png */,
+				9959A4000000000000000000 /* Entitlements.plist */,
+				1B6AD9560000000000000000 /* Info.plist */,
+				37C05B2A0000000000000000 /* MainStoryboard.storyboard */,
+				3C9AB6510000000000000000 /* Supporting Files */,
+			);
+			name = "CrittercismSample.iOS";
+			sourceTree = "<group>";
+		};
+		3C9AB6510000000000000000 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3E49CB120000000000000000 /* AppDelegate.m */,
+				FB943F000000000000000000 /* CrittercismSample_iOSViewController.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2DA53D930000000000000000 /* CrittercismSample.iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2AACDA490000000000000000 /* Build configuration list for PBXNativeTarget "CrittercismSample.iOS" */;
+			buildPhases = (
+				175B698E0000000000000000 /* Sources */,
+				2930A8A40000000000000000 /* Frameworks */,
+				460919000000000000000000 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CrittercismSample.iOS";
+			productName = "CrittercismSample.iOS";
+			productReference = 356000230000000000000000 /* CrittercismSample.iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		22F217B90000000000000000 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1FF9B46F0000000000000000 /* Build configuration list for PBXProject "CrittercismSample.iOS" */;
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2EA3AD1F0000000000000000;
+			productRefGroup = 23F087450000000000000000 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2DA53D930000000000000000 /* CrittercismSample.iOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		460919000000000000000000 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A6642000000000000000000 /* Default-568h@2x.png in Resources */,
+				17D9CCB80000000000000000 /* Info.plist in Resources */,
+				6048DA200000000000000000 /* Entitlements.plist in Resources */,
+				342F4E8C0000000000000000 /* MainStoryboard.storyboard in Resources */,
+				1084D0600000000000000000 /* button-backround.png in Resources */,
+				177406800000000000000000 /* crittercism_icon.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		175B698E0000000000000000 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CB427DF0000000000000000 /* AppDelegate.h in Sources */,
+				3AB8BE740000000000000000 /* AppDelegate.m in Sources */,
+				2E23A0BD0000000000000000 /* CrittercismSample_iOSViewController.h in Sources */,
+				1D97B0300000000000000000 /* CrittercismSample_iOSViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2175E6140000000000000000 /* MonoTouch */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				SDKROOT = iphoneos;
+			};
+			name = MonoTouch;
+		};
+		15468E950000000000000000 /* MonoTouch */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				PRODUCT_NAME = "CrittercismSample.iOS";
+				WRAPPER_EXTENSION = app;
+			};
+			name = MonoTouch;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1FF9B46F0000000000000000 /* Build configuration list for PBXProject "CrittercismSample.iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2175E6140000000000000000 /* MonoTouch */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = MonoTouch;
+		};
+		2AACDA490000000000000000 /* Build configuration list for PBXNativeTarget "CrittercismSample.iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15468E950000000000000000 /* MonoTouch */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = MonoTouch;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 22F217B90000000000000000 /* Project object */;
+}

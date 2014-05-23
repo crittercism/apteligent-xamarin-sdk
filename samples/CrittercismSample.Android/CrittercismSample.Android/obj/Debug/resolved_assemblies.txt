@@ -1,0 +1,2 @@
+/Users/matt/trees/github.com/crittercism/xamarin/samples/CrittercismSample.Android/CrittercismSample.Android/bin/Debug/CrittercismSample.Android.dll
+/Users/matt/trees/github.com/crittercism/xamarin/Crittercism.Android/Crittercism.Android/bin/Debug/Crittercism.Android.dll
