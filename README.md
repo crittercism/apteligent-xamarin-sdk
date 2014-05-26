@@ -15,6 +15,25 @@ Please read Getting Started to learn how to use the component library.
 - highlight 2
 - highlight 3
 
+##Xamarin Crittercisms overview
+
+todo
+
+
+
+###iOS 
+
+####iOS AOT Xamarin Limitations
+
+Since applications on the iPhone using Xamarin.iOS are compiled to static code, it is not possible to use any facilities that require code generation at runtime. Unlike Android (JIT just-in compiler time) architecture iPhones kernel prevents an application from generating code dynamically Mono on the iPhone does not support any form of dynamic code generation.  This can cause limitations in supported C#/.Net featurtes such as Generics and generic subclassing, P/Invokes and System.Reflect.Emit.  You can find out more about Xamarin iOS AOT Limitations here [Xamarin Limitations](http://docs.xamarin.com/guides/ios/advanced_topics/limitations/ "Limitations | Xamarin")
+
+
+###Android
+
+Xamarin.Android applications run within the Mono execution environment. This execution environment runs side-by-side with the Dalvik Virtual Machine.  Both runtime environments run on top of the Linux kernel and expose various APIs to the user code that allows developers to access the underlying system.  You can find out more about the Xamarin Android Architecture on the [Xamarin documentation page Overview](http://docs.xamarin.com/guides/android/under_the_hood/architecture/ "Architecture | Xamarin").
+
+
+
 ##Getting Started
 
 ###Prerequisities
