@@ -1,11 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhoneRetina.7.1" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../Crittercism.iOS/CrittercismXam/CrashReporting.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CrittercismSample.iOS/CrittercismSample.iOSViewController.cs">
     <Files>
-      <File FileName="CrittercismSample.iOS/CrittercismSample.iOSViewController.cs" Line="19" Column="3" />
-      <File FileName="CrittercismSample.iOS/AppDelegate.cs" Line="20" Column="4" />
-      <File FileName="../../Crittercism.iOS/Crittercism/ApiDefinition.cs" Line="91" Column="3" />
-      <File FileName="../../Crittercism.iOS/CrittercismXam/CrashReporting.cs" Line="69" Column="8" />
+      <File FileName="CrittercismSample.iOS/CrittercismSample.iOSViewController.cs" Line="153" Column="4" />
+      <File FileName="../../Crittercism.iOS/CrittercismXam/CrashReporting.cs" Line="69" Column="10" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

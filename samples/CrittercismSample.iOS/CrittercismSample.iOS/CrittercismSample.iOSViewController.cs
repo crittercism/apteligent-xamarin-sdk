@@ -64,9 +64,16 @@ namespace CrittercismSample.iOS
 				Console.WriteLine("-Crash CLR");
 
 				//null reference exception = SIGSEGV signal at first
-				crashIndexOutOfRange();
+				try
+				{
+					crashIndexOutOfRange();
+				}
+				catch( Exception ex ) 
+				{
+					Console.WriteLine( "caught exception" + ex.ToString() );
+				}
 
-				//Console.WriteLine("--Crash CLR Environment.StackTrace :" + Environment.StackTrace);
+				Console.WriteLine("--Crash CLR Environment.StackTrace :" + Environment.StackTrace);
 			};
 
 			buttonCLRException.TouchUpInside += (object sender, EventArgs e) => {
