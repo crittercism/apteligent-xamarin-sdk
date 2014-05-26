@@ -20,7 +20,7 @@ namespace CrittercismXam
 
 		enum Signal { SIGBUS = 10, SIGSEGV = 11 }
 
-		public static void EnableCrashReportingWithMonoSigRestore ( string appId )
+		private static void EnableCrashReportingWithMonoSigRestore ( string appId )
 		{
 
 			IntPtr sigbus = Marshal.AllocHGlobal (512);

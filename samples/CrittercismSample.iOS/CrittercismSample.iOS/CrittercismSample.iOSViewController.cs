@@ -53,7 +53,7 @@ namespace CrittercismSample.iOS
 
 			buttonCrashNative.TouchUpInside +=  (object sender, EventArgs e) => {
 				Console.WriteLine("-Crash Native");
-				divideByZero();
+				crashDivideByZero();
 			};
 
 			buttonNativeException.TouchUpInside += (object sender, EventArgs e) => {
@@ -64,28 +64,14 @@ namespace CrittercismSample.iOS
 				Console.WriteLine("-Crash CLR");
 
 				//null reference exception = SIGSEGV signal at first
-				try {
-					Console.WriteLine("--Null Reference Exception-- try ");
-					object o = null;
-					o.GetHashCode ();
-				} catch {
-					// This Catch block will not be called if crash reporting is enabled, unless you restore sigV (Instead, the app will crash.)
-					Console.WriteLine("--Null Reference Exception-- catch ");
-				}//end catch
+				crashIndexOutOfRange();
 
-				Console.WriteLine("--Crash CLR Environment.StackTrace :" + Environment.StackTrace);
+				//Console.WriteLine("--Crash CLR Environment.StackTrace :" + Environment.StackTrace);
 			};
-
 
 			buttonCLRException.TouchUpInside += (object sender, EventArgs e) => {
 				Console.WriteLine( "-CLR Exception");
-
-				try {
-					object o = null;
-					o.GetHashCode ();
-				} catch {
-					Console.WriteLine(" catch ");
-				}//end catch
+				crashCustomException();
 			};
 
 			buttonLeaveBreadcrumb.TouchUpInside += (object sender, EventArgs e) => {
@@ -138,19 +124,25 @@ namespace CrittercismSample.iOS
 		// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 		#region Helper methods
 
-		public void divideByZero()
+		private void crashNullReference()
+		{
+			object o = null;
+			o.GetHashCode ();
+		}
+
+		public void crashDivideByZero()
 		{
 			int i = 0;
 			i = 2 / i;
 		}//end divideByZero
 
-		public void indexOutOfRange()
+		public void crashIndexOutOfRange()
 		{
 			string[] arr	= new string[1];
 			arr[2]	= "Crash";
 		}//end indexOutOfRange
 
-		public void customException()
+		public void crashCustomException()
 		{
 			throw new System.Exception("Custom Exception");
 		}
@@ -167,14 +159,14 @@ namespace CrittercismSample.iOS
 		}
 		*/
 
-		private System.Collections.IEnumerator MonoCorutineNullCrash()
+		private System.Collections.IEnumerator crashMonoCorutineNullCrash()
 		{
 			string crash = null;
 			crash	= crash.ToLower();
 			yield break;
 		}
 
-		private System.Collections.IEnumerator MonoCorutineCrash()
+		private System.Collections.IEnumerator crashMonoCorutineCrash()
 		{
 			throw new System.Exception("Custom Coroutine Exception");
 		}
