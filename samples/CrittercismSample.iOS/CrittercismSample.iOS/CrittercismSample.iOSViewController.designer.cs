@@ -28,38 +28,11 @@ namespace CrittercismSample.iOS
 		MonoTouch.UIKit.UIButton buttonLeaveBreadcrumb { get; set; }
 
 		[Outlet]
-		MonoTouch.UIKit.UIButton buttonMisc1 { get; set; }
-
-		[Outlet]
-		MonoTouch.UIKit.UIButton buttonMisc2 { get; set; }
-
-		[Outlet]
-		MonoTouch.UIKit.UIButton buttonMisc3 { get; set; }
-
-		[Outlet]
 		MonoTouch.UIKit.UIButton buttonNativeException { get; set; }
 
 		[Outlet]
 		MonoTouch.UIKit.UIImageView imageCrittercism { get; set; }
 
-		[Action ("actionAttachUserMetadata:")]
-		partial void actionAttachUserMetadata (MonoTouch.Foundation.NSObject sender);
-
-		[Action ("actionBreadcrumb:")]
-		partial void actionBreadcrumb (MonoTouch.Foundation.NSObject sender);
-
-		[Action ("actionCLRException:")]
-		partial void actionCLRException (MonoTouch.Foundation.NSObject sender);
-
-		[Action ("actionCrashCLR:")]
-		partial void actionCrashCLR (MonoTouch.Foundation.NSObject sender);
-
-		[Action ("actionCrashNative:")]
-		partial void actionCrashNative (MonoTouch.Foundation.NSObject sender);
-
-		[Action ("actionNativeException:")]
-		partial void actionNativeException (MonoTouch.Foundation.NSObject sender);
-		
 		void ReleaseDesignerOutlets ()
 		{
 			if (ButtonAttachUserMetadata != null) {
@@ -97,20 +70,6 @@ namespace CrittercismSample.iOS
 				imageCrittercism = null;
 			}
 
-			if (buttonMisc1 != null) {
-				buttonMisc1.Dispose ();
-				buttonMisc1 = null;
-			}
-
-			if (buttonMisc2 != null) {
-				buttonMisc2.Dispose ();
-				buttonMisc2 = null;
-			}
-
-			if (buttonMisc3 != null) {
-				buttonMisc3.Dispose ();
-				buttonMisc3 = null;
-			}
 		}
 	}
 }

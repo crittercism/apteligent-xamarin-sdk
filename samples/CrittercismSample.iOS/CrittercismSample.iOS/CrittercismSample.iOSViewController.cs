@@ -39,7 +39,6 @@ namespace CrittercismSample.iOS
 					, null).Show();
 			}//end if DidCrashOnLastLoad == true
 
-
 			// Attach Button Handlers
 			ButtonAttachUserMetadata.TouchUpInside += (object sender, EventArgs e) => {
 				Console.WriteLine("Attach Metadata");
@@ -54,6 +53,7 @@ namespace CrittercismSample.iOS
 
 			buttonCrashNative.TouchUpInside +=  (object sender, EventArgs e) => {
 				Console.WriteLine("-Crash Native");
+				divideByZero();
 			};
 
 			buttonNativeException.TouchUpInside += (object sender, EventArgs e) => {
@@ -63,10 +63,19 @@ namespace CrittercismSample.iOS
 			buttonCrashCLR.TouchUpInside +=  (object sender, EventArgs e) => {
 				Console.WriteLine("-Crash CLR");
 
-				CLRNullReferenceException();
+				//null reference exception = SIGSEGV signal at first
+				try {
+					Console.WriteLine("--Null Reference Exception-- try ");
+					object o = null;
+					o.GetHashCode ();
+				} catch {
+					// This Catch block will not be called if crash reporting is enabled, unless you restore sigV (Instead, the app will crash.)
+					Console.WriteLine("--Null Reference Exception-- catch ");
+				}//end catch
 
 				Console.WriteLine("--Crash CLR Environment.StackTrace :" + Environment.StackTrace);
 			};
+
 
 			buttonCLRException.TouchUpInside += (object sender, EventArgs e) => {
 				Console.WriteLine( "-CLR Exception");
@@ -78,7 +87,6 @@ namespace CrittercismSample.iOS
 					Console.WriteLine(" catch ");
 				}//end catch
 			};
-
 
 			buttonLeaveBreadcrumb.TouchUpInside += (object sender, EventArgs e) => {
 				Console.WriteLine( "-Crittercism.LeaveBreadcrumb :  MyBreadCrumb" ); 
@@ -101,18 +109,6 @@ namespace CrittercismSample.iOS
 
 			};
 
-			buttonMisc1.TouchUpInside += (object sender, EventArgs e) => {
-				Console.WriteLine( "-ButtonMisc1 GetUserUUID " + Crittercism.Crittercism.GetUserUUID  );
-				DoSomeNetworkRequest();
-			};
-
-			buttonMisc2.TouchUpInside += (object sender, EventArgs e) => {
-				Console.WriteLine( "-ButtonMisc2 GetUserUUID " + Crittercism.Crittercism.GetUserUUID  );
-			};
-
-			buttonMisc3.TouchUpInside += (object sender, EventArgs e) => {
-				Console.WriteLine( "-ButtonMisc3 GetUserUUID " + Crittercism.Crittercism.GetUserUUID  );
-			};
 		}
 
 		public override void ViewWillAppear (bool animated)
@@ -142,19 +138,46 @@ namespace CrittercismSample.iOS
 		// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 		#region Helper methods
 
-		//null reference exception = SIGSEGV signal at first
-		public void CLRNullReferenceException()
+		public void divideByZero()
 		{
-			try {
-				Console.WriteLine("--Null Reference Exception-- try ");
-				object o = null;
-				o.GetHashCode ();
-			} catch {
-				// This Catch block will not be called if crash reporting is enabled, unless you restore sigV (Instead, the app will crash.)
-				Console.WriteLine("--Null Reference Exception-- catch ");
-			}//end catch
+			int i = 0;
+			i = 2 / i;
+		}//end divideByZero
 
-		}//end nullReferenceException
+		public void indexOutOfRange()
+		{
+			string[] arr	= new string[1];
+			arr[2]	= "Crash";
+		}//end indexOutOfRange
+
+		public void customException()
+		{
+			throw new System.Exception("Custom Exception");
+		}
+
+		/*
+		public void CoroutineCustomException()
+		{
+			StartCoroutine(MonoCorutineCrash());	
+		}
+		
+		public void CoroutineNullException()
+		{
+			StartCoroutine(MonoCorutineNullCrash());	
+		}
+		*/
+
+		private System.Collections.IEnumerator MonoCorutineNullCrash()
+		{
+			string crash = null;
+			crash	= crash.ToLower();
+			yield break;
+		}
+
+		private System.Collections.IEnumerator MonoCorutineCrash()
+		{
+			throw new System.Exception("Custom Coroutine Exception");
+		}
 
 		public void DoSomeNetworkRequest()
 		{

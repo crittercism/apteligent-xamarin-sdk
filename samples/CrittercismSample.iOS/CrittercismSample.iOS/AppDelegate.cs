@@ -15,9 +15,11 @@ namespace CrittercismSample.iOS
 
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
-			// https://app.crittercism.com/developers/overview/5342d5a70ee9483d74000007
+			//This Binding will preserve the Xamarin Mono Runtime sigv handlers
+			//CrittercismXam.CrashReporting.EnableCrashReportingWithMonoSigRestore (@"5342d5a70ee9483d74000007");
 
-			CrittercismXam.CrashReporting.EnableCrashReporting (@"5342d5a70ee9483d74000007");
+			//Direct Binding to the Crittercsim SDK ( Will stomp on the Xamarin Mono sigv handlers ) 
+			CrittercismXam.CrashReporting.EnableCrashReporting(@"5342d5a70ee9483d74000007");
 
 			return true;
 		}
