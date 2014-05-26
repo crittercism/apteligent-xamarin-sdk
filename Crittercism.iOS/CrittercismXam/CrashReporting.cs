@@ -75,9 +75,20 @@ namespace CrittercismXam
 
 		public static void EnableCrashReporting ( string appId )
 		{
+
+			AppDomain.CurrentDomain.UnhandledException += (sender, args) => {
+				Console.WriteLine("--UnhandledException :" + Environment.StackTrace);
+				Console.WriteLine (args.ExceptionObject.GetType ());
+				Crittercism.Crittercism.LogUnhandledException( 
+					args.ExceptionObject.GetType().ToString(),
+					args.ExceptionObject.GetType().ToString(),
+					Environment.StackTrace.ToString());
+			};
+
 			// Run your crash reporting library initialization code here--
 			Crittercism.Crittercism.EnableWithAppID("5342d5a70ee9483d74000007");
 		}//EnableCrashReportingUnsafe
+
 	}
 }
 
