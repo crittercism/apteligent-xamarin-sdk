@@ -83,6 +83,50 @@ namespace CrittercismSample.Android
 
 		}//end onCreate
 
+
+		/*
+		public boolean getOptOutStatus() {
+
+			final ConditionVariable condVar = new ConditionVariable(false);
+
+
+			CritterCallback cb = new CritterCallback() {
+
+
+				@Override public void onCritterDataReceived(CritterUserData userData) {
+
+					isOptedOut = userData.isOptedOut();
+
+					condVar.open();
+
+				}
+
+			};
+
+
+			// Instantiate data request object, and specify that it should include
+
+			// information on whether the has opted out.
+
+			CritterUserDataRequest request = new CritterUserDataRequest(cb)
+
+				.requestOptOutStatus()
+
+				.requestDidCrashOnLastLoad();
+
+
+
+			request.makeRequest();
+
+			condVar.block();
+
+
+
+			return isOptedOut;
+
+		}
+		*/
+
 		public async Task CrashAsync()
 		{
 			await Task.Delay(10).ConfigureAwait(false);
