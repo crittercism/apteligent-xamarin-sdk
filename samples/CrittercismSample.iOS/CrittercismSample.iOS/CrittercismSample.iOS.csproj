@@ -101,7 +101,6 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="CrittercismSample.iOSViewController.cs" />
     <Compile Include="CrittercismSample.iOSViewController.designer.cs">
       <DependentUpon>CrittercismSample.iOSViewController.cs</DependentUpon>
     </Compile>

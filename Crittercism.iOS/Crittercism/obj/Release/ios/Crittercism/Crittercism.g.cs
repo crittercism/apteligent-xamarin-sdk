@@ -66,6 +66,9 @@ namespace Crittercism {
 		const string selLogHandledException_ = "logHandledException:";
 		static readonly IntPtr selLogHandledException_Handle = Selector.GetHandle ("logHandledException:");
 		[CompilerGenerated]
+		const string selLogUnhandledException_ = "logUnhandledException:";
+		static readonly IntPtr selLogUnhandledException_Handle = Selector.GetHandle ("logUnhandledException:");
+		[CompilerGenerated]
 		const string selMaxOfflineCrashReports = "maxOfflineCrashReports";
 		static readonly IntPtr selMaxOfflineCrashReportsHandle = Selector.GetHandle ("maxOfflineCrashReports");
 		[CompilerGenerated]
@@ -233,6 +236,52 @@ namespace Crittercism {
 			if (exception == null)
 				throw new ArgumentNullException ("exception");
 			return MonoTouch.ObjCRuntime.Messaging.bool_objc_msgSend_IntPtr (class_ptr, selLogHandledException_Handle, exception.Handle);
+		}
+		
+		[Export ("logHandledException:")]
+		[CompilerGenerated]
+		public static bool LogHandledException (string name, string reason, string stack)
+		{
+			if (name == null)
+				throw new ArgumentNullException ("name");
+			if (reason == null)
+				throw new ArgumentNullException ("reason");
+			if (stack == null)
+				throw new ArgumentNullException ("stack");
+			var nsname = NSString.CreateNative (name);
+			var nsreason = NSString.CreateNative (reason);
+			var nsstack = NSString.CreateNative (stack);
+			
+			bool ret;
+			ret = MonoTouch.ObjCRuntime.Messaging.bool_objc_msgSend_IntPtr_IntPtr_IntPtr (class_ptr, selLogHandledException_Handle, nsname, nsreason, nsstack);
+			NSString.ReleaseNative (nsname);
+			NSString.ReleaseNative (nsreason);
+			NSString.ReleaseNative (nsstack);
+			
+			return ret;
+		}
+		
+		[Export ("logUnhandledException:")]
+		[CompilerGenerated]
+		public static bool LogUnhandledException (string name, string reason, string stack)
+		{
+			if (name == null)
+				throw new ArgumentNullException ("name");
+			if (reason == null)
+				throw new ArgumentNullException ("reason");
+			if (stack == null)
+				throw new ArgumentNullException ("stack");
+			var nsname = NSString.CreateNative (name);
+			var nsreason = NSString.CreateNative (reason);
+			var nsstack = NSString.CreateNative (stack);
+			
+			bool ret;
+			ret = MonoTouch.ObjCRuntime.Messaging.bool_objc_msgSend_IntPtr_IntPtr_IntPtr (class_ptr, selLogUnhandledException_Handle, nsname, nsreason, nsstack);
+			NSString.ReleaseNative (nsname);
+			NSString.ReleaseNative (nsreason);
+			NSString.ReleaseNative (nsstack);
+			
+			return ret;
 		}
 		
 		[Export ("setValue:forKey:")]

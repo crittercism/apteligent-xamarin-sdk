@@ -43,16 +43,60 @@ You need to have installed Xamarin in your developer machine, you can download i
 Native Tools for iOS and Android.
 
 
-##Project Organization
+###Getting Started with Android
+
+1. Create a new Xamarin Android Project
+1. Add the Crittercsim Library
+1. Import namespace `using Com.Crittercism.App;`
+1. Configure Manifest Provisions for [Xamarin Android Applicaion configuration](/screenshots/Xam-Android-Manifest.png)
+	- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	- <uses-permission android:name="android.permission.GET_TASKS"/>
+	- <uses-permission android:name="android.permission.INTERNET"/>
+	- <uses-permission android:name="android.permission.READ_LOGS"/>
+1. Initialize Crittercism in `protected override void OnCreate (Bundle bundle)`
+
+```
+//Initialize Crittercism
+Crittercism.Initialize( ApplicationContext, "537fc935b573f15751000002");
+
+//Set the Username
+Crittercism.SetUsername ("ANDROID_USER_NAME");
+```
+
+1. Uploading the mapping.txt File 
+
+
+For more information regarding the Xamarin Android Crittercsim refer to the  [Crittercism docs](http://docs.crittercism.com/android/android.html)
+
+
+
+###Getting Started with iOS
+
+1. Create a new Xamarin iOS Project
+1. Add the Crittercsim Library
+1. Import namespace `using Crittercism;`
+1. Configure correct Provisions for 
+1. Initialize Crittercism 
+
+For more information regarding the Xamarin Android Crittercsim refer to the  [Crittercism docs](http://docs.crittercism.com/android/android.html)
 
 
 ##Sample Application
 
+Sample Application demonstrating using the Crittercsism Xamarin Component for iOS and Android
 
-##Running the Tests
+###iOS Sample Application
 
+Open and run  the iOS Sample app located at `samples/CrittercismSample.iOS/CrittercismSample.iOS.sln`
 
+###Android Sample Application
 
+Open run the Android Sample app located at `samples/CrittercismSample.Android/CrittercismSample.Android.sln`
+
+##Building the Xamarin Component
+
+- Build Xamarin.iOS and Xamarin.Android dlls ( Release )
+- Run the component Rake see [ component README.md ]( /component/README.md )
 
 ##Release Notes
 

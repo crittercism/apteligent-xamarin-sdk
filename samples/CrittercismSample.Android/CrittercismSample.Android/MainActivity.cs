@@ -6,10 +6,10 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 
-//using Crittercism.Android;
-
 using Com.Crittercism.App;
 using System.Threading.Tasks;
+using System.Threading;
+using Org.Json;
 
 namespace CrittercismSample.Android
 {
@@ -23,45 +23,37 @@ namespace CrittercismSample.Android
 			//Initialize Crittercism
 			Crittercism.Initialize( ApplicationContext, "537fc935b573f15751000002");
 
+			//Set the Username
 			Crittercism.SetUsername ("ANDROID_USER_NAME");
 
 			base.OnCreate (bundle);
 
-			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
 
-			// Get our button from the layout resource,
-			// and attach an event to it
 			Button buttonAttachMetadata = FindViewById<Button> (Resource.Id.buttonAttachMeta);
 			buttonAttachMetadata.Click += delegate {
-				buttonAttachMetadata.Text = string.Format ("{0} clicks!", count++);
+
+				JSONObject jso = new JSONObject(
+				);
+
+				Crittercism.SetMetadata( jso );
+
+				buttonAttachMetadata.Text = string.Format ("{0} Metadata sent!", count++);
 			};
 
 			Button buttonCrashNative = FindViewById<Button> (Resource.Id.buttonCrashNative);
 			buttonCrashNative.Click += delegate {
 				buttonCrashNative.Text = string.Format( "button crash native " );
-				SetContentView(444444);
+
+				crashSomethingNative();
 			};
 
 			Button buttonNativeException = FindViewById<Button> (Resource.Id.buttonNativeException);
 			buttonNativeException.Click += delegate(object sender, EventArgs e) {
 				buttonNativeException.Text = string.Format( "boom");
 
-				try
-				{
-					try
-					{
-						throw new ApplicationException("This is a nexted exception");
-					}
-					catch (Exception e1)
-					{
-						throw new InvalidCastException("Level 1", e1);
-					}
-				}
-				catch (Exception e2)
-				{
-					throw new InvalidCastException("Level 2", e2);
-				}
+
+				crashNative();
 
 				//CrashAsync().Wait()
 
@@ -81,8 +73,89 @@ namespace CrittercismSample.Android
 				buttonLeaveBreadcrumb.Text = string.Format( "just left a breadcrumb");
 			};
 
+
+
+			// EXPERIMENTAL MASTODO http://stackoverflow.com/questions/19507452/how-to-handle-monodroid-uncaught-exceptions-globally-and-prevent-application-fro
+			// 
+			/*
+			AppDomain.CurrentDomain.UnhandledException += (s,e)=>
+			{
+				System.Diagnostics.Debug.WriteLine("AppDomain.CurrentDomain.UnhandledException: {0}. IsTerminating: {1}", e.ExceptionObject, e.IsTerminating);
+			};
+
+			AndroidEnvironment.UnhandledExceptionRaiser += (s, e) =>
+			{
+				System.Diagnostics.Debug.WriteLine("AndroidEnvironment.UnhandledExceptionRaiser: {0}. IsTerminating: {1}", e.Exception, e.Handled);
+				e.Handled = true;
+			};
+
+And then on button click I added the following code to raise both types of exceptions:
+
+//foreground exception
+throw new NullReferenceException("test nre from ui thread.");
+//background exception
+ThreadPool.QueueUserWorkItem(unused =>
+{
+    throw new NullReferenceException("test nre from back thread.");
+});
+			
+			*/
+
 		}//end onCreate
 
+		public void crashSomethingNative()
+		{
+			SetContentView(444444);
+		}
+
+		public void crashNative()
+		{
+			//best way is to throw an exception 
+			// ensures that you're testing the types of exceptions that the regular Android SDK handles
+			throw new Java.Lang.IllegalArgumentException();
+		}
+
+		public void crashMulti()
+		{
+			try
+			{
+				try
+				{
+					throw new ApplicationException("This is a nexted exception");
+				}
+				catch (Java.Lang.Exception e1)
+				{
+					throw new InvalidCastException("Level 1", e1);
+				}
+			}
+			catch (Java.Lang.Exception e2)
+			{
+				throw new InvalidCastException("Level 2", e2);
+			}
+		}//end crashMulti
+
+		public void crashBackgroundThread()
+		{
+			ThreadPool.QueueUserWorkItem(o => { 
+				throw new Exception("Crashed Background thread."); 
+			} );
+		}//end crashBackgroundThread
+
+		public void crashCLRException()
+		{
+			throw new Exception("Crashed NET/CLR thread.");
+		}
+
+		/* 
+
+
+As a hack for now im implementing the exception handlers for android as per this blog post then calling Crittercism.LogHandledException(Throwable.FromException(e.Exception)); from inside both the events.
+
+It works, but im using Crittercism's handled exceptions for unhandled exceptions.. So when I want to send up real "HandledExceptions" they will be lost in the mess.
+
+
+
+		 */
 
 		/*
 		public boolean getOptOutStatus() {
