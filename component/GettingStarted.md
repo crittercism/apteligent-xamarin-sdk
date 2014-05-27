@@ -1,6 +1,4 @@
-You may want to redescribe your component here, but the purpose of this
-document is to guide the user through creating their first app using
-your component.
+Getting Started with the Crittercsim Xamarin Component
 
 ```csharp
 using MyComponentNameSpace;
@@ -14,6 +12,6 @@ public override void ViewDidLoad ()
 
 ## Other Resources
 
-* [Component Documentation](http://google.com)
+* [Crittercsim Component Documentation](http://google.com)
 * [Support Forums](http://google.com)
 * [Source Code Repository](http://google.com)
