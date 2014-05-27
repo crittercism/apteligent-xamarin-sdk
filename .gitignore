@@ -3,8 +3,9 @@
 ###################################
 
 #Xamarin xpkg folder
-/xpkg
-xpkg.zip
+component/xpkg
+component/xpkg.zip
+component/xamarin-component
 
 #xamarin package
 *.xam
