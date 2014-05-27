@@ -1,13 +1,20 @@
 ###################################
 # Xamarin ignores
 ###################################
-# /xpkg
-# *.xam
+
+#Xamarin xpkg folder
+/xpkg
+xpkg.zip
+
+#xamarin package
+*.xam
+
 *.user
 *.userprefs
 *.suo
 bin/
 obj/
+
 
 ###################################
 # OSX
