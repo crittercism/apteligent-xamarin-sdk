@@ -4,6 +4,8 @@ using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
+using CrittercismSDK;
+
 namespace CrittercismSample.iOS
 {
 	// The UIApplicationDelegate for the application. This class is responsible for launching the
@@ -19,7 +21,8 @@ namespace CrittercismSample.iOS
 			//CrittercismXam.CrashReporting.EnableCrashReportingWithMonoSigRestore (@"5342d5a70ee9483d74000007");
 
 			//Direct Binding to the Crittercsim SDK ( Will stomp on the Xamarin Mono sigv handlers ) 
-			CrittercismXam.CrashReporting.EnableCrashReporting(@"5342d5a70ee9483d74000007");
+			//Crittercism.EnableCrashReporting(@"5342d5a70ee9483d74000007");
+			Crittercism.EnableWithAppID (@"5342d5a70ee9483d74000007");
 
 			return true;
 		}

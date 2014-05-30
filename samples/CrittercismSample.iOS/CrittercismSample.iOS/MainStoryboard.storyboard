@@ -41,7 +41,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6x-ql-CV9">
-                                <rect key="frame" x="20" y="187" width="280" height="34"/>
+                                <rect key="frame" x="23" y="190" width="280" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Crash CLR" backgroundImage="button-backround.png">
                                     <color key="titleColor" red="0.2506581182" green="0.2506581182" blue="0.2506581182" alpha="1" colorSpace="calibratedRGB"/>
@@ -93,6 +93,7 @@
     <resources>
         <image name="button-backround.png" width="154" height="44"/>
         <image name="crittercism_icon.png" width="57" height="57"/>
+        <image name="Default-568h.png" width="640" height="1136"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

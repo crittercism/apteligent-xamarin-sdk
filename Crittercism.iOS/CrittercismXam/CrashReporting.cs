@@ -7,7 +7,7 @@ using MonoTouch.CoreLocation;
 
 using System.Runtime.InteropServices;
 
-using Crittercism;
+//using CrittercismSDK;
 
 namespace CrittercismXam
 {
@@ -75,11 +75,11 @@ namespace CrittercismXam
 
 		public static void EnableCrashReporting ( string appId )
 		{
-
+			/*
 			AppDomain.CurrentDomain.UnhandledException += (sender, args) => {
 				Console.WriteLine("--UnhandledException :" + Environment.StackTrace);
 				Console.WriteLine (args.ExceptionObject.GetType ());
-				Crittercism.Crittercism.LogUnhandledException( 
+				CrittercismSDK.Crittercism.LogUnhandledException( 
 					args.ExceptionObject.GetType().ToString(),
 					args.ExceptionObject.GetType().ToString(),
 					Environment.StackTrace.ToString());
@@ -87,6 +87,8 @@ namespace CrittercismXam
 
 			// Run your crash reporting library initialization code here--
 			Crittercism.Crittercism.EnableWithAppID("5342d5a70ee9483d74000007");
+			*/
+
 		}//EnableCrashReportingUnsafe
 
 	}

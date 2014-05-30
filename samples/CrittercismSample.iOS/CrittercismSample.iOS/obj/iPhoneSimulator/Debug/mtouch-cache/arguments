@@ -1,4 +1,4 @@
-# Version: 7.2.1.101 (2f75908)
+# Version: 7.2.3.39 (fc6f56b)
 # [first argument, ignore] # /Users/matt/trees/github.com/crittercism/xamarin/samples/CrittercismSample.iOS/CrittercismSample.iOS/bin/iPhoneSimulator/Debug/mtouch.exe
 /Developer/MonoTouch/usr/bin/mtouch \
 	-sdkroot \
@@ -10,9 +10,7 @@
 	-sim \
 	/Users/matt/trees/github.com/crittercism/xamarin/samples/CrittercismSample.iOS/CrittercismSample.iOS/bin/iPhoneSimulator/Debug/CrittercismSampleiOS.app \
 	-r \
-	/Users/matt/trees/github.com/crittercism/xamarin/Crittercism.iOS/CrittercismXam/bin/Debug/CrittercismXam.dll \
-	-r \
-	/Users/matt/trees/github.com/crittercism/xamarin/Crittercism.iOS/Crittercism/bin/Debug/Crittercism.dll \
+	/Users/matt/trees/github.com/crittercism/xamarin/Crittercism.iOS/CrittercismSDK/bin/Debug/CrittercismSDK.dll \
 	-r \
 	/Developer/MonoTouch/usr/lib/mono/2.1/System.dll \
 	-r \

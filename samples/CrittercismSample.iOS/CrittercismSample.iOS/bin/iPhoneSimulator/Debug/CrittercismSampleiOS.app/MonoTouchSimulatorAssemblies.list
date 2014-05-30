@@ -3,5 +3,4 @@ System.dll
 System.Core.dll
 Mono.Dynamic.Interpreter.dll
 System.Xml.dll
-CrittercismXam.dll
-Crittercism.dll
+CrittercismSDK.dll
