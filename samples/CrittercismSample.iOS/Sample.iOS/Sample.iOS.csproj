@@ -111,10 +111,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Crittercism.iOS\Crittercism.iOS\Crittercism.iOS.csproj">
-      <Project>{B6461307-A03A-4BC2-B3E8-430C13A4B425}</Project>
-      <Name>Crittercism.iOS</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\Crittercism.iOS\CrittercismSDK\CrittercismSDK.csproj">
       <Project>{E088DEA3-D3CE-4FA4-AFE8-A93BC7AF97E3}</Project>
       <Name>CrittercismSDK</Name>

@@ -26,11 +26,8 @@ namespace Sample.iOS
 		{
 			base.ViewDidLoad ();
 
-			CrittercismSDK.myClass.test ();
-			//CrittercismSDK.yack.foo();
-			
 			// Check for crach on lastLoad !
-			if (Crittercism.Crittercism.DidCrashOnLastLoad == true) {
+			if (CrittercismSDK.Crittercism.CrashedOnLastLoad == true) {
 				new UIAlertView ("Done"
 					, ".DidCrashOnLastLoad is TRUE !"
 					, null
@@ -39,31 +36,12 @@ namespace Sample.iOS
 			}
 
 			ButtonAttachUserMeta.TouchUpInside += (object sender, EventArgs e) => {
-				Console.WriteLine("Attach User Metadata ");
-
-				Crittercism.Crittercism.SetValue("5","Game Level");
-
-				new UIAlertView ("Metadata "
-					, "Key = " + "5" + " Value = " + "Game Level"
-					, null
-					, "OK"
-					, null).Show();
+				CrittercismSDK.Crittercism.Username = "MyUserName";
+				CrittercismSDK.Crittercism.SetValue("5","Game Level");
 			};
 
 			ButtonLeaveBreadcrumb.TouchUpInside += (object sender, EventArgs e) => {
-				Console.WriteLine("Leave Breadcrumb ");
-
-				Crittercism.Crittercism.LeaveBreadcrumb("MyBreadCrumb");
-
-				Crittercism.Crittercism.Username = "MyUserName";
-
-				Crittercism.Crittercism.SetValue("someValue","SomeKey");
-
-				new UIAlertView ("Crittercism.LeaveBreadcrumb "
-					, "String = " + "MyBreadCrumb"
-					, null
-					, "OK"
-					, null).Show();
+				CrittercismSDK.Crittercism.LeaveBreadcrumb("My Breadcrumb");
 			};
 
 			ButtonNativeException.TouchUpInside += (object sender, EventArgs e) => {
@@ -75,23 +53,14 @@ namespace Sample.iOS
 			};
 
 			ButtonCLRException.TouchUpInside += (object sender, EventArgs e) => {
-				crashCustomException();
+				try {
+					crashIndexOutOfRange();
+				} catch (IndexOutOfRangeException exception) {
+					CrittercismSDK.Crittercism.LogHandledException(exception);
+				}
 			};
 
 			ButtonCrashCLR.TouchUpInside += (object sender, EventArgs e) => {
-
-				/*
-				try
-				{
-					crashIndexOutOfRange();
-				}
-				catch( Exception ex )
-				{
-					Console.WriteLine( "caught exception" + ex.ToString() );
-					//CrittercismSDK.Crittercism.LogHandledException( ex );
-					CrittercismSDK.Crittercism.LogUnhandledException( "name", "reason", Environment.StackTrace );
-				}
-				*/
 				crashIndexOutOfRange();
 			};
 			
@@ -107,13 +76,13 @@ namespace Sample.iOS
 		{
 			int i = 0;
 			i = 2 / i;
-		}//end divideByZero
+		}
 
 		public void crashIndexOutOfRange()
 		{
 			string[] arr = new string[1];
 			arr[2]	= "Crash";
-		}//end indexOutOfRange
+		}
 
 		public void crashCustomException()
 		{
