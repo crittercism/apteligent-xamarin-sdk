@@ -50,6 +50,6 @@
     <Compile Include="libCrittercism.linkwith.cs">
       <DependentUpon>libCrittercism.a</DependentUpon>
     </Compile>
-    <Compile Include="myClass.cs" />
+    <Compile Include="Crittercism.cs" />
   </ItemGroup>
 </Project>
