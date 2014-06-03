@@ -117,14 +117,14 @@
 </class>
 <class abstract="false" deprecated="not deprecated" extends="java.lang.Object" extends-generic-aware="java.lang.Object" final="false" name="CrittercismConfig" static="false" visibility="public">
 <constructor deprecated="not deprecated" final="false" name="CrittercismConfig" static="false" type="com.crittercism.app.CrittercismConfig" visibility="public">
-</constructor>
-<constructor deprecated="not deprecated" final="false" name="CrittercismConfig" static="false" type="com.crittercism.app.CrittercismConfig" visibility="public">
 <parameter name="p0" type="com.crittercism.app.CrittercismConfig">
 </parameter>
 </constructor>
 <constructor deprecated="deprecated" final="false" name="CrittercismConfig" static="false" type="com.crittercism.app.CrittercismConfig" visibility="public">
 <parameter name="p0" type="org.json.JSONObject">
 </parameter>
+</constructor>
+<constructor deprecated="not deprecated" final="false" name="CrittercismConfig" static="false" type="com.crittercism.app.CrittercismConfig" visibility="public">
 </constructor>
 <method abstract="false" deprecated="not deprecated" final="false" name="a" native="false" return="boolean" static="true" synchronized="false" visibility="protected">
 <parameter name="p0" type="java.lang.String">
@@ -1461,14 +1461,14 @@
 </class>
 <class abstract="false" deprecated="not deprecated" extends="crittercism.android.bg" extends-generic-aware="crittercism.android.bg" final="true" name="b" obfuscated="true" static="false" visibility="public">
 <constructor deprecated="not deprecated" final="false" name="b" static="false" type="crittercism.android.b" visibility="public">
-</constructor>
-<constructor deprecated="not deprecated" final="false" name="b" static="false" type="crittercism.android.b" visibility="public">
 <parameter name="p0" type="java.net.URL">
 </parameter>
 </constructor>
 <constructor deprecated="not deprecated" final="false" name="b" static="false" type="crittercism.android.b" visibility="public">
 <parameter name="p0" type="java.lang.String">
 </parameter>
+</constructor>
+<constructor deprecated="not deprecated" final="false" name="b" static="false" type="crittercism.android.b" visibility="public">
 </constructor>
 <method abstract="false" deprecated="not deprecated" final="true" name="a" native="false" return="java.lang.String" static="false" synchronized="false" visibility="public">
 </method>
@@ -1583,10 +1583,10 @@
 </class>
 <class abstract="false" deprecated="not deprecated" extends="com.crittercism.app.CrittercismConfig" extends-generic-aware="com.crittercism.app.CrittercismConfig" final="true" name="ba" obfuscated="true" static="false" visibility="public">
 <constructor deprecated="not deprecated" final="false" name="ba" static="false" type="crittercism.android.ba" visibility="public">
-<parameter name="p0" type="com.crittercism.app.CrittercismConfig">
-</parameter>
 </constructor>
 <constructor deprecated="not deprecated" final="false" name="ba" static="false" type="crittercism.android.ba" visibility="public">
+<parameter name="p0" type="com.crittercism.app.CrittercismConfig">
+</parameter>
 </constructor>
 <method abstract="false" deprecated="not deprecated" final="true" name="a" native="false" return="java.lang.String" static="false" synchronized="false" visibility="public">
 </method>
@@ -2865,14 +2865,14 @@
 <implements name="crittercism.android.bm" name-generic-aware="crittercism.android.bm">
 </implements>
 <constructor deprecated="not deprecated" final="false" name="dj" static="false" type="crittercism.android.dj" visibility="public">
+<parameter name="p0" type="crittercism.android.dj">
+</parameter>
 </constructor>
 <constructor deprecated="not deprecated" final="false" name="dj" static="false" type="crittercism.android.dj" visibility="public">
 <parameter name="p0" type="org.json.JSONObject">
 </parameter>
 </constructor>
 <constructor deprecated="not deprecated" final="false" name="dj" static="false" type="crittercism.android.dj" visibility="public">
-<parameter name="p0" type="crittercism.android.dj">
-</parameter>
 </constructor>
 <method abstract="false" deprecated="not deprecated" final="true" name="a" native="false" return="void" static="false" synchronized="true" visibility="public">
 </method>

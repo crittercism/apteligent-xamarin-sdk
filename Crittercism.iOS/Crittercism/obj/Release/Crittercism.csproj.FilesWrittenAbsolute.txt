@@ -1,5 +1,0 @@
-/Users/matt/trees/github.com/crittercism/xamarin/Crittercism.iOS/Crittercism/obj/Release/MonoTouch,Version=v1.0.AssemblyAttribute.cs
-/Users/matt/trees/github.com/crittercism/xamarin/Crittercism.iOS/Crittercism/bin/Release/Crittercism.iOS.dll.mdb
-/Users/matt/trees/github.com/crittercism/xamarin/Crittercism.iOS/Crittercism/bin/Release/Crittercism.iOS.dll
-/Users/matt/trees/github.com/crittercism/xamarin/Crittercism.iOS/Crittercism/obj/Release/Crittercism.iOS.dll
-/Users/matt/trees/github.com/crittercism/xamarin/Crittercism.iOS/Crittercism/obj/Release/Crittercism.iOS.dll.mdb

@@ -26,6 +26,7 @@ namespace Sample.iOS
 		{
 			base.ViewDidLoad ();
 
+			/*
 			// Check for crach on lastLoad !
 			if (CrittercismSDK.Crittercism.CrashedOnLastLoad == true) {
 				new UIAlertView ("Done"
@@ -34,14 +35,15 @@ namespace Sample.iOS
 					, "OK"
 					, null).Show();
 			}
+			*/
 
 			ButtonAttachUserMeta.TouchUpInside += (object sender, EventArgs e) => {
-				CrittercismSDK.Crittercism.Username = "MyUserName";
-				CrittercismSDK.Crittercism.SetValue("5","Game Level");
+				Crittercism.Crittercism.Username = "MyUserName";
+				Crittercism.Crittercism.SetValue("5","Game Level");
 			};
 
 			ButtonLeaveBreadcrumb.TouchUpInside += (object sender, EventArgs e) => {
-				CrittercismSDK.Crittercism.LeaveBreadcrumb("My Breadcrumb");
+				Crittercism.Crittercism.LeaveBreadcrumb("My Breadcrumb");
 			};
 
 			ButtonNativeException.TouchUpInside += (object sender, EventArgs e) => {
@@ -53,11 +55,14 @@ namespace Sample.iOS
 			};
 
 			ButtonCLRException.TouchUpInside += (object sender, EventArgs e) => {
-				try {
-					crashIndexOutOfRange();
-				} catch (IndexOutOfRangeException exception) {
-					CrittercismSDK.Crittercism.LogHandledException(exception);
-				}
+				//try {
+				crashCustomException();
+				//crashIndexOutOfRange();
+				//} catch (IndexOutOfRangeException exception) {
+				//	CrittercismSDK.Crittercism.LogHandledException(exception);
+				//	}
+
+
 			};
 
 			ButtonCrashCLR.TouchUpInside += (object sender, EventArgs e) => {

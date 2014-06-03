@@ -6,9 +6,9 @@
     <ProjectTypeGuids>{F5B4F3BC-B597-4E2B-B552-EF5D8A32436F};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <ProjectGuid>{E088DEA3-D3CE-4FA4-AFE8-A93BC7AF97E3}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>CrittercismSDK</RootNamespace>
+    <RootNamespace>Crittercism</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>CrittercismSDK</AssemblyName>
+    <AssemblyName>Crittercism.iOS</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
