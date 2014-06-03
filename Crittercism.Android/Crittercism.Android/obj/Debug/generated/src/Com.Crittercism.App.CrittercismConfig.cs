@@ -29,30 +29,6 @@ namespace Com.Crittercism.App {
 
 		protected CrittercismConfig (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
 
-		static IntPtr id_ctor;
-		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.crittercism.app']/class[@name='CrittercismConfig']/constructor[@name='CrittercismConfig' and count(parameter)=0]"
-		[Register (".ctor", "()V", "")]
-		public CrittercismConfig () : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
-		{
-			if (Handle != IntPtr.Zero)
-				return;
-
-			if (GetType () != typeof (CrittercismConfig)) {
-				SetHandle (
-						global::Android.Runtime.JNIEnv.StartCreateInstance (GetType (), "()V"),
-						JniHandleOwnership.TransferLocalRef);
-				global::Android.Runtime.JNIEnv.FinishCreateInstance (Handle, "()V");
-				return;
-			}
-
-			if (id_ctor == IntPtr.Zero)
-				id_ctor = JNIEnv.GetMethodID (class_ref, "<init>", "()V");
-			SetHandle (
-					global::Android.Runtime.JNIEnv.StartCreateInstance (class_ref, id_ctor),
-					JniHandleOwnership.TransferLocalRef);
-			JNIEnv.FinishCreateInstance (Handle, class_ref, id_ctor);
-		}
-
 		static IntPtr id_ctor_Lcom_crittercism_app_CrittercismConfig_;
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.crittercism.app']/class[@name='CrittercismConfig']/constructor[@name='CrittercismConfig' and count(parameter)=1 and parameter[1][@type='com.crittercism.app.CrittercismConfig']]"
 		[Register (".ctor", "(Lcom/crittercism/app/CrittercismConfig;)V", "")]
@@ -99,6 +75,30 @@ namespace Com.Crittercism.App {
 					global::Android.Runtime.JNIEnv.StartCreateInstance (class_ref, id_ctor_Lorg_json_JSONObject_, new JValue (p0)),
 					JniHandleOwnership.TransferLocalRef);
 			JNIEnv.FinishCreateInstance (Handle, class_ref, id_ctor_Lorg_json_JSONObject_, new JValue (p0));
+		}
+
+		static IntPtr id_ctor;
+		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.crittercism.app']/class[@name='CrittercismConfig']/constructor[@name='CrittercismConfig' and count(parameter)=0]"
+		[Register (".ctor", "()V", "")]
+		public CrittercismConfig () : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		{
+			if (Handle != IntPtr.Zero)
+				return;
+
+			if (GetType () != typeof (CrittercismConfig)) {
+				SetHandle (
+						global::Android.Runtime.JNIEnv.StartCreateInstance (GetType (), "()V"),
+						JniHandleOwnership.TransferLocalRef);
+				global::Android.Runtime.JNIEnv.FinishCreateInstance (Handle, "()V");
+				return;
+			}
+
+			if (id_ctor == IntPtr.Zero)
+				id_ctor = JNIEnv.GetMethodID (class_ref, "<init>", "()V");
+			SetHandle (
+					global::Android.Runtime.JNIEnv.StartCreateInstance (class_ref, id_ctor),
+					JniHandleOwnership.TransferLocalRef);
+			JNIEnv.FinishCreateInstance (Handle, class_ref, id_ctor);
 		}
 
 		static IntPtr id_getCustomVersionName;
