@@ -1,3 +1,8 @@
 <WorkspaceItem ctype="Workspace">
-  <Items />
+  <Items>
+    <Item>../samples/CrittercismSample.iOS/CrittercismSample.iOS.sln</Item>
+    <Item>../Crittercism.Android/Crittercism.Android.sln</Item>
+    <Item>../samples/CrittercismSample.Android/CrittercismSample.Android.sln</Item>
+    <Item>../Crittercism.iOS/Crittercism.iOS.sln</Item>
+  </Items>
 </WorkspaceItem>

@@ -1,3 +1,4 @@
+
 #!/bin/bash
 # com.mycompany.myapp - is app bundle identifier
 
@@ -20,8 +21,7 @@ rm -rf ../component/bin/CrittercismXam.dll
 echo "copy dll's to the component/bin folder"
 
 #iOS Libraries
-cp ../Crittercism.iOS/Crittercism.iOS/bin/Release/Crittercism.iOS.dll ../component/bin
-cp ../Crittercism.iOS/Crittercism.iOS/bin/Release/CrittercismSDK.dll ../component/bin
+cp ../Crittercism.iOS/CrittercismSDK/bin/Release/Crittercism.iOS.dll ../component/bin
 
 #Android Libraries
 cp ../Crittercism.Android/Crittercism.Android/bin/Release/Crittercism.Android.dll ../component/bin/

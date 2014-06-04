@@ -46,8 +46,8 @@ namespace CrittercismSample.Android
 			Button buttonAttachMetadata = FindViewById<Button> (Resource.Id.buttonAttachMeta);
 			buttonAttachMetadata.Click += delegate {
 
-				JSONObject jso = new JSONObject(
-				);
+				JSONObject jso = new JSONObject();
+				jso.Put("MyKey", "MyValue");
 
 				Crittercism.SetMetadata( jso );
 

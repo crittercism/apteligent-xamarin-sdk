@@ -9,38 +9,13 @@ A cross-platform Component for leveraging Crittercism SDK and Services from Xama
 
 Please read Getting Started to learn how to use the component library.
 
-##Key Highlights
-
-- highlight 1
-- highlight 2
-- highlight 3
-
-##Xamarin Crittercisms overview
-
-todo
-
-
-
-###iOS 
-
-####iOS AOT Xamarin Limitations
-
-Since applications on the iPhone using Xamarin.iOS are compiled to static code, it is not possible to use any facilities that require code generation at runtime. Unlike Android (JIT just-in compiler time) architecture iPhones kernel prevents an application from generating code dynamically Mono on the iPhone does not support any form of dynamic code generation.  This can cause limitations in supported C#/.Net featurtes such as Generics and generic subclassing, P/Invokes and System.Reflect.Emit.  You can find out more about Xamarin iOS AOT Limitations here [Xamarin Limitations](http://docs.xamarin.com/guides/ios/advanced_topics/limitations/ "Limitations | Xamarin")
-
-
-###Android
-
-Xamarin.Android applications run within the Mono execution environment. This execution environment runs side-by-side with the Dalvik Virtual Machine.  Both runtime environments run on top of the Linux kernel and expose various APIs to the user code that allows developers to access the underlying system.  You can find out more about the Xamarin Android Architecture on the [Xamarin documentation page Overview](http://docs.xamarin.com/guides/android/under_the_hood/architecture/ "Architecture | Xamarin").
-
-
-
 ##Getting Started
 
 ###Prerequisities
 
-You need to have installed Xamarin in your developer machine, you can download it from [Xamarin.com/download](http://xamarin.com/download).
-
-Native Tools for iOS and Android.
+- Xamarin Studio in your developer machine, you can download it from [Xamarin.com/download](http://xamarin.com/download).
+- Native Tools for iOS and Android
+- [Crittercism](http://crittercism.com) Account and Application Keys
 
 
 ###Getting Started with Android
@@ -61,14 +36,15 @@ Crittercism.Initialize( ApplicationContext, "537fc935b573f15751000002");
 
 //Set the Username
 Crittercism.SetUsername ("ANDROID_USER_NAME");
+
+//Handle Exception
+
 ```
 
+#### Mapping.txt file for Android
 1. Uploading the mapping.txt File 
 
-
 For more information regarding the Xamarin Android Crittercsim refer to the  [Crittercism docs](http://docs.crittercism.com/android/android.html)
-
-
 
 ###Getting Started with iOS
 
@@ -78,7 +54,24 @@ For more information regarding the Xamarin Android Crittercsim refer to the  [Cr
 1. Configure correct Provisions for 
 1. Initialize Crittercism 
 
-For more information regarding the Xamarin Android Crittercsim refer to the  [Crittercism docs](http://docs.crittercism.com/android/android.html)
+For more information regarding the Xamarin Android Crittercsim refer to the  [Crittercism docs](http://docs.crittercism.com/android/ios.html)
+
+
+### Dsym file for iOS
+
+
+Crittercism will symbolicate any crashes reported by the Crittercism library that match a dSYM file you've uploaded. dSYM files are only available from the iOS Device ( ).
+
+you can upload your dSYM file by dragging the zipped dSYM file into developers web dashboard or by running a script.
+
+```
+APP_ID="5342d5a70ee9483d74000007"
+API_KEY="gkozoru9btnlxu870pa5w4vj1fwgfi36"
+source ${SRCROOT}/CrittercismSDK/dsym_upload.sh
+```
+
+For more information regarding how to upload a Xamarin iOS Crittercsim refer to the  [Crittercism docs](http://docs.crittercism.com/ios/ios.html)
+
 
 
 ##Sample Application
@@ -87,40 +80,84 @@ Sample Application demonstrating using the Crittercsism Xamarin Component for iO
 
 ###iOS Sample Application
 
+![image](screenshots/ios-sample.png)
+
 Open and run  the iOS Sample app located at `samples/CrittercismSample.iOS/CrittercismSample.iOS.sln`
 
 ###Android Sample Application
 
+![image](screenshots/android-sample.png)
+
 Open run the Android Sample app located at `samples/CrittercismSample.Android/CrittercismSample.Android.sln`
 
-##Building the Xamarin Component
 
-- Build Xamarin.iOS and Xamarin.Android dlls ( Release )
-- Run the component Rake see [ component README.md ]( /component/README.md )
+#Developer Notes
+
+##Folder Hierarchy
+
+- ```~/samples/``` iOS and android samples
+- ```~/component/``` Xamarin Component folder.  Conform with the [Xamarin Template](https://github.com/xamarin/component-template)
+- Build Scripts ```~/scripts/```
+
+
+##Building and Updating the Xamarin Component
+
+you can build all the projects in this repository by opening the Crittercism.Workspace `open ~/Crittercism.Workspace/Crittercism.mdw`
+
+Instructions on building Xamarin.iOS and Xamarin.Android dlls and and the crittercism-1.0.xam component refer to the  [component README.md](/component/README.md )
+
+
+
+##Testing User Storis
+
+###iOS
+
+[Xamarin-TestApp-iOS crash-summary ](https://app.crittercism.com/developers/crash-summary/5342d5a70ee9483d74000007)
+
+```
+App Name: Xamarin-TestApp-iOS
+Crittercism App ID: 53433aee40ec926441000002
+API Key: jgamwbghdxpe7kolfnruhyds10bcxvna
+
+[Crittercism enableWithAppID:@"53433aee40ec926441000002"];
+```
+
+
+###Android 
+
+[Xamarin-TestApp-Android crash-summary ](https://app.crittercism.com/developers/crash-summary/537fc935b573f15751000002)
+
+```
+App Name: Xamarin-TestApp-Android
+Crittercism App ID: 537fc935b573f15751000002
+API Key: CR0TyOGLxLe5u5cLnH4TGYo7z7yDiyyk
+
+Crittercism.initialize(getApplicationContext(), "537fc935b573f15751000002");
+```
+
+
+
 
 ##Release Notes
 
+- Supports Xamarin 3.0
+- Created Crittercism.Workspace with both the binding libraries and Sample Applications `~/Crittercism.Workspace/Crittercism.mdw`
+- Updated README.md 
+- Lots of little Clean up 
+	- Removed the /docs folder ( branched from docs repo instead)
+	- Removed the /misc folder
 
 
-##Misc Notes
 
-With the [xamarin.iOS 7.2 Release](http://docs.xamarin.com/releases/ios/xamarin.ios_7/xamarin.ios_7.2/) [registrars](http://docs.xamarin.com/guides/ios/advanced_topics/registrar/) are enabled by default.  During startup, Xamarin.iOS will register managed classes and methods with the Objective-C runtime. This allows managed classes to be created and managed methods to be called from Objective-C and is the way that methods and properties are linked between the C# world and the Objective-C one.
+###Misc Notes
 
-This new registration system offers the following new features:
-
-- Compile time detection of programmer errors:
-
-	- Two classes being registered with the same name.
-	- More than one method exported to respond to the same selector
-
-- Can remove unused native code
-
-	- The new registration system will add strong references to code used in static libraries, allowing the native linker to strip out unused native code from the resulting binary.
-	- On Xamarin's sample bindings, most applications become 300k smaller.
-
-- Support for generic subclasses of NSObject. See NSObject Generics for more information. Additionally the new registration system will catch unsupported generic constructs which would previously have caused random behavior at runtime.
-
-
+- [ ] CLR Stack tracing, clr update ( NSException - Hacky way ) 
+	- C# Exceptions 
+ 	- logUnityException ( convert to the windows exception and sends to endpoint, as a Windows excption )
+ 	- hook global exception handler it into 
+	- Diagnostics ( app version, battery, etc ... )
+	- Check for an update on the unity library.
+	- https://github.com/crittercism/crittercism-unity-ios/blob/feature/exception-cleanup/Plugins/Crittercism_IOS_Scripts/CrittercismIOS.cs#L169
 
 
 
