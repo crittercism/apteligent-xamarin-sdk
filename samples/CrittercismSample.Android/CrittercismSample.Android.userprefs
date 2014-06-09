@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.Workbench ActiveDocument="CrittercismSample.Android/MainActivity.cs">
     <Files>
-      <File FileName="CrittercismSample.Android/MainActivity.cs" Line="44" Column="32" />
+      <File FileName="CrittercismSample.Android/MainActivity.cs" Line="34" Column="6" />
       <File FileName="CrittercismSample.Android/Properties/AndroidManifest.xml" Line="1" Column="1" />
       <File FileName="../../Crittercism.Android/Crittercism.Android/Transforms/EnumFields.xml" Line="1" Column="1" />
       <File FileName="../../Crittercism.Android/Crittercism.Android/Transforms/EnumMethods.xml" Line="1" Column="1" />
@@ -13,7 +13,7 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/matt/trees/github.com/crittercism/xamarin/samples/CrittercismSample.Android/CrittercismSample.Android/MainActivity.cs" line="22" column="4" />
-      <Breakpoint file="/Users/matt/trees/github.com/crittercism/xamarin/samples/CrittercismSample.Android/CrittercismSample.Android/MainActivity.cs" line="87" column="5" />
+      <Breakpoint file="/Users/matt/trees/github.com/crittercism/xamarin/samples/CrittercismSample.Android/CrittercismSample.Android/MainActivity.cs" line="86" column="5" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

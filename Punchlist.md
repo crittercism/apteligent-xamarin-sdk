@@ -12,17 +12,17 @@ Action Items
 	- [x] Verify DidCrashOnLoad
 	- [x] Verify 'attach user meta data'
 	- [x] Verify Leave Breadcrumb
-	- [ ] Verify Crash Native
-	- [ ] Verify Native Exception
+	- [x] Verify Crash Native
+	- [x] Verify Native Exception
 	
   - [ ] Verify SIGABRT
   - [ ] Verify SIGBUS
   - [ ] Verify SIGFPE
   - [ ] Verify SIGILL
   - [ ] Verify SIGSEGV
-  - [ ] Verify SIGTRAP
+- [ ] Verify SIGTRAP
 	
-	- [ ] Verify Crash CLR
+- [ ] Verify Crash CLR
 		- [x] Verify [ null reference , SIGBUS , BUS_ADRERR	 ](https://app.crittercism.com/developers/crash-details/dfd75b03c2fe464748c7472d897e814a6ad8b804bc9f29bfb133cc32)
 		- [x] Verify [ Crash DivideByZero , SIGFPE , FPE_INTDIV ](https://app.crittercism.com/developers/crash-details/1d171bf5e14fdc7b681d4163f9fec9fc278b58bcfff1869cf1d8d609)	
 	

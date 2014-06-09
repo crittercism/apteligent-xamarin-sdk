@@ -25,6 +25,16 @@ namespace Com.Crittercism.App {
 
 		protected Crittercism (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
 
+		static IntPtr id__logCrashException_Ljava_lang_Throwable_;
+		// Metadata.xml XPath method reference: path="/api/package[@name='com.crittercism.app']/class[@name='Crittercism']/method[@name='_logCrashException' and count(parameter)=1 and parameter[1][@type='java.lang.Throwable']]"
+		[Register ("_logCrashException", "(Ljava/lang/Throwable;)V", "")]
+		public static void _logCrashException (global::Java.Lang.Throwable p0)
+		{
+			if (id__logCrashException_Ljava_lang_Throwable_ == IntPtr.Zero)
+				id__logCrashException_Ljava_lang_Throwable_ = JNIEnv.GetStaticMethodID (class_ref, "_logCrashException", "(Ljava/lang/Throwable;)V");
+			JNIEnv.CallStaticVoidMethod  (class_ref, id__logCrashException_Ljava_lang_Throwable_, new JValue (p0));
+		}
+
 		static IntPtr id_generateRateMyAppAlertDialog_Landroid_content_Context_;
 		// Metadata.xml XPath method reference: path="/api/package[@name='com.crittercism.app']/class[@name='Crittercism']/method[@name='generateRateMyAppAlertDialog' and count(parameter)=1 and parameter[1][@type='android.content.Context']]"
 		[Register ("generateRateMyAppAlertDialog", "(Landroid/content/Context;)Landroid/app/AlertDialog;", "")]
@@ -73,28 +83,6 @@ namespace Com.Crittercism.App {
 			IntPtr native_p1 = JNIEnv.NewString (p1);
 			JNIEnv.CallStaticVoidMethod  (class_ref, id_initialize_Landroid_content_Context_Ljava_lang_String_Lcom_crittercism_app_CrittercismConfig_, new JValue (p0), new JValue (native_p1), new JValue (p2));
 			JNIEnv.DeleteLocalRef (native_p1);
-		}
-
-		static IntPtr id_leaveBreadcrumb_Ljava_lang_String_;
-		// Metadata.xml XPath method reference: path="/api/package[@name='com.crittercism.app']/class[@name='Crittercism']/method[@name='leaveBreadcrumb' and count(parameter)=1 and parameter[1][@type='java.lang.String']]"
-		[Register ("leaveBreadcrumb", "(Ljava/lang/String;)V", "")]
-		public static void LeaveBreadcrumb (string p0)
-		{
-			if (id_leaveBreadcrumb_Ljava_lang_String_ == IntPtr.Zero)
-				id_leaveBreadcrumb_Ljava_lang_String_ = JNIEnv.GetStaticMethodID (class_ref, "leaveBreadcrumb", "(Ljava/lang/String;)V");
-			IntPtr native_p0 = JNIEnv.NewString (p0);
-			JNIEnv.CallStaticVoidMethod  (class_ref, id_leaveBreadcrumb_Ljava_lang_String_, new JValue (native_p0));
-			JNIEnv.DeleteLocalRef (native_p0);
-		}
-
-		static IntPtr id_logHandledException_Ljava_lang_Throwable_;
-		// Metadata.xml XPath method reference: path="/api/package[@name='com.crittercism.app']/class[@name='Crittercism']/method[@name='logHandledException' and count(parameter)=1 and parameter[1][@type='java.lang.Throwable']]"
-		[Register ("logHandledException", "(Ljava/lang/Throwable;)V", "")]
-		public static void LogHandledException (global::Java.Lang.Throwable p0)
-		{
-			if (id_logHandledException_Ljava_lang_Throwable_ == IntPtr.Zero)
-				id_logHandledException_Ljava_lang_Throwable_ = JNIEnv.GetStaticMethodID (class_ref, "logHandledException", "(Ljava/lang/Throwable;)V");
-			JNIEnv.CallStaticVoidMethod  (class_ref, id_logHandledException_Ljava_lang_Throwable_, new JValue (p0));
 		}
 
 		static IntPtr id_performRateMyAppButtonAction_Lcom_crittercism_app_CritterRateMyAppButtons_;

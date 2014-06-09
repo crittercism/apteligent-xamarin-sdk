@@ -9,6 +9,20 @@ A cross-platform Component for leveraging Crittercism SDK and Services from Xama
 
 Please read Getting Started to learn how to use the component library.
 
+##Crittercism API
+
+Crittercism API (iOS and Android )
+
+- Init
+	- (iOS) void Crittercism.Init(string appId)
+	- (android) void Init(Context appContext, string appId)
+- void Crittercism.LeaveBreadcrumb(string breadcrumb)
+- void Crittercism.SetMetadata(string key, string value)
+- void Crittercism.SetUserName(string username)
+- bool Crittercism.DidCrashOnLastLoad()	
+- void Crittercism.LogUnHandledException(System.Exception e)
+- void Crittercism.LogHandledException(System.Exception e)
+
 ##Getting Started
 
 ###Prerequisities

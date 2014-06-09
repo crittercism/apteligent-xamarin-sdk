@@ -9,8 +9,6 @@
     <RootNamespace>Crittercism</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>Crittercism.iOS</AssemblyName>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -52,6 +50,6 @@
     <Compile Include="libCrittercism.linkwith.cs">
       <DependentUpon>libCrittercism.a</DependentUpon>
     </Compile>
-    <Compile Include="Crittercism.cs" />
+    <Compile Include="Critter.cs" />
   </ItemGroup>
 </Project>

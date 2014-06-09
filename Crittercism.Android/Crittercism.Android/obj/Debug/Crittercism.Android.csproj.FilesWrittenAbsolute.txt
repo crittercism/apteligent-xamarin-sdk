@@ -1,5 +1,5 @@
-/Users/matt/trees/github.com/crittercism/xamarin/Crittercism.Android/Crittercism.Android/obj/Debug/MonoAndroid,Version=v4.0.3.AssemblyAttribute.cs
-/Users/matt/trees/github.com/crittercism/xamarin/Crittercism.Android/Crittercism.Android/obj/Debug/Crittercism.Android.Jars.crittercism_v4_4_0_sdkonly.jar
+/Users/matt/trees/github.com/crittercism/xamarin/Crittercism.Android/Crittercism.Android/obj/Debug/MonoAndroid,Version=v4.4.AssemblyAttribute.cs
+/Users/matt/trees/github.com/crittercism/xamarin/Crittercism.Android/Crittercism.Android/obj/Debug/Crittercism.Android.Jars.crittercism.jar
 /Users/matt/trees/github.com/crittercism/xamarin/Crittercism.Android/Crittercism.Android/bin/Debug/Crittercism.Android.dll.mdb
 /Users/matt/trees/github.com/crittercism/xamarin/Crittercism.Android/Crittercism.Android/bin/Debug/Crittercism.Android.dll
 /Users/matt/trees/github.com/crittercism/xamarin/Crittercism.Android/Crittercism.Android/obj/Debug/Crittercism.Android.dll

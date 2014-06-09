@@ -14,10 +14,7 @@ namespace Sample.iOS
 
 		public override void DidReceiveMemoryWarning ()
 		{
-			// Releases the view if it doesn't have a superview.
 			base.DidReceiveMemoryWarning ();
-			
-			// Release any cached data, images, etc that aren't in use.
 		}
 
 		#region View lifecycle
@@ -26,8 +23,8 @@ namespace Sample.iOS
 		{
 			base.ViewDidLoad ();
 
-			// Check for crach on lastLoad !
-			if (Crittercism.Crittercism.CrashedOnLastLoad == true) {
+			// Check for crasch on lastLoad
+			if (Crittercism.Critter.DidCrashOnLastLoad == true) {
 				new UIAlertView ("Done"
 					, ".DidCrashOnLastLoad is TRUE !"
 					, null
@@ -36,16 +33,16 @@ namespace Sample.iOS
 			}
 
 			ButtonAttachUserMeta.TouchUpInside += (object sender, EventArgs e) => {
-				Crittercism.Crittercism.Username = "MyUserName";
-				Crittercism.Crittercism.SetValue("5","Game Level");
+				Crittercism.Critter.SetUserName = "MyUserName";
+				Crittercism.Critter.SetMetadata("5","Game Level");
 			};
 
 			ButtonLeaveBreadcrumb.TouchUpInside += (object sender, EventArgs e) => {
-				Crittercism.Crittercism.LeaveBreadcrumb("My Breadcrumb");
+				Crittercism.Critter.LeaveBreadcrumb("My Breadcrumb");
 			};
 
 			ButtonNativeException.TouchUpInside += (object sender, EventArgs e) => {
-				Console.WriteLine("-Native Exception");
+				crashNativeException();
 			};
 
 			ButtonCrashNative.TouchUpInside += (object sender, EventArgs e) => {
@@ -53,14 +50,7 @@ namespace Sample.iOS
 			};
 
 			ButtonCLRException.TouchUpInside += (object sender, EventArgs e) => {
-				//try {
 				crashCustomException();
-				//crashIndexOutOfRange();
-				//} catch (IndexOutOfRangeException exception) {
-				//	CrittercismSDK.Crittercism.LogHandledException(exception);
-				//	}
-
-
 			};
 
 			ButtonCrashCLR.TouchUpInside += (object sender, EventArgs e) => {
@@ -87,33 +77,15 @@ namespace Sample.iOS
 			arr[2]	= "Crash";
 		}
 
+		public void crashNativeException()
+		{
+			string[] arr = new string[1];
+			arr[2]	= "Crash";
+		}//end crashNativeException
+
 		public void crashCustomException()
 		{
 			throw new System.Exception("Custom Exception");
-		}
-
-		/*
-		public void CoroutineCustomException()
-		{
-			StartCoroutine(MonoCorutineCrash());	
-		}
-		
-		public void CoroutineNullException()
-		{
-			StartCoroutine(MonoCorutineNullCrash());	
-		}
-		*/
-
-		private System.Collections.IEnumerator crashMonoCorutineNullCrash()
-		{
-			string crash = null;
-			crash	= crash.ToLower();
-			yield break;
-		}
-
-		private System.Collections.IEnumerator crashMonoCorutineCrash()
-		{
-			throw new System.Exception("Custom Coroutine Exception");
 		}
 
 		public override void ViewWillAppear (bool animated)

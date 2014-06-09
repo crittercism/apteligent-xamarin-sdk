@@ -11,7 +11,7 @@ namespace Com.Crittercism.App {
 
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.crittercism.app']/class[@name='CrittercismConfig']/field[@name='API_VERSION']"
 		[Register ("API_VERSION")]
-		public const string ApiVersion = (string) "4.4.0";
+		public const string ApiVersion = (string) "4.5.1";
 		internal static IntPtr java_class_handle;
 		internal static IntPtr class_ref {
 			get {
