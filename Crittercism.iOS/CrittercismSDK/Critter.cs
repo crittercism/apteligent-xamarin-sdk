@@ -8,14 +8,17 @@ namespace Crittercism
 	public class Critter
 	{
 		[DllImport("__Internal")]
+		private static extern void Crittercism_EnableWithAppID (string appID);
+
+		[DllImport("__Internal")]
 		private static extern bool Crittercism_LogHandledException (string name, string reason, string stack, int platformId);
 
 		[DllImport("__Internal")]
 		private static extern void Crittercism_LogUnhandledException (string name, string reason, string stack, int platformId);
 
 		public static void Init(string appId) {
+			Crittercism_EnableWithAppID (appId);
 
-			Crittercism._EnableWithAppID (appId);
 			AppDomain.CurrentDomain.UnhandledException += (sender, args) => {
 
 				Console.WriteLine("----LogUnhandledException --UnhandledException :");

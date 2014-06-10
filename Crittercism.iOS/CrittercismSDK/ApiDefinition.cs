@@ -11,9 +11,6 @@ namespace Crittercism
 	[BaseType (typeof (NSObject))]
 	internal partial interface Crittercism {
 
-		[Static, Export ("enableWithAppID:")]
-		void _EnableWithAppID (string appId);
-
 		[Static, Export ("leaveBreadcrumb:")]
 		void LeaveBreadcrumb (string breadcrumb);
 
