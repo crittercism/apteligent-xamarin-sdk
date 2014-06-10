@@ -50,6 +50,6 @@
     <Compile Include="Critter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="libCrittercism.a" />
+    <ObjcBindingNativeLibrary Include="libCrittercism.a" />
   </ItemGroup>
 </Project>
