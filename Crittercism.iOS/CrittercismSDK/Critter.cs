@@ -17,29 +17,21 @@ namespace Crittercism
 				Console.WriteLine( "args.ExceptionObject.GetType() = " + args.ExceptionObject.GetType().ToString() );
 				Console.Out.Flush();
 
-				//if ( args.ExceptionObject.GetType().IsEquivalentTo( Type.GetType(S
-				{
-					System.Exception exception = (System.Exception)args.ExceptionObject;
-					Critter.LogUnHandledException( exception );
-				}
+				System.Exception exception = (System.Exception)args.ExceptionObject;
+				Critter.LogUnHandledException( exception );
 
 				Console.WriteLine("---- survived Logged an LogUnHandledException !!! ");
 				Console.Out.Flush();
 
-//				Console.WriteLine (args.ExceptionObject.GetType ());
-				//				CrittercismSDK.Crittercism.LogUnhandledException( 
-				//					args.ExceptionObject.GetType().ToString(),
-				//					args.ExceptionObject.GetType().ToString(),
-				//					Environment.StackTrace.ToString());
 			};
-				
 		}
 
 		public static void LogUnHandledException( System.Exception e )
 		{
 			Console.WriteLine (" LogUnHandledException " + e.ToString());
-			return;
 			CRCSharpException ex = new CRCSharpException(e.Message, e.Message, e.StackTrace, 0, 1);
+			Console.WriteLine (" Create CRC! " + e.ToString());
+			return;
 			Crittercism._LogCSharpException (ex);
 		}
 
@@ -47,6 +39,8 @@ namespace Crittercism
 		{
 			Console.WriteLine (" LogHandledException " + e.ToString());
 			CRCSharpException ex = new CRCSharpException(e.Message, e.Message, e.StackTrace, 0, 1);
+			Console.WriteLine (" Created CRC! " + e.ToString());
+			return;
 			Crittercism._LogCSharpException (ex);
 		}
 

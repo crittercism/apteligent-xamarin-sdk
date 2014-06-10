@@ -9,7 +9,7 @@ namespace Crittercism
 {
 
 	[BaseType (typeof (NSObject)) ]
-	internal partial interface CRCSharpException {
+	public partial interface CRCSharpException {
 		[Export ("initWithName:reason:stacktrace:exceptionType:platformId:")]
 		IntPtr Constructor (string name, string reason, string stacktrace, int typeId, int platformId);
 	}
