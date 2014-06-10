@@ -44,12 +44,12 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Xamarin.ObjcBinding.CSharp.targets" />
   <ItemGroup>
-    <ObjcBindingNativeLibrary Include="libCrittercism.a" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="libCrittercism.linkwith.cs">
       <DependentUpon>libCrittercism.a</DependentUpon>
     </Compile>
     <Compile Include="Critter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="libCrittercism.a" />
   </ItemGroup>
 </Project>
