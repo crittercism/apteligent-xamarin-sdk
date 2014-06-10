@@ -20,35 +20,7 @@ namespace Sample.iOS
 			//Crittercism.Crittercism._EnableWithAppID("537b83b617878472d3000001");
 			Crittercism.Critter.Init("537b83b617878472d3000001");
 			return true;
-
-			/*
-			AppDomain.CurrentDomain.UnhandledException += (sender, args) => {
-
-				Console.WriteLine("YACK LogUnhandledException --UnhandledException :");
-				Console.WriteLine( "args.ExceptionObject.GetType() = " + args.ExceptionObject.GetType().ToString() );
-				Console.Out.Flush();
-					Console.WriteLine( " Log the LogUnHandledException with Crittercism");
-					System.Exception exception = (System.Exception)args.ExceptionObject;
-					LogUnHandledException( exception );
-
-					Console.Out.Flush();
-			};
-			*/
 		}
-
-		/*
-		private static void LogUnHandledException( System.Exception e )
-		{
-			Crittercism.CRCSharpException ex = new Crittercism.CRCSharpException(e.Message, e.Message, e.StackTrace, 0, 1);
-			Crittercism.Crittercism._LogCSharpException (ex);
-		}
-
-		public static void LogHandledException (System.Exception e)
-		{
-			Crittercism.CRCSharpException ex = new Crittercism.CRCSharpException(e.Message, e.Message, e.StackTrace, 0, 1);
-			Crittercism.Crittercism._LogCSharpException (ex);
-		}
-		*/
 		
 		public override UIWindow Window {
 			get;

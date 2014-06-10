@@ -7,9 +7,18 @@ namespace Crittercism
 {
 	public class Critter
 	{
-		public static void Init(string appId) {
+		[DllImport("__Internal")]
+		private static extern void Crittercism_EnableWithAppID (string appID);
 
-			Crittercism._EnableWithAppID (appId);
+		[DllImport("__Internal")]
+		private static extern bool Crittercism_LogHandledException (string name, string reason, string stack, int platformId);
+
+		[DllImport("__Internal")]
+		private static extern void Crittercism_LogUnhandledException (string name, string reason, string stack, int platformId);
+
+		public static void Init(string appId) {
+			Crittercism_EnableWithAppID (appId);
+
 			AppDomain.CurrentDomain.UnhandledException += (sender, args) => {
 
 				Console.WriteLine("----LogUnhandledException --UnhandledException :");
@@ -18,7 +27,7 @@ namespace Crittercism
 				Console.Out.Flush();
 
 				System.Exception exception = (System.Exception)args.ExceptionObject;
-				Critter.LogUnHandledException( exception );
+				Critter.LogUnhandledException( exception );
 
 				Console.WriteLine("---- survived Logged an LogUnHandledException !!! ");
 				Console.Out.Flush();
@@ -26,22 +35,14 @@ namespace Crittercism
 			};
 		}
 
-		public static void LogUnHandledException( System.Exception e )
+		private static void LogUnhandledException( System.Exception e )
 		{
-			Console.WriteLine (" LogUnHandledException " + e.ToString());
-			CRCSharpException ex = new CRCSharpException(e.Message, e.Message, e.StackTrace, 0, 1);
-			Console.WriteLine (" Create CRC! " + e.ToString());
-			return;
-			Crittercism._LogCSharpException (ex);
+			Crittercism_LogUnhandledException (e.Message, e.Message, e.StackTrace, 1);
 		}
 
 		public static void LogHandledException (System.Exception e)
 		{
-			Console.WriteLine (" LogHandledException " + e.ToString());
-			CRCSharpException ex = new CRCSharpException(e.Message, e.Message, e.StackTrace, 0, 1);
-			Console.WriteLine (" Created CRC! " + e.ToString());
-			return;
-			Crittercism._LogCSharpException (ex);
+			Crittercism_LogHandledException (e.Message, e.Message, e.StackTrace, 1);
 		}
 
 		public static void LeaveBreadcrumb (string breadcrumb)
