@@ -8,12 +8,6 @@ using MonoTouch.UIKit;
 namespace Crittercism
 {
 
-	[BaseType (typeof (NSObject)) ]
-	public partial interface CRCSharpException {
-		[Export ("initWithName:reason:stacktrace:exceptionType:platformId:")]
-		IntPtr Constructor (string name, string reason, string stacktrace, int typeId, int platformId);
-	}
-
 	[BaseType (typeof (NSObject))]
 	internal partial interface Crittercism {
 
@@ -43,11 +37,6 @@ namespace Crittercism
 
 		[Static, Export ("didCrashOnLastLoad")]
 		bool CrashedOnLastLoad { get; }
-
-		[Static, Export ("logCSharpException:")]
-		void _LogCSharpException(CRCSharpException cSharpException);
-
-
 	}
 
 }
