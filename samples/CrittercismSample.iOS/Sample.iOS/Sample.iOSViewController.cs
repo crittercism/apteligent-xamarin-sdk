@@ -34,7 +34,7 @@ namespace Sample.iOS
 
 			ButtonAttachUserMeta.TouchUpInside += (object sender, EventArgs e) => {
 				Crittercism.Critter.SetUserName = "MyUserName";
-				Crittercism.Critter.SetMetadata("5","Game Level");
+				Crittercism.Critter.SetMetadata("Game Level","5");
 			};
 
 			ButtonLeaveBreadcrumb.TouchUpInside += (object sender, EventArgs e) => {
