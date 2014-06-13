@@ -1,4 +1,14 @@
 ﻿<metadata>
+
+	<attr path="/api/package[@name='com.crittercism.app']/class[@name='Crittercism']/method[@name='getOptOutStatus']" name="OptOutStatus"></attr>
+	<attr path="/api/package[@name='com.crittercism.app']/class[@name='Crittercism']/method[@name='setMetadata']" name="setMetadata"></attr>
+	<attr path="/api/package[@name='com.crittercism.app']/class[@name='Crittercism']/method[@name='setUsername']" name="setUsername"></attr>
+	<attr path="/api/package[@name='com.crittercism.app']/class[@name='Crittercism']/method[@name='didCrashOnLastLoad']" name="didCrashOnLastLoad"></attr>
+	<attr path="/api/package[@name='com.crittercism.app']/class[@name='Crittercism']/method[@name='initialize']" name="initialize"></attr>
+	<attr path="/api/package[@name='com.crittercism.app']/class[@name='Crittercism']/method[@name='_logCrashException']" name="logCrashException"></attr>
+	<attr path="/api/package[@name='com.crittercism.app']/class[@name='Crittercism']/method[@name='logHandledException']" name="logHandledException"></attr>
+	<attr path="/api/package[@name='com.crittercism.app']/class[@name='Crittercism']/method[@name='leaveBreadcrumb']" name="leaveBreadcrumb"></attr>
+
 	<!--
   This sample removes the class: android.support.v4.content.AsyncTaskLoader.LoadTask:
   <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='AsyncTaskLoader.LoadTask']" />
