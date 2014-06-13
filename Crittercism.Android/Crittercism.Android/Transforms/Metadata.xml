@@ -1,5 +1,5 @@
 ﻿<metadata>
-
+	
 	<attr path="/api/package[@name='com.crittercism.app']/class[@name='Crittercism']/method[@name='getOptOutStatus']" name="OptOutStatus"></attr>
 	<attr path="/api/package[@name='com.crittercism.app']/class[@name='Crittercism']/method[@name='setMetadata']" name="setMetadata"></attr>
 	<attr path="/api/package[@name='com.crittercism.app']/class[@name='Crittercism']/method[@name='setUsername']" name="setUsername"></attr>

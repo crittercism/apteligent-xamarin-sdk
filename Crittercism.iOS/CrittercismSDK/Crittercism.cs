@@ -28,6 +28,8 @@ namespace Crittercism.iOS
 		public static void Init(string appId) {
 			Crittercism_EnableWithAppID (appId);
 
+			//remove sig abort handler 
+
 			AppDomain.CurrentDomain.UnhandledException += (sender, args) => {
 
 				System.Exception exception = (System.Exception)args.ExceptionObject;
