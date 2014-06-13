@@ -47,7 +47,7 @@
     <Compile Include="libCrittercism.linkwith.cs">
       <DependentUpon>libCrittercism.a</DependentUpon>
     </Compile>
-    <Compile Include="Critter.cs" />
+    <Compile Include="Crittercism.cs" />
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingNativeLibrary Include="libCrittercism.a" />

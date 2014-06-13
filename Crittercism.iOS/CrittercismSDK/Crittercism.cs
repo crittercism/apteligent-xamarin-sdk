@@ -3,9 +3,9 @@ using System.Runtime.InteropServices;
 
 using MonoTouch.Foundation;
 
-namespace Crittercism
+namespace Crittercism.iOS
 {
-	public class Critter
+	public partial class Crittercism
 	{
 		[DllImport("__Internal")]
 		private static extern void Crittercism_EnableWithAppID (string appID);
@@ -16,18 +16,22 @@ namespace Crittercism
 		[DllImport("__Internal")]
 		private static extern void Crittercism_LogUnhandledException (string name, string reason, string stack, int platformId);
 
+		[DllImport("__Internal")]
+		private static extern void Crittercism_SetValue(string value, string key);
+
+		[DllImport("__Internal")]
+		private static extern bool Crittercism_GetOptOutStatus();
+
+		[DllImport("__Internal")]
+		private static extern void Crittercism_SetOptOutStatus(bool status);
+
 		public static void Init(string appId) {
 			Crittercism_EnableWithAppID (appId);
 
 			AppDomain.CurrentDomain.UnhandledException += (sender, args) => {
 
-				Console.WriteLine("----LogUnhandledException --UnhandledException :");
-
-				Console.WriteLine( "args.ExceptionObject.GetType() = " + args.ExceptionObject.GetType().ToString() );
-				Console.Out.Flush();
-
 				System.Exception exception = (System.Exception)args.ExceptionObject;
-				Critter.LogUnhandledException( exception );
+				LogUnhandledException ( exception );
 			};
 		}
 
@@ -48,19 +52,22 @@ namespace Crittercism
 
 		public static void SetMetadata (string key, string value)
 		{
-			Crittercism.SetValue (value, key);
+			Crittercism_SetValue (value, key);
 		}
 
-		public static string SetUserName
+		public static void SetOptOutStatus(bool isOptedout)
 		{
-			set { Crittercism.Username = value; }
+			Crittercism_SetOptOutStatus (isOptedout);
 		}
 
-		public static bool DidCrashOnLastLoad
+		public static bool GetOptOutStatus()
 		{
-			get {
-				return Crittercism.CrashedOnLastLoad; 
-			}
+			return Crittercism_GetOptOutStatus ();
+		}
+
+		public static bool DidCrashOnLastLoad()
+		{
+			return DidCrashOnLastLoad ();
 		}
 
 	}

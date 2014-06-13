@@ -5,6 +5,8 @@ using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
+using Crittercism.iOS;
+
 namespace Sample.iOS
 {
 	// The UIApplicationDelegate for the application. This class is responsible for launching the
@@ -17,8 +19,7 @@ namespace Sample.iOS
 
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
-			//Crittercism.Crittercism._EnableWithAppID("537b83b617878472d3000001");
-			Crittercism.Critter.Init("537b83b617878472d3000001");
+			Crittercism.iOS.Crittercism.Init("537b83b617878472d3000001");
 			return true;
 		}
 		
