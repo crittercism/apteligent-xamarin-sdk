@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 using MonoTouch.Foundation;
 
-namespace Crittercism
+namespace CrittercismIOS
 {
 	public partial class Crittercism
 	{

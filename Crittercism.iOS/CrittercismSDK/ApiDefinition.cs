@@ -5,7 +5,7 @@ using MonoTouch.ObjCRuntime;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
-namespace Crittercism
+namespace CrittercismIOS
 {
 
 	[BaseType (typeof (NSObject))]
