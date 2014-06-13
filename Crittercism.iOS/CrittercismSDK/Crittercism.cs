@@ -5,7 +5,7 @@ using MonoTouch.Foundation;
 
 namespace Crittercism
 {
-	public class Critter
+	public partial class Crittercism
 	{
 		[DllImport("__Internal")]
 		private static extern void Crittercism_EnableWithAppID (string appID);
@@ -36,7 +36,7 @@ namespace Crittercism
 				Console.Out.Flush();
 
 				System.Exception exception = (System.Exception)args.ExceptionObject;
-				Critter.LogUnhandledException( exception );
+				Crittercism.LogUnhandledException( exception );
 
 				Console.WriteLine("---- survived Logged an LogUnHandledException !!! ");
 				Console.Out.Flush();
@@ -54,27 +54,9 @@ namespace Crittercism
 			Crittercism_LogHandledException (e.Message, e.Message, e.StackTrace, 1);
 		}
 
-		public static void LeaveBreadcrumb (string breadcrumb)
-		{
-			Crittercism.LeaveBreadcrumb (breadcrumb);
-		}
-
 		public static void SetMetadata (string value, string key)
 		{
 			Crittercism_SetValue (value, key);
-		}
-
-		public static string SetUserName
-		{
-			set { Crittercism.Username = value; }
-		}
-
-
-		public static bool DidCrashOnLastLoad
-		{
-			get {
-				return Crittercism.CrashedOnLastLoad; 
-			}
 		}
 
 		public bool OptOutStatus

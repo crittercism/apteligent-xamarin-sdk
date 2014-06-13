@@ -24,7 +24,7 @@ namespace Sample.iOS
 			base.ViewDidLoad ();
 
 			// Check for crasch on lastLoad
-			if (Crittercism.Critter.DidCrashOnLastLoad == true) {
+			if (Crittercism.Crittercism.CrashedOnLastLoad == true) {
 				new UIAlertView ("Done"
 					, ".DidCrashOnLastLoad is TRUE !"
 					, null
@@ -33,12 +33,12 @@ namespace Sample.iOS
 			}
 
 			ButtonAttachUserMeta.TouchUpInside += (object sender, EventArgs e) => {
-				Crittercism.Critter.SetUserName = "MyUserName";
-				Crittercism.Critter.SetMetadata("5","Game Level");
+				Crittercism.Crittercism.Username = "MyUserName";
+				Crittercism.Crittercism.SetMetadata("5","Game Level");
 			};
 
 			ButtonLeaveBreadcrumb.TouchUpInside += (object sender, EventArgs e) => {
-				Crittercism.Critter.LeaveBreadcrumb("My Breadcrumb");
+				Crittercism.Crittercism.LeaveBreadcrumb("My Breadcrumb");
 			};
 
 			ButtonNativeException.TouchUpInside += (object sender, EventArgs e) => {
@@ -50,7 +50,7 @@ namespace Sample.iOS
 			};
 
 			ButtonCLRException.TouchUpInside += (object sender, EventArgs e) => {
-				Crittercism.Critter.LogHandledException(new Exception("I'm an error"));
+				Crittercism.Crittercism.LogHandledException(new Exception("I'm an error"));
 			};
 
 			ButtonCrashCLR.TouchUpInside += (object sender, EventArgs e) => {
