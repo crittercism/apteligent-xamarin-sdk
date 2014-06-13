@@ -6,10 +6,13 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 
-//using Com.Crittercism.App;
+
 using System.Threading.Tasks;
 using System.Threading;
 using Org.Json;
+
+//using Com.Crittercism.App;
+using Crittercism.Android;
 
 namespace CrittercismSample.Android
 {
@@ -18,18 +21,14 @@ namespace CrittercismSample.Android
 	{
 		protected override void OnCreate (Bundle bundle)
 		{
-
 			//Initialize Crittercism
 			Crittercism.Android.Crittercism.Init( ApplicationContext,  "537fc935b573f15751000002");
 
 			//Set the Username
 			Crittercism.Android.Crittercism.SetUserName ("ANDROID_USER_NAME");
 
-			if (Crittercism.Android.Crittercism.DidCrashOnLastLoad == true) {
-				Toast.MakeText(this, "Crash On Last Load True", ToastLength.Short).Show();
-			}
-
-			//getOptOutStatus ();
+			checkDidCrash ();
+			//checkOptOutStatus (); 
 
 			base.OnCreate (bundle);
 
@@ -119,8 +118,21 @@ namespace CrittercismSample.Android
 			throw new InvalidOperationException("Exception in task");
 		}//end CrashAsync
 
-		public void getOptOutStatus() {
-			Console.WriteLine ("Request the optout status ");
+		public void checkDidCrash() {
+			if (Crittercism.Android.Crittercism.DidCrashOnLastLoad() == true) {
+				Toast.MakeText(this, "Crash On Last Load True", ToastLength.Short).Show();
+			}
+		}
+
+		public void checkOptOutStatus() {
+			Console.WriteLine ("Request the optout status =" + Com.Crittercism.App.Crittercism.OptOutStatus );
+
+			Console.WriteLine ("Request the optout status =" + Crittercism.Android.Crittercism.GGetOptOutStatus() );
+
+			Console.WriteLine ("Request the optout status =" + Crittercism.Android.Crittercism.OptOutStatus );
+
+			//Com.Crittercism.App.Crittercism ();
+			//Crittercism.Android.Critter.GetOptOutStatus ();
 		}
 
 	}

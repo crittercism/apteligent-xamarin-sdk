@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 using MonoTouch.Foundation;
 
-namespace CrittercismIOS
+namespace Crittercism.iOS
 {
 	public partial class Crittercism
 	{
@@ -28,19 +28,12 @@ namespace CrittercismIOS
 		public static void Init(string appId) {
 			Crittercism_EnableWithAppID (appId);
 
+			//remove sig abort handler 
+
 			AppDomain.CurrentDomain.UnhandledException += (sender, args) => {
 
-				Console.WriteLine("----LogUnhandledException --UnhandledException :");
-
-				Console.WriteLine( "args.ExceptionObject.GetType() = " + args.ExceptionObject.GetType().ToString() );
-				Console.Out.Flush();
-
 				System.Exception exception = (System.Exception)args.ExceptionObject;
-				Crittercism.LogUnhandledException( exception );
-
-				Console.WriteLine("---- survived Logged an LogUnHandledException !!! ");
-				Console.Out.Flush();
-
+				LogUnhandledException ( exception );
 			};
 		}
 
@@ -54,7 +47,12 @@ namespace CrittercismIOS
 			Crittercism_LogHandledException (e.Message, e.Message, e.StackTrace, 1);
 		}
 
-		public static void SetMetadata (string value, string key)
+		public static void LeaveBreadcrumb (string breadcrumb)
+		{
+			Crittercism.LeaveBreadcrumb (breadcrumb);
+		}
+
+		public static void SetMetadata (string key, string value)
 		{
 			Crittercism_SetValue (value, key);
 		}
@@ -67,6 +65,11 @@ namespace CrittercismIOS
 		public static bool GetOptOutStatus()
 		{
 			return Crittercism_GetOptOutStatus ();
+		}
+
+		public static bool DidCrashOnLastLoad()
+		{
+			return DidCrashOnLastLoad ();
 		}
 
 	}
