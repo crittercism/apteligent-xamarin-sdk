@@ -28,10 +28,6 @@ namespace Crittercism
 
 				System.Exception exception = (System.Exception)args.ExceptionObject;
 				Critter.LogUnhandledException( exception );
-
-				Console.WriteLine("---- survived Logged an LogUnHandledException !!! ");
-				Console.Out.Flush();
-
 			};
 		}
 
@@ -50,7 +46,7 @@ namespace Crittercism
 			Crittercism.LeaveBreadcrumb (breadcrumb);
 		}
 
-		public static void SetMetadata (string value, string key)
+		public static void SetMetadata (string key, string value)
 		{
 			Crittercism.SetValue (value, key);
 		}
@@ -59,7 +55,6 @@ namespace Crittercism
 		{
 			set { Crittercism.Username = value; }
 		}
-
 
 		public static bool DidCrashOnLastLoad
 		{
