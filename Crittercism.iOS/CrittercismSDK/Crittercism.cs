@@ -59,12 +59,15 @@ namespace CrittercismIOS
 			Crittercism_SetValue (value, key);
 		}
 
-		public bool OptOutStatus
+		public static void SetOptOutStatus(bool isOptedout)
 		{
-			get { return Crittercism_GetOptOutStatus (); }
-			set { Crittercism_SetOptOutStatus (value); }
+			Crittercism_SetOptOutStatus (isOptedout);
 		}
 
+		public static bool GetOptOutStatus()
+		{
+			return Crittercism_GetOptOutStatus ();
+		}
 
 	}
 }
