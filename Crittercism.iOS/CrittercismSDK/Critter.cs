@@ -16,6 +16,15 @@ namespace Crittercism
 		[DllImport("__Internal")]
 		private static extern void Crittercism_LogUnhandledException (string name, string reason, string stack, int platformId);
 
+		[DllImport("__Internal")]
+		private static extern void Crittercism_SetValue(string value, string key);
+
+		[DllImport("__Internal")]
+		private static extern bool Crittercism_GetOptOutStatus();
+
+		[DllImport("__Internal")]
+		private static extern void Crittercism_SetOptOutStatus(bool status);
+
 		public static void Init(string appId) {
 			Crittercism_EnableWithAppID (appId);
 
@@ -52,7 +61,7 @@ namespace Crittercism
 
 		public static void SetMetadata (string value, string key)
 		{
-			Crittercism.SetValue (value, key);
+			Crittercism_SetValue (value, key);
 		}
 
 		public static string SetUserName
@@ -67,6 +76,13 @@ namespace Crittercism
 				return Crittercism.CrashedOnLastLoad; 
 			}
 		}
+
+		public bool OptOutStatus
+		{
+			get { return Crittercism_GetOptOutStatus (); }
+			set { Crittercism_SetOptOutStatus (value); }
+		}
+
 
 	}
 }

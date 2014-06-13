@@ -17,20 +17,11 @@ namespace Crittercism
 		[Static, Export ("logHandledException:")]
 		bool LogHandledException (NSException exception);
 
-		[Static, Export ("setOptOutStatus:")]
-		bool OptOutStatus { set; }
-
-//		[Static, Export ("getOptOutStatus")]
-//		bool OptOutStatus { get; }
-
 		[Static, Export ("getUserUUID")]
 		string UserUUID { get; }
 
 		[Static, Export ("Username")]
 		string Username { set; }
-
-		[Static, Export ("setValue:forKey:")]
-		void SetValue (string value, string key);
 
 		[Static, Export ("didCrashOnLastLoad")]
 		bool CrashedOnLastLoad { get; }
