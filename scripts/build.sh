@@ -14,14 +14,14 @@
 
 
 echo "clean the old bin files"
-rm -rf ../component/bin/Crittercism.Android.dll
-rm -rf ../component/bin/Crittercism.dll
-rm -rf ../component/bin/CrittercismXam.dll
+rm -rf ../component/bin
 
 echo "copy dll's to the component/bin folder"
 
+mkdir ../component/bin/
+
 #iOS Libraries
-cp ../Crittercism.iOS/CrittercismSDK/bin/Release/Crittercism.iOS.dll ../component/bin
+cp ../Crittercism.iOS/CrittercismSDK/bin/Release/Crittercism.iOS.dll ../component/bin/
 
 #Android Libraries
 cp ../Crittercism.Android/Crittercism.Android/bin/Release/Crittercism.Android.dll ../component/bin/
