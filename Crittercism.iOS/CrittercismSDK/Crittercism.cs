@@ -40,6 +40,10 @@ namespace Crittercism.iOS
 		private static void LogUnhandledException( System.Exception e )
 		{
 			Crittercism_LogUnhandledException (e.Message, e.Message, e.StackTrace, 1);
+
+			NSDate date = NSDate.FromTimeIntervalSinceNow (2.0);
+			NSRunLoop.Current.RunUntil (date);
+
 		}
 
 		public static void LogHandledException (System.Exception e)
