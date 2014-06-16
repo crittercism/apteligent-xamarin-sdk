@@ -25,7 +25,18 @@ namespace Crittercism.iOS
 		[DllImport("__Internal")]
 		private static extern void Crittercism_SetOptOutStatus(bool status);
 
+		[DllImport ("libc")]
+		private static extern int sigaction (Signal sig, IntPtr act, IntPtr oact);
+
+		//SIGILL , SIGABRT
+		enum Signal { SIGBUS = 10, SIGSEGV = 11 } 
+
+
 		public static void Init(string appId) {
+
+			// Destrory the SIGSEGV handler
+			sigaction (Signal.SIGSEGV, IntPtr.Zero, IntPtr.Zero);
+
 			Crittercism_EnableWithAppID (appId);
 
 			//remove sig abort handler 
@@ -75,6 +86,28 @@ namespace Crittercism.iOS
 		{
 			return DidCrashOnLastLoad ();
 		}
+
+		//FOR DEBUG USE ONLY, NOT A PUBLIC API
+		private static void InitWithSigRestore(string appId) 
+		{
+
+			IntPtr sigbus = Marshal.AllocHGlobal (512);
+			IntPtr sigsegv = Marshal.AllocHGlobal (512);
+
+			// Store Mono SIGSEGV and SIGBUS handlers
+			sigaction (Signal.SIGBUS, IntPtr.Zero, sigbus);
+			sigaction (Signal.SIGSEGV, IntPtr.Zero, sigsegv);
+
+			// Enable crash reporting libraries
+			Crittercism_EnableWithAppID (appId);
+
+			// Restore Mono SIGSEGV and SIGBUS handlers
+			sigaction (Signal.SIGBUS, sigbus, IntPtr.Zero);
+			sigaction (Signal.SIGSEGV, sigsegv, IntPtr.Zero);
+
+			Marshal.FreeHGlobal (sigbus);
+			Marshal.FreeHGlobal (sigsegv);
+		}//end InitWithSigRestore
 
 	}
 }
