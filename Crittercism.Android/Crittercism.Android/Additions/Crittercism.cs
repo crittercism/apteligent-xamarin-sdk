@@ -39,14 +39,18 @@ namespace Crittercism.Android
 
 		public static void LogCrashException (Java.Lang.Exception javaException)
 		{
-			//Console.WriteLine (" LogHandledException " + javaException.ToString());
 			Com.Crittercism.App.Crittercism._logCrashException( javaException );
 		}
 
 		public static void LeaveBreadcrumb (string breadcrumb)
 		{
-			Console.WriteLine (" Crittercism.LeaveBreadcrumb " + breadcrumb);
-			//Com.Crittercism.App.Crittercism._logCrashException();
+			//Com.Crittercism.App.Crittercism.leaveBreadcrumb (breadcrumb);
+		}
+
+		public static void SetUserName( string username )
+		{
+			Console.WriteLine (" Crittercism.SetUserName " + username);
+			//Com.Crittercism.App.Crittercism.setUsername( username );
 		}
 
 		public static void SetMetadata (string key, string value)
@@ -57,12 +61,6 @@ namespace Crittercism.Android
 			Com.Crittercism.App.Crittercism.SetMetadata( jso );
 		}
 
-		public static void SetUserName( string username )
-		{
-			Console.WriteLine (" Crittercism.SetUserName " + username);
-			//Com.Crittercism.App.Crittercism.setUsername( username );
-		}
-		
 		public static bool DidCrashOnLastLoad()
 		{
 			return Com.Crittercism.App.Crittercism.DidCrashOnLastLoad(); 
