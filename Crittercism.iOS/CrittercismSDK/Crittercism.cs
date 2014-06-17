@@ -28,21 +28,62 @@ namespace Crittercism.iOS
 		[DllImport ("libc")]
 		private static extern int sigaction (Signal sig, IntPtr act, IntPtr oact);
 
+
+		// strucure DLL
+		[DllImport("libc")]
+		public static extern IntPtr TestStructPara(IntPtr pAddr);
+
 		//SIGILL
-		enum Signal { SIGABRT = 6, SIGBUS = 10, SIGSEGV = 11} 
+		enum Signal { SIGABRT = 6, SIGFPE = 8, SIGBUS = 10, SIGSEGV = 11} 
+
+		enum SignalOps { SIG_ZERO = 0, SIG_IGN = 1 }//, SIG_DFL = , SIG_HOLD }  // IntPtr.Zero
+
+
+		public struct sigX
+		{
+			public IntPtr data;
+		}
+		//IntPtr : ISerializable
 
 		public static void Init(string appId) {
 
+			Console.WriteLine ( "ptr size " + IntPtr.Size) ;
+
+			IntPtr sigabrt = Marshal.AllocHGlobal (512);
+			IntPtr sigfpe = Marshal.AllocHGlobal (512);
+			IntPtr sigbus = Marshal.AllocHGlobal (512);
+			IntPtr sigsegv = Marshal.AllocHGlobal (512);
+
+
+			//struct sigaction sigbus_action, sigsegv_action;
+
+			// Store Mono SIGSEGV and SIGBUS handlers
+			sigaction (Signal.SIGABRT, IntPtr.Zero, sigabrt);
+			sigaction (Signal.SIGFPE, IntPtr.Zero, sigfpe);
+			sigaction (Signal.SIGBUS, IntPtr.Zero, sigbus);
+			sigaction (Signal.SIGSEGV,IntPtr.Zero, sigsegv);
+
 			Crittercism_EnableWithAppID (appId);
 
-			// Destrory the SIGSEGV handler
-			sigaction (Signal.SIGABRT, IntPtr.Zero, IntPtr.Zero);
+			// Restor or Destrory the handlers
+			sigaction (Signal.SIGABRT, sigabrt, IntPtr.Zero);  		//RESTORE
+			sigaction (Signal.SIGFPE, sigfpe, IntPtr.Zero);  		//RESTORE
+			sigaction (Signal.SIGBUS, sigbus, IntPtr.Zero);			//RESTORE
+			sigaction (Signal.SIGSEGV, sigsegv, IntPtr.Zero);		//RESTORE
+
+			//Free sig structs
+			Marshal.FreeHGlobal (sigabrt);
+			Marshal.FreeHGlobal (sigfpe);
+			Marshal.FreeHGlobal (sigbus);
+			Marshal.FreeHGlobal (sigsegv);
 
 			AppDomain.CurrentDomain.UnhandledException += (sender, args) => {
 
 				System.Exception exception = (System.Exception)args.ExceptionObject;
 				LogUnhandledException ( exception );
 			};
+
+
 		}
 
 		private static void LogUnhandledException( System.Exception e )

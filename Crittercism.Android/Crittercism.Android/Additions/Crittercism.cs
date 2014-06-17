@@ -68,11 +68,6 @@ namespace Crittercism.Android
 			return Com.Crittercism.App.Crittercism.DidCrashOnLastLoad(); 
 		}
 
-		public static bool GGetOptOutStatus()
-		{
-			return Com.Crittercism.App.Crittercism.OptOutStatus;
-		}
-
 		public static bool OptOutStatus
 		{
 			get { return Com.Crittercism.App.Crittercism.OptOutStatus; }

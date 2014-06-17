@@ -47,9 +47,18 @@ namespace Sample.iOS
 			};
 
 			ButtonCrashCLR.TouchUpInside += (object sender, EventArgs e) => {
-				crashIndexOutOfRange();
+				crashDivideByZero();
 				//crashNullReference();
+				//crashIndexOutOfRange();
 			};
+		}
+
+		private void crashDivideByZero()
+		{
+			int myNumber = 22;
+			int divZero = 0;
+			int result = myNumber / divZero;
+			Console.WriteLine (result);
 		}
 
 		private void crashNullReference()

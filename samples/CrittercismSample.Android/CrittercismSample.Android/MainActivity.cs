@@ -28,7 +28,7 @@ namespace CrittercismSample.Android
 			Crittercism.Android.Crittercism.SetUserName ("ANDROID_USER_NAME");
 
 			checkDidCrash ();
-			//checkOptOutStatus (); 
+			checkOptOutStatus (); 
 
 			base.OnCreate (bundle);
 
@@ -119,20 +119,15 @@ namespace CrittercismSample.Android
 		}//end CrashAsync
 
 		public void checkDidCrash() {
+
 			if (Crittercism.Android.Crittercism.DidCrashOnLastLoad() == true) {
 				Toast.MakeText(this, "Crash On Last Load True", ToastLength.Short).Show();
 			}
 		}
 
 		public void checkOptOutStatus() {
+
 			Console.WriteLine ("Request the optout status =" + Com.Crittercism.App.Crittercism.OptOutStatus );
-
-			Console.WriteLine ("Request the optout status =" + Crittercism.Android.Crittercism.GGetOptOutStatus() );
-
-			Console.WriteLine ("Request the optout status =" + Crittercism.Android.Crittercism.OptOutStatus );
-
-			//Com.Crittercism.App.Crittercism ();
-			//Crittercism.Android.Critter.GetOptOutStatus ();
 		}
 
 	}
