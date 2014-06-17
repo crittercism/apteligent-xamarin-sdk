@@ -5,7 +5,7 @@ using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
-using Crittercism.iOS;
+using CrittercismIOS;
 
 namespace Sample.iOS
 {
@@ -19,7 +19,7 @@ namespace Sample.iOS
 
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
-			Crittercism.iOS.Crittercism.Init("5342d5a70ee9483d74000007");
+			Crittercism.Init("5342d5a70ee9483d74000007");
 			return true;
 		}
 		

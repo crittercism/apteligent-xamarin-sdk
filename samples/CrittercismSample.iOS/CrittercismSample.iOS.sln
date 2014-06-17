@@ -1,11 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FD75E1FC-1168-4C6F-BCF8-F15CA73B4173}"
-	ProjectSection(SolutionItems) = preProject
-		CrittercismSample.iOSViewController.cs = CrittercismSample.iOSViewController.cs
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.iOS", "Sample.iOS\Sample.iOS.csproj", "{2DC2CCB8-686E-4220-B77B-27E7F1258C3C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crittercism.iOS", "..\..\Crittercism.iOS\CrittercismSDK\Crittercism.iOS.csproj", "{E088DEA3-D3CE-4FA4-AFE8-A93BC7AF97E3}"
@@ -44,8 +39,6 @@ Global
 		{E088DEA3-D3CE-4FA4-AFE8-A93BC7AF97E3}.Release|iPhone.Build.0 = Release|Any CPU
 		{E088DEA3-D3CE-4FA4-AFE8-A93BC7AF97E3}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{E088DEA3-D3CE-4FA4-AFE8-A93BC7AF97E3}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Sample.iOS\Sample.iOS.csproj

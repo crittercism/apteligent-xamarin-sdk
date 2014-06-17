@@ -1,43 +1,62 @@
 Crittercsim Xamarin component allows you to easily add crash analytics to your Xamarin and iOS mobile applicaion giving you access to Crittercism crash detection featues
 
-- feature 1
-- feature 1
-- feature 1
-- feature 1
-
 Integration into your applicaion is easy
-
 
 Xamarin Android integration
 
 ```csharp
-using Com.Crittercism.App;
+using CrittercismAndroid;
 ...
 
 protected override void OnCreate (Bundle bundle)
 {
-			//Initialize Crittercism
-			Crittercism.Initialize( ApplicationContext, "CRITTERCISM_ANDROID_APP_ID");
+	//Initialize Crittercism with your App ID from crittercism.com
+	Crittercism.Init( ApplicationContext,  "99999935b573f15751000002");
 			
-			//Set the Username
-			Crittercism.SetUsername ("ANDROID_USER_NAME");
-			
-			base.OnCreate (bundle);
+	//Set the Username
+	Crittercism.SetUserName ("ANDROID_USER_NAME");
+	
+	if (Crittercism.DidCrashOnLastLoad() == true) {
+		...
+	}
+	
+	Console.WriteLine ("Check the OptOutStatus " + Com.Crittercism.App.Crittercism.OptOutStatus );
+	
+	Crittercism.LeaveBreadcrumb( "Android BreadCrumb");
+	
 }
 ```
-
 
 Xamarin iOS integration
 
-```csharp
-using Crittercism;
-...
+In your AppDelegate.cs 
 
-public override void ViewDidLoad ()
+```csharp
+using CrittercismIOS;
+
+public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 {
-	// Show the user how to setup your component
+	//Initialize Crittercism with your App ID from crittercism.com
+	Crittercism.Init("999999a70ee9483d74000007");
+	return true;
 }
 
 ```
+
+From within your Application ( such as Sample_iOSViewController.cs )
+
+```csharp
+using CrittercismIOS;
+
+if (Crittercism.CrashedOnLastLoad == true) {
+	...
+}
+
+Crittercism.Username = "MyUserName";
+Crittercism.SetMetadata("Game Level","5");
+Crittercism.LeaveBreadcrumb("My Breadcrumb");
+
+```
+
 
 

@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 using MonoTouch.Foundation;
 
-namespace Crittercism.iOS
+namespace CrittercismIOS
 {
 	public partial class Crittercism
 	{
@@ -33,8 +33,8 @@ namespace Crittercism.iOS
 		[DllImport("libc")]
 		public static extern IntPtr TestStructPara(IntPtr pAddr);
 
-		//SIGILL
-		enum Signal { SIGABRT = 6, SIGFPE = 8, SIGBUS = 10, SIGSEGV = 11} 
+		//SIGILL , SIGINT , SIGTERM
+		enum Signal { SIGABRT = 6, SIGFPE = 8, SIGBUS = 10, SIGSEGV = 11, SIGPIPE = 13} 
 
 		enum SignalOps { SIG_ZERO = 0, SIG_IGN = 1 }//, SIG_DFL = , SIG_HOLD }  // IntPtr.Zero
 
@@ -53,9 +53,6 @@ namespace Crittercism.iOS
 			IntPtr sigfpe = Marshal.AllocHGlobal (512);
 			IntPtr sigbus = Marshal.AllocHGlobal (512);
 			IntPtr sigsegv = Marshal.AllocHGlobal (512);
-
-
-			//struct sigaction sigbus_action, sigsegv_action;
 
 			// Store Mono SIGSEGV and SIGBUS handlers
 			sigaction (Signal.SIGABRT, IntPtr.Zero, sigabrt);

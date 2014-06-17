@@ -4,6 +4,8 @@ using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
+using CrittercismIOS;
+
 namespace Sample.iOS
 {
 	public partial class Sample_iOSViewController : UIViewController
@@ -24,7 +26,7 @@ namespace Sample.iOS
 			base.ViewDidLoad ();
 
 			// Check for crasch on lastLoad
-			if (Crittercism.iOS.Crittercism.CrashedOnLastLoad == true) {
+			if (Crittercism.CrashedOnLastLoad == true) {
 				new UIAlertView ("Done"
 					, ".DidCrashOnLastLoad is TRUE !"
 					, null
@@ -32,14 +34,14 @@ namespace Sample.iOS
 					, null).Show();
 			}
 
-			Crittercism.iOS.Crittercism.Username = "MyUserName";
+			Crittercism.Username = "MyUserName";
 
 			ButtonAttachUserMeta.TouchUpInside += (object sender, EventArgs e) => {
-				Crittercism.iOS.Crittercism.SetMetadata("Game Level","5");
+				Crittercism.SetMetadata("Game Level","5");
 			};
 
 			ButtonLeaveBreadcrumb.TouchUpInside += (object sender, EventArgs e) => {
-				Crittercism.iOS.Crittercism.LeaveBreadcrumb("My Breadcrumb");
+				Crittercism.LeaveBreadcrumb("My Breadcrumb");
 			};
 
 			ButtonCLRException.TouchUpInside += (object sender, EventArgs e) => {

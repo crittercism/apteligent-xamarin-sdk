@@ -5,7 +5,7 @@ using Android.App;
 using Org.Json;
 using Java.Lang;
 
-namespace Crittercism.Android
+namespace CrittercismAndroid
 {
 	public partial class Crittercism
 	{
@@ -13,17 +13,15 @@ namespace Crittercism.Android
 
 			Com.Crittercism.App.Crittercism.Initialize(  appContext, "537fc935b573f15751000002");
 
-			//Appdomain Exception handlers ???
+			//Appdomain Exception handlers
 			AppDomain.CurrentDomain.UnhandledException += (object sender, UnhandledExceptionEventArgs e) =>
 			{
-				//Java.Lang.Exception ex
-				Console.WriteLine("-- AppDomain.CurrentDomain.UnhandledException: {0}. IsTerminating: {1}", e.ExceptionObject, e.IsTerminating);
-				//LogUnHandledException( e.Equals );
+				//Console.WriteLine("-- AppDomain.CurrentDomain.UnhandledException: {0}. IsTerminating: {1}", e.ExceptionObject, e.IsTerminating);
 			};
 
 			AndroidEnvironment.UnhandledExceptionRaiser += (object sender, RaiseThrowableEventArgs e) => 
 			{
-				Console.WriteLine("-- AndroidEnvironment.UnhandledExceptionRaiser: {0}. IsTerminating: {1}", e.Exception, e.Handled);
+				//Console.WriteLine("-- AndroidEnvironment.UnhandledExceptionRaiser: {0}. IsTerminating: {1}", e.Exception, e.Handled);
 				LogUnHandledException( e );
 				e.Handled = true;
 			};
@@ -44,13 +42,12 @@ namespace Crittercism.Android
 
 		public static void LeaveBreadcrumb (string breadcrumb)
 		{
-			//Com.Crittercism.App.Crittercism.leaveBreadcrumb (breadcrumb);
+			Com.Crittercism.App.Crittercism.LeaveBreadcrumb (breadcrumb);
 		}
 
 		public static void SetUserName( string username )
 		{
-			Console.WriteLine (" Crittercism.SetUserName " + username);
-			//Com.Crittercism.App.Crittercism.setUsername( username );
+			Com.Crittercism.App.Crittercism.SetUsername( username );
 		}
 
 		public static void SetMetadata (string key, string value)
@@ -71,7 +68,6 @@ namespace Crittercism.Android
 			get { return Com.Crittercism.App.Crittercism.OptOutStatus; }
 			set { Com.Crittercism.App.Crittercism.OptOutStatus = value; }
 		}
-
 
 	}
 }

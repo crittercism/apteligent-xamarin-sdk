@@ -7,9 +7,9 @@ using Android.App;
 [assembly: AssemblyTitle ("Crittercism.Android")]
 [assembly: AssemblyDescription ("")]
 [assembly: AssemblyConfiguration ("")]
-[assembly: AssemblyCompany ("")]
+[assembly: AssemblyCompany ("Crittercism")]
 [assembly: AssemblyProduct ("")]
-[assembly: AssemblyCopyright ("matt")]
+[assembly: AssemblyCopyright ("Crittercism")]
 [assembly: AssemblyTrademark ("")]
 [assembly: AssemblyCulture ("")]
 // The assembly version has the format "{Major}.{Minor}.{Build}.{Revision}".

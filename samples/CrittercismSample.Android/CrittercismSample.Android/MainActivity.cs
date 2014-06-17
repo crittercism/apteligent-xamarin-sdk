@@ -6,13 +6,11 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 
-
 using System.Threading.Tasks;
 using System.Threading;
 using Org.Json;
 
-//using Com.Crittercism.App;
-using Crittercism.Android;
+using CrittercismAndroid;
 
 namespace CrittercismSample.Android
 {
@@ -22,10 +20,10 @@ namespace CrittercismSample.Android
 		protected override void OnCreate (Bundle bundle)
 		{
 			//Initialize Crittercism
-			Crittercism.Android.Crittercism.Init( ApplicationContext,  "537fc935b573f15751000002");
+			Crittercism.Init( ApplicationContext,  "537fc935b573f15751000002");
 
 			//Set the Username
-			Crittercism.Android.Crittercism.SetUserName ("ANDROID_USER_NAME");
+			Crittercism.SetUserName ("ANDROID_USER_NAME");
 
 			checkDidCrash ();
 			checkOptOutStatus (); 
@@ -36,35 +34,79 @@ namespace CrittercismSample.Android
 
 			Button buttonAttachMetadata = FindViewById<Button> (Resource.Id.buttonAttachMeta);
 			buttonAttachMetadata.Click += delegate {
-				Crittercism.Android.Crittercism.SetMetadata( "MyKey", "MyValue" );
+				Crittercism.SetMetadata( "MyKey", "MyValue" );
 				buttonAttachMetadata.Text = string.Format ("Metadata sent!");
 			};
 
+			/*
 			Button buttonCrashNative = FindViewById<Button> (Resource.Id.buttonCrashNative);
 			buttonCrashNative.Click += delegate {
-				Crittercism.Android.Crittercism.LeaveBreadcrumb( "Crash Native");
+				Crittercism.LeaveBreadcrumb( "Crash Native");
 				crashNative();
 			};
-
+			
 			Button buttonNativeException = FindViewById<Button> (Resource.Id.buttonNativeException);
 			buttonNativeException.Click += delegate(object sender, EventArgs e) {
-				Crittercism.Android.Crittercism.LeaveBreadcrumb( "Native Exception");
+				Crittercism.LeaveBreadcrumb( "Native Exception");
 				nativeException();
+			};
+			*/
+
+			Button buttonCLRException = FindViewById<Button> (Resource.Id.buttonCLRException);
+			buttonCLRException.Click += delegate(object sender, EventArgs e) {
+				Crittercism.LeaveBreadcrumb("CLR Exception");
+				crashCLRException();
 			};
 
 			Button buttonCrashCLR = FindViewById<Button> (Resource.Id.buttonCrashCLR);
 			buttonCrashCLR.Click += delegate(object sender, EventArgs e) {
-				Crittercism.Android.Crittercism.LeaveBreadcrumb( "Crash CLR");
+				Crittercism.LeaveBreadcrumb( "Crash CLR");
 				crashCLR();
 			};
 
 			Button buttonLeaveBreadcrumb = FindViewById<Button> (Resource.Id.buttonBreadcrumb);
 			buttonLeaveBreadcrumb.Click += delegate(object sender, EventArgs e) {
-				Crittercism.Android.Crittercism.LeaveBreadcrumb( "Android BreadCrumb");
+				Crittercism.LeaveBreadcrumb( "Android BreadCrumb");
 				buttonLeaveBreadcrumb.Text = string.Format( "just left a breadcrumb");
 			};
 			
 		}//end onCreate
+
+		public void crashCLR()
+		{
+			//throw new System.InvalidOperationException("Make a CLR exception");
+			crashNullReference ();
+		}//end crashCLR
+
+		public void crashCLRException()
+		{
+			throw new System.Exception("Custom Exception");
+			//throw new Exception("Crashed NET/CLR thread.");
+		}//end crashCLRException
+
+
+		private void crashNullReference()
+		{
+			object o = null;
+			o.GetHashCode ();
+		}
+
+		public void crashDivideByZero()
+		{
+			int i = 0;
+			i = 2 / i;
+		}//end divideByZero
+
+		public void crashIndexOutOfRange()
+		{
+			string[] arr	= new string[1];
+			arr[2]	= "Crash";
+		}//end indexOutOfRange
+
+
+		// +++++++++++++++++++++++++++++++++++++++
+		// Additional Crash & Exception
+		// +++++++++++++++++++++++++++++++++++++++
 
 		public void crashNative()
 		{
@@ -95,10 +137,6 @@ namespace CrittercismSample.Android
 			}
 		}//end crashMulti
 
-		public void crashCLR()
-		{
-			throw new System.InvalidOperationException("Make a CLR exception");
-		}//end crashCLR
 
 		public void crashBackgroundThread()
 		{
@@ -106,11 +144,6 @@ namespace CrittercismSample.Android
 				throw new Exception("Crashed Background thread."); 
 			} );
 		}//end crashBackgroundThread
-
-		public void crashCLRException()
-		{
-			throw new Exception("Crashed NET/CLR thread.");
-		}//end crashCLRException
 
 		public async Task CrashAsync()
 		{
@@ -120,14 +153,14 @@ namespace CrittercismSample.Android
 
 		public void checkDidCrash() {
 
-			if (Crittercism.Android.Crittercism.DidCrashOnLastLoad() == true) {
+			if (Crittercism.DidCrashOnLastLoad() == true) {
 				Toast.MakeText(this, "Crash On Last Load True", ToastLength.Short).Show();
 			}
 		}
 
 		public void checkOptOutStatus() {
 
-			Console.WriteLine ("Request the optout status =" + Com.Crittercism.App.Crittercism.OptOutStatus );
+			Console.WriteLine ("Check the optout status =" + Com.Crittercism.App.Crittercism.OptOutStatus );
 		}
 
 	}
