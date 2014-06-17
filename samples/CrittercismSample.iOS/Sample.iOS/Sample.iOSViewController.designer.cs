@@ -28,15 +28,7 @@ namespace Sample.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonCrashNative { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonLeaveBreadcrumb { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonNativeException { get; set; }
 
 		void ReleaseDesignerOutlets ()
 		{
@@ -52,17 +44,9 @@ namespace Sample.iOS
 				ButtonCrashCLR.Dispose ();
 				ButtonCrashCLR = null;
 			}
-			if (ButtonCrashNative != null) {
-				ButtonCrashNative.Dispose ();
-				ButtonCrashNative = null;
-			}
 			if (ButtonLeaveBreadcrumb != null) {
 				ButtonLeaveBreadcrumb.Dispose ();
 				ButtonLeaveBreadcrumb = null;
-			}
-			if (ButtonNativeException != null) {
-				ButtonNativeException.Dispose ();
-				ButtonNativeException = null;
 			}
 		}
 	}

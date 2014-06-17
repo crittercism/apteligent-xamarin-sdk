@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -100,21 +100,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
+    <Compile Include="Sample.iOSViewController.designer.cs">
+    </Compile>
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Sample.iOSViewController.cs" />
-    <Compile Include="Sample.iOSViewController.designer.cs">
-      <DependentUpon>Sample.iOSViewController.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <InterfaceDefinition Include="MainStoryboard.storyboard" />
+    <InterfaceDefinition Include="MainStoryboard.storyboard">
+      <DependentUpon>Sample.iOSViewController.cs</DependentUpon>
+    </InterfaceDefinition>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\..\..\Crittercism.iOS\CrittercismSDK\Crittercism.iOS.csproj">
       <Project>{E088DEA3-D3CE-4FA4-AFE8-A93BC7AF97E3}</Project>
       <Name>Crittercism.iOS</Name>
-      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
 </Project>

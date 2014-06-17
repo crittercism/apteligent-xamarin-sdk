@@ -28,18 +28,15 @@ namespace Crittercism.iOS
 		[DllImport ("libc")]
 		private static extern int sigaction (Signal sig, IntPtr act, IntPtr oact);
 
-		//SIGILL , SIGABRT
-		enum Signal { SIGBUS = 10, SIGSEGV = 11 } 
-
+		//SIGILL
+		enum Signal { SIGABRT = 6, SIGBUS = 10, SIGSEGV = 11} 
 
 		public static void Init(string appId) {
 
-			// Destrory the SIGSEGV handler
-			sigaction (Signal.SIGSEGV, IntPtr.Zero, IntPtr.Zero);
-
 			Crittercism_EnableWithAppID (appId);
 
-			//remove sig abort handler 
+			// Destrory the SIGSEGV handler
+			sigaction (Signal.SIGABRT, IntPtr.Zero, IntPtr.Zero);
 
 			AppDomain.CurrentDomain.UnhandledException += (sender, args) => {
 
@@ -54,17 +51,11 @@ namespace Crittercism.iOS
 
 			NSDate date = NSDate.FromTimeIntervalSinceNow (2.0);
 			NSRunLoop.Current.RunUntil (date);
-
 		}
 
 		public static void LogHandledException (System.Exception e)
 		{
 			Crittercism_LogHandledException (e.Message, e.Message, e.StackTrace, 1);
-		}
-
-		public static void LeaveBreadcrumb (string breadcrumb)
-		{
-			Crittercism.LeaveBreadcrumb (breadcrumb);
 		}
 
 		public static void SetMetadata (string key, string value)

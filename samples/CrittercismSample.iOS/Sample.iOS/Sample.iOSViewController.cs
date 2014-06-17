@@ -24,7 +24,7 @@ namespace Sample.iOS
 			base.ViewDidLoad ();
 
 			// Check for crasch on lastLoad
-			if (Crittercism.iOS.Crittercism.DidCrashOnLastLoad() == true) {
+			if (Crittercism.iOS.Crittercism.CrashedOnLastLoad == true) {
 				new UIAlertView ("Done"
 					, ".DidCrashOnLastLoad is TRUE !"
 					, null
@@ -32,7 +32,7 @@ namespace Sample.iOS
 					, null).Show();
 			}
 
-			//Crittercism.iOS.Crittercism.UserName = "MyUserName";
+			Crittercism.iOS.Crittercism.Username = "MyUserName";
 
 			ButtonAttachUserMeta.TouchUpInside += (object sender, EventArgs e) => {
 				Crittercism.iOS.Crittercism.SetMetadata("Game Level","5");
@@ -42,22 +42,14 @@ namespace Sample.iOS
 				Crittercism.iOS.Crittercism.LeaveBreadcrumb("My Breadcrumb");
 			};
 
-			ButtonNativeException.TouchUpInside += (object sender, EventArgs e) => {
-				crashNativeException();
-			};
-
-			ButtonCrashNative.TouchUpInside += (object sender, EventArgs e) => {
-				crashDivideByZero();
-			};
-
 			ButtonCLRException.TouchUpInside += (object sender, EventArgs e) => {
-				Crittercism.iOS.Crittercism.LogHandledException(new Exception("I'm an error"));
+				crashCustomException();
 			};
 
 			ButtonCrashCLR.TouchUpInside += (object sender, EventArgs e) => {
 				crashIndexOutOfRange();
+				//crashNullReference();
 			};
-			
 		}
 
 		private void crashNullReference()
@@ -66,23 +58,11 @@ namespace Sample.iOS
 			o.GetHashCode ();
 		}
 
-		public void crashDivideByZero()
-		{
-			int i = 0;
-			i = 2 / i;
-		}
-
 		public void crashIndexOutOfRange()
 		{
 			string[] arr = new string[1];
 			arr[2]	= "Crash";
 		}
-
-		public void crashNativeException()
-		{
-			string[] arr = new string[1];
-			arr[2]	= "Crash";
-		}//end crashNativeException
 
 		public void crashCustomException()
 		{
