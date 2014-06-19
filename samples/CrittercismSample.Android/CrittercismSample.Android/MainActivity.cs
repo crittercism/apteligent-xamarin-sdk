@@ -52,10 +52,13 @@ namespace CrittercismSample.Android
 			};
 			*/
 
-			Button buttonCLRException = FindViewById<Button> (Resource.Id.buttonCLRException);
-			buttonCLRException.Click += delegate(object sender, EventArgs e) {
-				Crittercism.LeaveBreadcrumb("CLR Exception");
-				crashCLRException();
+			Button buttonHandledException = FindViewById<Button> (Resource.Id.buttonHandledException);
+			buttonHandledException.Click += delegate(object sender, EventArgs e) {
+				try {
+					crashDivideByZero();
+				} catch (Java.Lang.Exception javaException){
+					Crittercism.LogCrashException(javaException);
+				}
 			};
 
 			Button buttonCrashCLR = FindViewById<Button> (Resource.Id.buttonCrashCLR);
@@ -68,6 +71,16 @@ namespace CrittercismSample.Android
 			buttonLeaveBreadcrumb.Click += delegate(object sender, EventArgs e) {
 				Crittercism.LeaveBreadcrumb( "Android BreadCrumb");
 				buttonLeaveBreadcrumb.Text = string.Format( "just left a breadcrumb");
+			};
+
+			Switch switchSetOptOutStatus = FindViewById<Switch> (Resource.Id.switchSetOptOutStatus);
+			switchSetOptOutStatus.CheckedChange += delegate(object sender, CompoundButton.CheckedChangeEventArgs e) {
+				if(e.IsChecked) {
+					Crittercism.OptOutStatus = true;
+				} else {
+					Crittercism.OptOutStatus = false;
+				}
+				switchSetOptOutStatus.Text = "OptOutStatus: " + Crittercism.OptOutStatus;
 			};
 			
 		}//end onCreate

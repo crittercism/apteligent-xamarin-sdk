@@ -37,6 +37,7 @@ namespace CrittercismAndroid
 
 		public static void LogCrashException (Java.Lang.Exception javaException)
 		{
+			javaLangException.FillInStackTrace ();
 			Com.Crittercism.App.Crittercism._logCrashException( javaException );
 		}
 
