@@ -22,9 +22,6 @@ namespace CrittercismIOS
 
 		[Static, Export ("Username")]
 		string Username { set; }
-
-		[Static, Export ("didCrashOnLastLoad")]
-		bool CrashedOnLastLoad { get; }
 	}
 
 }

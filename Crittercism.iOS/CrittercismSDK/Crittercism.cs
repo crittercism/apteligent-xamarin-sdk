@@ -93,6 +93,10 @@ namespace CrittercismIOS
 
 		public static void LogHandledException (System.Exception e)
 		{
+			if (e == null) {
+				return;
+			}
+
 			Crittercism_LogHandledException (e.Message, e.Message, e.StackTrace, 1);
 		}
 
@@ -109,11 +113,6 @@ namespace CrittercismIOS
 		public static bool GetOptOutStatus()
 		{
 			return Crittercism_GetOptOutStatus ();
-		}
-
-		public static bool DidCrashOnLastLoad()
-		{
-			return DidCrashOnLastLoad ();
 		}
 
 		//FOR DEBUG USE ONLY, NOT A PUBLIC API
