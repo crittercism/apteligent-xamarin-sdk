@@ -20,13 +20,12 @@ namespace CrittercismSample.Android
 		protected override void OnCreate (Bundle bundle)
 		{
 			//Initialize Crittercism
-			Crittercism.Init( ApplicationContext,  "537fc935b573f15751000002");
+			Crittercism.Init( ApplicationContext,  "53a20750178784113a000001");
 
 			//Set the Username
 			Crittercism.SetUserName ("ANDROID_USER_NAME");
 
-			checkDidCrash ();
-			checkOptOutStatus (); 
+			Crittercism.OptOutStatus = true;
 
 			base.OnCreate (bundle);
 
@@ -52,14 +51,14 @@ namespace CrittercismSample.Android
 			};
 			*/
 
-			Button buttonHandledException = FindViewById<Button> (Resource.Id.buttonHandledException);
-			buttonHandledException.Click += delegate(object sender, EventArgs e) {
-				try {
-					crashDivideByZero();
-				} catch (Java.Lang.Exception javaException){
-					Crittercism.LogCrashException(javaException);
-				}
-			};
+			//TODO: Implement LogHandledException
+//			Button buttonHandledException = FindViewById<Button> (Resource.Id.buttonHandledException);
+//			buttonHandledException.Click += delegate(object sender, EventArgs e) {
+//				try {
+////					crashDivideByZero();
+//				} catch (Exception error){
+//				}
+//			};
 
 			Button buttonCrashCLR = FindViewById<Button> (Resource.Id.buttonCrashCLR);
 			buttonCrashCLR.Click += delegate(object sender, EventArgs e) {
@@ -72,31 +71,12 @@ namespace CrittercismSample.Android
 				Crittercism.LeaveBreadcrumb( "Android BreadCrumb");
 				buttonLeaveBreadcrumb.Text = string.Format( "just left a breadcrumb");
 			};
-
-			Switch switchSetOptOutStatus = FindViewById<Switch> (Resource.Id.switchSetOptOutStatus);
-			switchSetOptOutStatus.CheckedChange += delegate(object sender, CompoundButton.CheckedChangeEventArgs e) {
-				if(e.IsChecked) {
-					Crittercism.OptOutStatus = true;
-				} else {
-					Crittercism.OptOutStatus = false;
-				}
-				switchSetOptOutStatus.Text = "OptOutStatus: " + Crittercism.OptOutStatus;
-			};
-			
-		}//end onCreate
+		}
 
 		public void crashCLR()
 		{
-			//throw new System.InvalidOperationException("Make a CLR exception");
 			crashNullReference ();
-		}//end crashCLR
-
-		public void crashCLRException()
-		{
-			throw new System.Exception("Custom Exception");
-			//throw new Exception("Crashed NET/CLR thread.");
-		}//end crashCLRException
-
+		}
 
 		private void crashNullReference()
 		{
@@ -108,74 +88,35 @@ namespace CrittercismSample.Android
 		{
 			int i = 0;
 			i = 2 / i;
-		}//end divideByZero
+		}
 
 		public void crashIndexOutOfRange()
 		{
 			string[] arr	= new string[1];
 			arr[2]	= "Crash";
-		}//end indexOutOfRange
-
+		}
 
 		// +++++++++++++++++++++++++++++++++++++++
 		// Additional Crash & Exception
 		// +++++++++++++++++++++++++++++++++++++++
-
-		public void crashNative()
-		{
-			SetContentView(444444);
-		}
 
 		public void nativeException()
 		{
 			throw new Java.Lang.IllegalArgumentException();
 		}
 
-		public void crashMulti()
-		{
-			try
-			{
-				try
-				{
-					throw new System.ApplicationException("This is a nexted exception");
-				}
-				catch (Java.Lang.Exception e1)
-				{
-					throw new System.InvalidCastException("Level 1", e1);
-				}
-			}
-			catch (Java.Lang.Exception e2)
-			{
-				throw new System.InvalidCastException("Level 2", e2);
-			}
-		}//end crashMulti
-
-
 		public void crashBackgroundThread()
 		{
 			ThreadPool.QueueUserWorkItem(o => { 
 				throw new Exception("Crashed Background thread."); 
 			} );
-		}//end crashBackgroundThread
+		}
 
 		public async Task CrashAsync()
 		{
 			await Task.Delay(10).ConfigureAwait(false);
 			throw new InvalidOperationException("Exception in task");
-		}//end CrashAsync
-
-		public void checkDidCrash() {
-
-			if (Crittercism.DidCrashOnLastLoad() == true) {
-				Toast.MakeText(this, "Crash On Last Load True", ToastLength.Short).Show();
-			}
 		}
-
-		public void checkOptOutStatus() {
-
-			Console.WriteLine ("Check the optout status =" + Com.Crittercism.App.Crittercism.OptOutStatus );
-		}
-
 	}
 }
 

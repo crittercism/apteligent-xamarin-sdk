@@ -75,12 +75,6 @@ namespace CrittercismSample.Android
 			// aapt resource value: 0x7f060002
 			public const int buttonHandledException = 2131099650;
 			
-			// aapt resource value: 0x7f060004
-			public const int switchSetOptOutStatus = 2131099652;
-			
-			// aapt resource value: 0x7f060005
-			public const int textViewDidCrashOnLoad = 2131099653;
-			
 			static Id()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
