@@ -51,14 +51,14 @@ namespace CrittercismSample.Android
 			};
 			*/
 
-			//TODO: Implement LogHandledException
-//			Button buttonHandledException = FindViewById<Button> (Resource.Id.buttonHandledException);
-//			buttonHandledException.Click += delegate(object sender, EventArgs e) {
-//				try {
-////					crashDivideByZero();
-//				} catch (Exception error){
-//				}
-//			};
+			Button buttonHandledException = FindViewById<Button> (Resource.Id.buttonHandledException);
+			buttonHandledException.Click += delegate(object sender, EventArgs e) {
+				try {
+					throw new Exception();
+				} catch (Throwable paramThrowable){
+//					Crittercism.LogHandledException(paramThrowable);
+				}
+			};
 
 			Button buttonCrashCLR = FindViewById<Button> (Resource.Id.buttonCrashCLR);
 			buttonCrashCLR.Click += delegate(object sender, EventArgs e) {
