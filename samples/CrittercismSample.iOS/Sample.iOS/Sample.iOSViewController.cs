@@ -25,15 +25,6 @@ namespace Sample.iOS
 		{
 			base.ViewDidLoad ();
 
-			// Check for crasch on lastLoad
-			if (Crittercism.CrashedOnLastLoad == true) {
-				new UIAlertView ("Done"
-					, ".DidCrashOnLastLoad is TRUE !"
-					, null
-					, "OK"
-					, null).Show();
-			}
-
 			Crittercism.Username = "MyUserName";
 
 			ButtonAttachUserMeta.TouchUpInside += (object sender, EventArgs e) => {
