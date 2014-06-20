@@ -4,6 +4,7 @@ using Android.Content;
 using Android.App;
 using Org.Json;
 using Java.Lang;
+using System.Diagnostics;
 
 namespace CrittercismAndroid
 {
@@ -26,21 +27,40 @@ namespace CrittercismAndroid
 			};
 		}
 
-		private static void LogUnhandledException( RaiseThrowableEventArgs e )
+		// Takes the contents of a C# exception and stuffs them into a java exception.
+		// This is used to feed into the Crittercism Android SDK.
+		private static Java.Lang.Exception createJavaException( System.Exception e )
 		{
-			Java.Lang.Exception javaLangException = new Java.Lang.Exception();
-			javaLangException.FillInStackTrace ();
-			LogCrashException (javaLangException);
-		}
-			
-		public static void LogHandledException (Throwable paramThrowable)
-		{
-			Com.Crittercism.App.Crittercism.LogHandledException (paramThrowable);
+			Java.Lang.Exception javaLangException = new Java.Lang.Exception (e.Message);
+
+			StackTrace stackTrace = new StackTrace (e, true);
+			Java.Lang.StackTraceElement[] javaStackElements = new StackTraceElement[stackTrace.FrameCount];
+
+			for (int i = 0; i < stackTrace.FrameCount; i++) {
+				StackFrame frame = stackTrace.GetFrame (i);
+
+				javaStackElements[i] = new Java.Lang.StackTraceElement (
+					frame.GetMethod().DeclaringType.Name,
+					frame.GetMethod().Name,
+					frame.GetFileName(),
+					frame.GetFileLineNumber());
+			}
+
+			javaLangException.SetStackTrace (javaStackElements);
+
+			return javaLangException;
 		}
 
-		public static void LogCrashException (Java.Lang.Exception javaException)
+		private static void LogUnhandledException( RaiseThrowableEventArgs e )
 		{
-			Com.Crittercism.App.Crittercism._logCrashException( javaException );
+			Java.Lang.Exception javaLangException = createJavaException (e.Exception);
+			Com.Crittercism.App.Crittercism._logCrashException( javaLangException );
+		}
+			
+		public static void LogHandledException (System.Exception e)
+		{
+			Java.Lang.Exception javaLangException = createJavaException (e);
+			Com.Crittercism.App.Crittercism.LogHandledException (javaLangException);
 		}
 
 		public static void LeaveBreadcrumb (string breadcrumb)
