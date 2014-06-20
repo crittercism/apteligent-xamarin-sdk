@@ -11,7 +11,7 @@ namespace CrittercismAndroid
 	{
 		public static void Init(Context appContext, string appId) {
 
-			Com.Crittercism.App.Crittercism.Initialize(  appContext, appId);
+			Com.Crittercism.App.Crittercism.Initialize( appContext, appId );
 
 			//Appdomain Exception handlers
 			AppDomain.CurrentDomain.UnhandledException += (object sender, UnhandledExceptionEventArgs e) =>
@@ -21,12 +21,12 @@ namespace CrittercismAndroid
 
 			AndroidEnvironment.UnhandledExceptionRaiser += (object sender, RaiseThrowableEventArgs e) => 
 			{
-				LogUnHandledException( e );
+				LogUnhandledException( e );
 				e.Handled = true;
 			};
 		}
 
-		public static void LogUnHandledException( RaiseThrowableEventArgs e )
+		private static void LogUnhandledException( RaiseThrowableEventArgs e )
 		{
 			Java.Lang.Exception javaLangException = new Java.Lang.Exception();
 			javaLangException.FillInStackTrace ();
