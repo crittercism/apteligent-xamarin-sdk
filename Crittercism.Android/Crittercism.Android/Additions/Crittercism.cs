@@ -11,7 +11,7 @@ namespace CrittercismAndroid
 	{
 		public static void Init(Context appContext, string appId) {
 
-			Com.Crittercism.App.Crittercism.Initialize(  appContext, "537fc935b573f15751000002");
+			Com.Crittercism.App.Crittercism.Initialize(  appContext, appId);
 
 			//Appdomain Exception handlers
 			AppDomain.CurrentDomain.UnhandledException += (object sender, UnhandledExceptionEventArgs e) =>
@@ -33,6 +33,14 @@ namespace CrittercismAndroid
 			Java.Lang.Exception javaLangException = new Java.Lang.Exception();
 			javaLangException.FillInStackTrace ();
 			LogCrashException (javaLangException);
+		}
+
+		//TODO: Error - Crittercism does not contain a definition for 'log handled exception'
+		public static void LogHandledException (Throwable paramThrowable)
+		{
+//			Java.Lang.Exception sdfg = new Java.Lang.Exception();
+//			Com.Crittercism.App.Crittercism.logHandledException (sdfg);
+//			Com.Crittercism.App.Crittercism.logHandledException (paramThrowable);
 		}
 
 		public static void LogCrashException (Java.Lang.Exception javaException)

@@ -14,10 +14,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/buttonCrashCLR" />
     <Button
-        android:text="CLR exception"
+        android:text="Log Handled Exception"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonCLRException" />
+        android:id="@+id/buttonHandledException" />
     <Button
         android:text="Leave breadcrumb"
         android:layout_width="match_parent"
