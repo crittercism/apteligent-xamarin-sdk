@@ -38,21 +38,7 @@ namespace CrittercismSample.Android
 				Crittercism.SetMetadata( "MyKey", "MyValue" );
 				buttonAttachMetadata.Text = string.Format ("Metadata sent!");
 			};
-
-			/*
-			Button buttonCrashNative = FindViewById<Button> (Resource.Id.buttonCrashNative);
-			buttonCrashNative.Click += delegate {
-				Crittercism.LeaveBreadcrumb( "Crash Native");
-				crashNative();
-			};
-			
-			Button buttonNativeException = FindViewById<Button> (Resource.Id.buttonNativeException);
-			buttonNativeException.Click += delegate(object sender, EventArgs e) {
-				Crittercism.LeaveBreadcrumb( "Native Exception");
-				nativeException();
-			};
-			*/
-
+				
 			Button buttonHandledException = FindViewById<Button> (Resource.Id.buttonHandledException);
 			buttonHandledException.Click += delegate(object sender, EventArgs e) {
 				try {
