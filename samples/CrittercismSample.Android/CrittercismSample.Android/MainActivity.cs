@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Threading;
 using Org.Json;
 
+//using Java.Lang;
+
 using CrittercismAndroid;
 
 namespace CrittercismSample.Android
@@ -55,8 +57,8 @@ namespace CrittercismSample.Android
 			buttonHandledException.Click += delegate(object sender, EventArgs e) {
 				try {
 					throw new Exception();
-				} catch (Throwable paramThrowable){
-//					Crittercism.LogHandledException(paramThrowable);
+				} catch (Java.Lang.Throwable paramThrowable){
+					Crittercism.LogHandledException(paramThrowable);
 				}
 			};
 
