@@ -28,33 +28,36 @@ namespace CrittercismIOS
 		[DllImport ("libc")]
 		private static extern int sigaction (Signal sig, IntPtr act, IntPtr oact);
 
-
-		// strucure DLL
-		[DllImport("libc")]
-		public static extern IntPtr TestStructPara(IntPtr pAddr);
-
 		//SIGILL , SIGINT , SIGTERM
-		enum Signal { SIGABRT = 6, SIGFPE = 8, SIGBUS = 10, SIGSEGV = 11, SIGPIPE = 13} 
-
-		enum SignalOps { SIG_ZERO = 0, SIG_IGN = 1 }//, SIG_DFL = , SIG_HOLD }  // IntPtr.Zero
-
-
-		public struct sigX
-		{
-			public IntPtr data;
+		enum Signal {
+			SIGABRT = 6,
+			SIGFPE = 8,
+			SIGBUS = 10,
+			SIGSEGV = 11,
+			SIGPIPE = 13
 		}
-		//IntPtr : ISerializable
 
 		public static void Init(string appId) {
-
-			Console.WriteLine ( "ptr size " + IntPtr.Size) ;
 
 			IntPtr sigabrt = Marshal.AllocHGlobal (512);
 			IntPtr sigfpe = Marshal.AllocHGlobal (512);
 			IntPtr sigbus = Marshal.AllocHGlobal (512);
 			IntPtr sigsegv = Marshal.AllocHGlobal (512);
 
-			// Store Mono SIGSEGV and SIGBUS handlers
+			// When Crittercism is initialized, PLCrashReporter overwrites the Monoruntime's
+			// signal handlers.  This is bad because the MonoRuntime uses signal handlers to
+			// catch errors like DivideByZeroExceptions and NullPointerExceptions. How?
+			// The byte code gets compiled down to assembly instructions which when executed,
+			// trigger a signal that the runtime catches and subsequently turns into a C#
+			// exception. Since we want to be able to catch these exceptions, we must not
+			// let PLCrashReporter override the signals.  Rather than modify the iOS SDK to
+			// do this, we save the signals handlers that are installed by Mono, initialize
+			// Crittercism (which blows away Mono's signal handlers), and then we restore
+			// Mono's signal handlers.
+			//
+			// XXX: Without this wonky signal saving code we would not be able to capture
+			// NullPointerExceptions!
+
 			sigaction (Signal.SIGABRT, IntPtr.Zero, sigabrt);
 			sigaction (Signal.SIGFPE, IntPtr.Zero, sigfpe);
 			sigaction (Signal.SIGBUS, IntPtr.Zero, sigbus);
@@ -75,11 +78,12 @@ namespace CrittercismIOS
 			Marshal.FreeHGlobal (sigsegv);
 
 			AppDomain.CurrentDomain.UnhandledException += (sender, args) => {
+				// Register to get notified of unhandled C# exceptions
 
 				System.Exception exception = (System.Exception)args.ExceptionObject;
 				LogUnhandledException ( exception );
-			};
 
+			};
 
 		}
 
@@ -114,28 +118,6 @@ namespace CrittercismIOS
 		{
 			return Crittercism_GetOptOutStatus ();
 		}
-
-		//FOR DEBUG USE ONLY, NOT A PUBLIC API
-		private static void InitWithSigRestore(string appId) 
-		{
-
-			IntPtr sigbus = Marshal.AllocHGlobal (512);
-			IntPtr sigsegv = Marshal.AllocHGlobal (512);
-
-			// Store Mono SIGSEGV and SIGBUS handlers
-			sigaction (Signal.SIGBUS, IntPtr.Zero, sigbus);
-			sigaction (Signal.SIGSEGV, IntPtr.Zero, sigsegv);
-
-			// Enable crash reporting libraries
-			Crittercism_EnableWithAppID (appId);
-
-			// Restore Mono SIGSEGV and SIGBUS handlers
-			sigaction (Signal.SIGBUS, sigbus, IntPtr.Zero);
-			sigaction (Signal.SIGSEGV, sigsegv, IntPtr.Zero);
-
-			Marshal.FreeHGlobal (sigbus);
-			Marshal.FreeHGlobal (sigsegv);
-		}//end InitWithSigRestore
 
 	}
 }
