@@ -19,7 +19,7 @@ namespace Sample.iOS
 
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
-			Crittercism.Init("5342d5a70ee9483d74000007");
+			Crittercism.Init("537cecabd478bc4f5b000003");
 			return true;
 		}
 		

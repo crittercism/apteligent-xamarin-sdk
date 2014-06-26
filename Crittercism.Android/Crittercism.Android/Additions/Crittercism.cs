@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Android.Runtime;
 using Android.Content;
 using Android.App;
@@ -12,7 +12,9 @@ namespace CrittercismAndroid
 	{
 		public static void Init(Context appContext, string appId) {
 
-			Com.Crittercism.App.Crittercism.Initialize( appContext, appId );
+			Com.Crittercism.App.CrittercismConfig config = new Com.Crittercism.App.CrittercismConfig ();
+			config.LogcatReportingEnabled = false;
+			Com.Crittercism.App.Crittercism.Initialize( appContext, appId, config );
 
 			//Appdomain Exception handlers
 			AppDomain.CurrentDomain.UnhandledException += (object sender, UnhandledExceptionEventArgs e) =>

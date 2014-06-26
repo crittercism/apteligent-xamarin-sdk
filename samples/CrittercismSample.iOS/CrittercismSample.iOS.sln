@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.iOS", "Sample.iOS\Sample.iOS.csproj", "{2DC2CCB8-686E-4220-B77B-27E7F1258C3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crittercism.iOS", "..\..\Crittercism.iOS\CrittercismSDK\Crittercism.iOS.csproj", "{E088DEA3-D3CE-4FA4-AFE8-A93BC7AF97E3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator
@@ -27,18 +25,6 @@ Global
 		{2DC2CCB8-686E-4220-B77B-27E7F1258C3C}.Release|iPhone.Build.0 = Release|iPhone
 		{2DC2CCB8-686E-4220-B77B-27E7F1258C3C}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{2DC2CCB8-686E-4220-B77B-27E7F1258C3C}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
-		{E088DEA3-D3CE-4FA4-AFE8-A93BC7AF97E3}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
-		{E088DEA3-D3CE-4FA4-AFE8-A93BC7AF97E3}.Ad-Hoc|iPhone.Build.0 = Release|Any CPU
-		{E088DEA3-D3CE-4FA4-AFE8-A93BC7AF97E3}.AppStore|iPhone.ActiveCfg = Release|Any CPU
-		{E088DEA3-D3CE-4FA4-AFE8-A93BC7AF97E3}.AppStore|iPhone.Build.0 = Release|Any CPU
-		{E088DEA3-D3CE-4FA4-AFE8-A93BC7AF97E3}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{E088DEA3-D3CE-4FA4-AFE8-A93BC7AF97E3}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{E088DEA3-D3CE-4FA4-AFE8-A93BC7AF97E3}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{E088DEA3-D3CE-4FA4-AFE8-A93BC7AF97E3}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{E088DEA3-D3CE-4FA4-AFE8-A93BC7AF97E3}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{E088DEA3-D3CE-4FA4-AFE8-A93BC7AF97E3}.Release|iPhone.Build.0 = Release|Any CPU
-		{E088DEA3-D3CE-4FA4-AFE8-A93BC7AF97E3}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{E088DEA3-D3CE-4FA4-AFE8-A93BC7AF97E3}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Sample.iOS\Sample.iOS.csproj

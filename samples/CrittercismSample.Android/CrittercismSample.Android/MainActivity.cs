@@ -22,12 +22,10 @@ namespace CrittercismSample.Android
 		protected override void OnCreate (Bundle bundle)
 		{
 			//Initialize Crittercism
-			Crittercism.Init( ApplicationContext,  "53a20750178784113a000001");
+			Crittercism.Init( ApplicationContext,  "5216d73997c8f216a0000006");
 
 			//Set the Username
 			Crittercism.SetUserName ("ANDROID_USER_NAME");
-
-			Crittercism.OptOutStatus = true;
 
 			base.OnCreate (bundle);
 
@@ -42,9 +40,9 @@ namespace CrittercismSample.Android
 			Button buttonHandledException = FindViewById<Button> (Resource.Id.buttonHandledException);
 			buttonHandledException.Click += delegate(object sender, EventArgs e) {
 				try {
-					throw new Exception();
-				} catch (Java.Lang.Throwable paramThrowable){
-					Crittercism.LogHandledException(paramThrowable);
+					throw new Exception("This is an exception");
+				} catch (System.Exception exception){
+					Crittercism.LogHandledException(exception);
 				}
 			};
 
