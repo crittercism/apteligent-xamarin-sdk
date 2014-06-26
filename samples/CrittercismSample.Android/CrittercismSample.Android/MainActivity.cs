@@ -43,8 +43,8 @@ namespace CrittercismSample.Android
 			buttonHandledException.Click += delegate(object sender, EventArgs e) {
 				try {
 					throw new Exception();
-				} catch (Java.Lang.Throwable paramThrowable){
-					Crittercism.LogHandledException(paramThrowable);
+				} catch (System.Exception error){
+					Crittercism.LogHandledException(error);
 				}
 			};
 
