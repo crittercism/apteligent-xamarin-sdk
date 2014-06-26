@@ -35,12 +35,9 @@ namespace CrittercismAndroid
 			LogCrashException (javaLangException);
 		}
 
-		//TODO: Error - Crittercism does not contain a definition for 'log handled exception'
-		public static void LogHandledException (Throwable paramThrowable)
+		public static void LogHandledException (Java.Lang.Exception error)
 		{
-//			Java.Lang.Exception sdfg = new Java.Lang.Exception();
-//			Com.Crittercism.App.Crittercism.logHandledException (sdfg);
-//			Com.Crittercism.App.Crittercism.logHandledException (paramThrowable);
+			Com.Crittercism.App.Crittercism.LogHandledException (error);
 		}
 
 		public static void LogCrashException (Java.Lang.Exception javaException)

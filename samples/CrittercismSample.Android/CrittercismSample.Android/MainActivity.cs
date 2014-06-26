@@ -54,9 +54,9 @@ namespace CrittercismSample.Android
 			Button buttonHandledException = FindViewById<Button> (Resource.Id.buttonHandledException);
 			buttonHandledException.Click += delegate(object sender, EventArgs e) {
 				try {
-					throw new Exception();
-				} catch (Throwable paramThrowable){
-//					Crittercism.LogHandledException(paramThrowable);
+					crashDivideByZero ();				
+				} catch (Java.Lang.Exception error){
+					Crittercism.LogHandledException(error);
 				}
 			};
 
