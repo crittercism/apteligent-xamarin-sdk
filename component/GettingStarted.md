@@ -5,19 +5,21 @@ Use the ``Crittercism.Init`` API to initialize Crittercism.
 
 #### For Android Apps
 
+In your main activity class:
+
 ```csharp
     using CrittercismAndroid;
 
     protected override void OnCreate (Bundle bundle)
     {
         //Initialize Crittercism with your App ID from crittercism.com
-        Crittercism.Init( ApplicationContext,  "99999935b573f15751000002");
+        Crittercism.Init( ApplicationContext, "YOUR APP ID GOES HERE");
     }
 ```
 
 #### For iOS Apps
 
-In your AppDelegate.cs 
+In your AppDelegate.cs: 
 
 ```csharp
     using CrittercismIOS;
@@ -32,7 +34,7 @@ In your AppDelegate.cs
 
 ### Logging Handled Exceptions
 
-Use the LogHandledException API to track error conditions that do not
+Use the ``LogHandledException`` API to track error conditions that do not
 necessarily cause a crash.
 
 Handled exceptions may be used for tracking exceptions caught in a try/catch
@@ -57,7 +59,7 @@ Here’s an example of how to log a handled exception:
 
 ### Logging Breadcrumbs
 
-Use the LeaveBreadcrumb API to write to a chronological log that is reported
+Use the ``LeaveBreadcrumb`` API to write to a chronological log that is reported
 with crashes and handled exceptions.
 
 A breadcrumb is a developer-defined text string (up to 140 characters) that
@@ -103,5 +105,5 @@ Here’s an example of how to associate metadata with the current user:
 
 ### Other Resources
 
-* [Crittercsim Documentation](http://docs.crittercism.com/)
+[Crittercsim Documentation](http://docs.crittercism.com/)
 
