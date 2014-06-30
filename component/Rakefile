@@ -19,7 +19,7 @@ task :default => "xamarin-component/xamarin-component.exe" do
 	line = <<-END
 	mono xamarin-component/xamarin-component.exe create-manually #{COMPONENT} \
 		--name="Crittercism" \
-		--summary="Monitor, prioritize, troubleshoot, and trend app performance." \
+		--summary="Crittercism’s mAPM solution enables enterprises to deliver better mobile apps by monitoring, prioritizing, troubleshooting, and trending app performance." \
 		--publisher="Crittercism, Inc." \
 		--website="http://crittercsim.com/" \
 		--details="Details.md" \
