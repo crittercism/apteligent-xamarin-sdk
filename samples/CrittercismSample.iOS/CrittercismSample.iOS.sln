@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.iOS", "Sample.iOS\Sample.iOS.csproj", "{2DC2CCB8-686E-4220-B77B-27E7F1258C3C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrittercismSample.iOS", "Sample.iOS\CrittercismSample.iOS.csproj", "{2DC2CCB8-686E-4220-B77B-27E7F1258C3C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crittercism.iOS", "..\..\Crittercism.iOS\CrittercismSDK\Crittercism.iOS.csproj", "{E088DEA3-D3CE-4FA4-AFE8-A93BC7AF97E3}"
 EndProject
@@ -41,6 +41,6 @@ Global
 		{E088DEA3-D3CE-4FA4-AFE8-A93BC7AF97E3}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Sample.iOS\Sample.iOS.csproj
+		StartupItem = Sample.iOS\CrittercismSample.iOS.csproj
 	EndGlobalSection
 EndGlobal
