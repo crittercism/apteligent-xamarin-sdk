@@ -18,8 +18,8 @@ end
 task :default => "xamarin-component/xamarin-component.exe" do
 	line = <<-END
 	mono xamarin-component/xamarin-component.exe create-manually #{COMPONENT} \
-		--name="Crittercism Component" \
-		--summary="Performance Monitor, prioritize, troubleshoot, and trend your Xamarin Apps." \
+		--name="Crittercism" \
+		--summary="Monitor, prioritize, troubleshoot, and trend app performance." \
 		--publisher="Crittercism, Inc." \
 		--website="http://crittercsim.com/" \
 		--details="Details.md" \
@@ -29,8 +29,8 @@ task :default => "xamarin-component/xamarin-component.exe" do
 		--icon="icons/crittercism_512x512.png" \
 		--library="ios":"bin/Crittercism.iOS.dll" \
 		--library="android":"bin/Crittercism.Android.dll" \
-		--sample="iOS Sample. Demonstrates Awesomeness on iOS.":"../samples/CrittercismSample.iOS/CrittercismSample.iOS.sln" \
-		--sample="Android Sample. Demonstrates Awesomeness on Android":"../samples/CrittercismSample.Android/CrittercismSample.Android.sln"
+		--sample="iOS Sample. Demonstrates Error Monitoring on iOS.":"../samples/CrittercismSample.iOS/CrittercismSample.iOS.sln" \
+		--sample="Android Sample. Demonstrates Error Monitoring on Android":"../samples/CrittercismSample.Android/CrittercismSample.Android.sln"
 		END
 	puts "* Creating #{COMPONENT}..."
 	puts line.strip.gsub "\t\t", "\\\n    "
