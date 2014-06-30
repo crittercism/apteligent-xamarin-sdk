@@ -105,5 +105,5 @@ Here’s an example of how to associate metadata with the current user:
 
 ### Other Resources
 
-[Crittercsim Documentation](http://docs.crittercism.com/)
+View the full Crittercism documentation at http://docs.crittercism.com
 
