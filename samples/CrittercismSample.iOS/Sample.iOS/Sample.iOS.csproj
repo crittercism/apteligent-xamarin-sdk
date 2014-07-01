@@ -88,6 +88,9 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
+    <Reference Include="Crittercism.iOS">
+      <HintPath>lib\Crittercism.iOS.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
@@ -98,6 +101,7 @@
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
     <None Include="packages.config" />
+    <None Include="lib\Crittercism.iOS.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -113,9 +117,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Crittercism.iOS\CrittercismSDK\Crittercism.iOS.csproj">
-      <Project>{E088DEA3-D3CE-4FA4-AFE8-A93BC7AF97E3}</Project>
-      <Name>Crittercism.iOS</Name>
-    </ProjectReference>
+    <Folder Include="lib\" />
   </ItemGroup>
 </Project>
