@@ -36,7 +36,11 @@ namespace Sample.iOS
 			};
 
 			ButtonCLRException.TouchUpInside += (object sender, EventArgs e) => {
-				crashCustomException();
+				try {
+					crashDivideByZero();
+				} catch (Exception error) {
+					Crittercism.LogHandledException(error);
+				}
 			};
 
 			ButtonCrashCLR.TouchUpInside += (object sender, EventArgs e) => {
