@@ -10,9 +10,7 @@ Requires:
 
 Dev Notes:
 
-
-
-
+MVVMCross requires calling the base.FinishedLaunching after initializing  Crittercism 
 
 ```
 public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
