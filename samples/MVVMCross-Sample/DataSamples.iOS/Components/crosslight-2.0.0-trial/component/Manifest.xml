@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<component format="1" id="crosslight">
+  <name>Crosslight</name>
+  <publisher>Intersoft Solutions Corp.</publisher>
+  <publisher-url>http://www.intersoftpt.com</publisher-url>
+  <version>2.0.0</version>
+  <summary>A powerful cross-platform toolset for building enterprise-class mobile apps for the iOS, Android and Windows platforms – all with a single application codebase.</summary>
+  <samples>
+    <sample id="DataSamples.Core">
+      <name>Data Samples Core.</name>
+      <summary>Shared core project for Data Samples.</summary>
+    </sample>
+    <sample id="DataSamples.iOS">
+      <name>iOS Data Sample.</name>
+      <summary>Data samples on iOS.</summary>
+    </sample>
+    <sample id="DataSamples.Android">
+      <name>Android Data Sample.</name>
+      <summary>Data samples on Android.</summary>
+    </sample>
+    <sample id="DataSamples.WinPhone">
+      <name>Windows Phone Data Sample.</name>
+      <summary>Data Samples on Windows Phone.</summary>
+    </sample>
+    <sample id="DataSamples.WinRT">
+      <name>WinRT Data Sample.</name>
+      <summary>Data samples on Windows Phone.</summary>
+    </sample>
+  </samples>
+</component>

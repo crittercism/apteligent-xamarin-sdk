@@ -1,0 +1,53 @@
+﻿<Intersoft:PhoneApplicationPage
+    x:Class="DataSamples.WinPhone.Views.ReorderList"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    xmlns:Intersoft="clr-namespace:Intersoft.Crosslight.WinPhone;assembly=Intersoft.Crosslight.WinPhone"
+    xmlns:rlb="clr-namespace:Intersoft.Crosslight.WinPhone.Controls;assembly=Intersoft.Crosslight.WinPhone"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="REORDER LIST" Style="{StaticResource PhoneTextNormalStyle}"/>
+        </StackPanel>
+        
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <rlb:AdvancedListBox Grid.Row="2" Margin="12,0,0,12" IsReorderEnabled="True" ItemsSource="{Binding Items}" >
+                <rlb:AdvancedListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Margin="12,4,12,4" FontSize="36" Text="{Binding Name}" />
+                    </DataTemplate>
+                </rlb:AdvancedListBox.ItemTemplate>
+          
+                <rlb:AdvancedListBox.ItemContainerStyle>
+                    <Style TargetType="rlb:AdvancedListBoxItem">
+                        <Setter Property="DragHandleTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Canvas Width="52" Height="48" Background="Transparent">
+                                        <Polygon Fill="Gray" Points="16,20 4,20 22,4 22,44 16,44" /> 
+                                        <Polygon Fill="Gray" Points="32,28 44,28 26,44 26,4 32,4" />
+                                    </Canvas>
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </rlb:AdvancedListBox.ItemContainerStyle>
+            </rlb:AdvancedListBox>
+        </Grid>
+    </Grid>
+
+</Intersoft:PhoneApplicationPage>

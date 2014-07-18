@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="Hello">Hello World, Click Me!</string>
+  <string name="ApplicationName">DataSamples.Android</string>
+  <string name="SearchDescription">Search Description</string>
+  <string name="SearchHint">Search Products</string>
+  <string name="SearchLabel">Search Products</string>
+</resources>
