@@ -1,0 +1,130 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:converters="using:DataSamples.WinRT"
+   >
+
+    <converters:ByteToImageConverter x:Name="ImageConverter"/>
+    <converters:NativeTypeConverter x:Key="TypeConverter"/>
+    <converters:StringFormatConverter x:Key="StringFormatConverter"/>
+    <converters:CollectionConverter x:Key="CollectionConverter"/>
+
+    <DataTemplate x:Key="App250x250ItemTemplate">
+        <Grid HorizontalAlignment="Left" Width="250" Height="250">
+            <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}">
+            </Border>
+            <StackPanel VerticalAlignment="Bottom" Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}">
+                <TextBlock Text="{Binding Title}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" Height="60" Margin="15,0,15,0"/>
+                <TextBlock Text="{Binding Category}" Foreground="{StaticResource ListViewItemOverlaySecondaryForegroundThemeBrush}" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap" Margin="15,0,15,10"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+    <!--
+        List-appropriate 80 pixel high item template as seen in the SplitPage when Filled, and
+        the following pages when snapped: GroupedItemsPage, GroupDetailPage, and ItemsPage
+    -->
+    <DataTemplate x:Key="App80ItemTemplate">
+        <Grid Margin="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}" Width="60" Height="60">
+            </Border>
+            <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                <TextBlock Text="{Binding Title}" Style="{StaticResource ItemTextStyle}" MaxHeight="40"/>
+                <TextBlock Text="{Binding Category}" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="App130ItemTemplate">
+        <Grid Margin="12">
+            <StackPanel VerticalAlignment="Center" Margin="0,0,0,6">
+                <TextBlock Text="{Binding Title}" Style="{StaticResource LargeItemTextStyle}" TextWrapping="NoWrap" Foreground="#DEEAEAEA"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="SimpleListItemTemplate">
+        <Grid Margin="12">
+            <StackPanel VerticalAlignment="Center" Margin="0,0,0,6">
+                <TextBlock Text="{Binding Name}" Style="{StaticResource LargeItemTextStyle}" TextWrapping="NoWrap" Foreground="#DEEAEAEA"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="RightDetailItemTemplate">
+        <Grid Margin="12" HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="{Binding Name}" Style="{StaticResource LargeItemTextStyle}" Foreground="#DEEAEAEA"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Right" Text="{Binding Name}" Style="{StaticResource LargeItemTextStyle}"  Foreground="#DEEAEAEA"/>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="LeftDetailItemTemplate">
+        <Grid Margin="12" HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="0.7*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="{Binding Name}" TextAlignment="Right" Style="{StaticResource LargeItemTextStyle}" Foreground="#DEEAEAEA" TextTrimming="WordEllipsis" TextWrapping="Wrap"/>
+            <TextBlock Grid.Column="1" Text="{Binding Name}" Margin="20,0,0,0" Style="{StaticResource LargeItemTextStyle}"  Foreground="#DEEAEAEA"/>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="SubtitleItemTemplate">
+        <Grid Margin="12" HorizontalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="{Binding Name}" Style="{StaticResource LargeItemTextStyle}" Foreground="#DEEAEAEA" TextTrimming="WordEllipsis" TextWrapping="Wrap" FontWeight="Bold"/>
+            <TextBlock Grid.Row="1" Text="{Binding Location}" Margin="0,10,0,0" Style="{StaticResource LargeItemTextStyle}"  Foreground="#DEEAEAEA"/>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="SubtitleWithImageItemTemplate">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*" />
+                <ColumnDefinition Width="0.8*"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Source="{Binding ThumbnailImage, Converter={StaticResource ByteToImageConverter}}"/>
+            <Grid Grid.Column="1" Margin="12" HorizontalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="{Binding Name}" Style="{StaticResource LargeItemTextStyle}" Foreground="#DEEAEAEA" TextTrimming="WordEllipsis" TextWrapping="Wrap" FontWeight="Bold"/>
+                <TextBlock Grid.Row="1" Text="{Binding Location}" Margin="0,10,0,0" Style="{StaticResource LargeItemTextStyle}"  Foreground="#DEEAEAEA"/>
+            </Grid>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="CustomTemplate">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.8*" />
+                <ColumnDefinition Width="0.2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Margin="12" HorizontalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="{Binding Name}" Style="{StaticResource LargeItemTextStyle}" Foreground="#DEEAEAEA" TextTrimming="WordEllipsis" TextWrapping="Wrap" FontWeight="Bold"/>
+                <TextBlock Grid.Row="1" HorizontalAlignment="Right" Text="{Binding Location}" Margin="0,10,0,0" Style="{StaticResource LargeItemTextStyle}"  
+Foreground="#DEEAEAEA"/>
+                <TextBlock Grid.Row="2" HorizontalAlignment="Right" Text="{Binding Price}" Margin="0,10,0,0" Style="{StaticResource LargeItemTextStyle}" Foreground="#DEEAEAEA" TextTrimming="WordEllipsis"></TextBlock>
+            </Grid>
+            <Image Grid.Column="1" Width="100" Source="{Binding ThumbnailImage, Converter={StaticResource ByteToImageConverter}}"  />
+        </Grid>
+    </DataTemplate>
+
+</ResourceDictionary>
