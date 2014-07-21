@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
+    <Reference Include="Crittercism.Android">
+      <HintPath>lib\Crittercism.Android.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -53,6 +56,7 @@
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
+    <None Include="lib\Crittercism.Android.dll" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />
@@ -61,9 +65,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Crittercism.Android\Crittercism.Android\Crittercism.Android.csproj">
-      <Project>{850B1EAD-8B68-4984-943B-C456C84682C2}</Project>
-      <Name>Crittercism.Android</Name>
-    </ProjectReference>
+    <Folder Include="lib\" />
   </ItemGroup>
 </Project>
