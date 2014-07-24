@@ -22,7 +22,7 @@ namespace CrittercismSample.Android
 		protected override void OnCreate (Bundle bundle)
 		{
 			//Initialize Crittercism
-			Crittercism.Init( ApplicationContext,  "53a20750178784113a000001");
+			Crittercism.Init( ApplicationContext,  "YOUR_APP_ID_GOES_HERE");
 
 			//Set the Username
 			Crittercism.SetUserName ("ANDROID_USER_NAME");
