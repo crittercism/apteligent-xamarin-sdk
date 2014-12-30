@@ -21,7 +21,7 @@ echo "copy dll's to the component/bin folder"
 mkdir ../component/bin/
 
 #iOS Libraries
-cp ../Crittercism.iOS/CrittercismSDK/bin/Release/Crittercism.iOS.dll ../component/bin/
+cp ../Crittercism.iOS/Crittercism.iOS/bin/Release/Crittercism.iOS.dll ../component/bin/
 
 #Android Libraries
 cp ../Crittercism.Android/Crittercism.Android/bin/Release/Crittercism.Android.dll ../component/bin/

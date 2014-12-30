@@ -26,7 +26,4 @@ Global
 		{2DC2CCB8-686E-4220-B77B-27E7F1258C3C}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{2DC2CCB8-686E-4220-B77B-27E7F1258C3C}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Sample.iOS\CrittercismSample.iOS.csproj
-	EndGlobalSection
 EndGlobal
