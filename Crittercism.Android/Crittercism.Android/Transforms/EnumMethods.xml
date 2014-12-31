@@ -20,10 +20,11 @@
     <method jni-name="writeToParcel" parameter="flags" clr-enum-type="Android.OS.ParcelableWriteFlags" />
   </mapping>
 
-  -->
+
 
   <mapping jni-class="android/support/v4/app/Fragment.SavedState">
     <method jni-name="writeToParcel" parameter="flags" clr-enum-type="Android.OS.ParcelableWriteFlags" />
   </mapping>
 
+  -->
 </enum-method-mappings>
