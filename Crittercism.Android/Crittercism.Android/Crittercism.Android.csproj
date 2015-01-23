@@ -55,6 +55,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Xamarin.Android.Bindings.targets" />
   <ItemGroup>
-    <EmbeddedJar Include="Jars\crittercism_TITANIUM_v4_5_4_sdkonly.jar" />
+    <EmbeddedJar Include="Jars\crittercism_TITANIUM_v5_1_4_sdkonly.jar" />
   </ItemGroup>
 </Project>

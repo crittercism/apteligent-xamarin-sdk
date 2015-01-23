@@ -81,6 +81,31 @@ namespace CrittercismAndroid
 			Com.Crittercism.App.Crittercism.SetMetadata( jso );
 		}
 
+		public static void beginTransaction(string name)
+		{
+			Com.Crittercism.App.Crittercism.BeginTransaction (name);
+		}
+
+		public static void endTransaction(string name)
+		{
+			Com.Crittercism.App.Crittercism.EndTransaction (name);
+		}
+
+		public static void failTransaction(string name)
+		{
+			Com.Crittercism.App.Crittercism.FailTransaction (name);
+		}
+
+		public static void setTransactionValue(string name, int value)
+		{
+			Com.Crittercism.App.Crittercism.SetTransactionValue (name, value);
+		}
+
+		public static int getTransactionValue(string name)
+		{
+			return Com.Crittercism.App.Crittercism.GetTransactionValue (name);
+		}
+			
 		public static bool DidCrashOnLastLoad()
 		{
 			return Com.Crittercism.App.Crittercism.DidCrashOnLastLoad(); 
@@ -91,7 +116,6 @@ namespace CrittercismAndroid
 			get { return Com.Crittercism.App.Crittercism.OptOutStatus; }
 			set { Com.Crittercism.App.Crittercism.OptOutStatus = value; }
 		}
-
 	}
 }
 
