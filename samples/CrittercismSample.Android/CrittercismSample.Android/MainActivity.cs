@@ -59,6 +59,36 @@ namespace CrittercismSample.Android
 				Crittercism.LeaveBreadcrumb( "Android BreadCrumb");
 				buttonLeaveBreadcrumb.Text = string.Format( "just left a breadcrumb");
 			};
+
+			Button buttonBeginTransaction = FindViewById<Button> (Resource.Id.buttonBeginTransaction);
+			buttonBeginTransaction.Click += delegate(object sender, EventArgs e) {
+				Crittercism.BeginTransaction( "Android Transaction");
+				buttonBeginTransaction.Text = string.Format( "just began a transaction");
+			};
+
+			Button buttonEndTransaction = FindViewById<Button> (Resource.Id.buttonEndTransaction);
+			buttonEndTransaction.Click += delegate(object sender, EventArgs e) {
+				Crittercism.EndTransaction( "Android Transaction");
+				buttonEndTransaction.Text = string.Format( "just ended a transaction");
+			};
+
+			Button buttonFailTransaction = FindViewById<Button> (Resource.Id.buttonFailTransaction);
+			buttonFailTransaction.Click += delegate(object sender, EventArgs e) {
+				Crittercism.FailTransaction( "Android Transaction");
+				buttonFailTransaction.Text = string.Format( "just failed a transaction");
+			};
+
+			Button buttonSetTransactionValue = FindViewById<Button> (Resource.Id.buttonSetTransactionValue);
+			buttonSetTransactionValue.Click += delegate(object sender, EventArgs e) {
+				Crittercism.SetTransactionValue( "Android Transaction", 500);
+				buttonSetTransactionValue.Text = string.Format( "just set transaction value to 500");
+			};
+
+			Button buttonGetTransactionValue = FindViewById<Button> (Resource.Id.buttonGetTransactionValue);
+			buttonGetTransactionValue.Click += delegate(object sender, EventArgs e) {
+				int value = Crittercism.GetTransactionValue( "Android Transaction");
+				buttonGetTransactionValue.Text = string.Format("Value is: " + value.ToString());
+			};
 		}
 
 		public void crashCLR()

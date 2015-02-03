@@ -137,32 +137,32 @@ namespace CrittercismIOS
 			return Crittercism_GetOptOutStatus ();
 		}
 			
-		public static void beginTransaction(string name)
+		public static void BeginTransaction(string name)
 		{
 			Crittercism_BeginTransaction (name);
 		}
 
-		public static void beginTransaction(string name, int value) 
+		public static void BeginTransaction(string name, int value) 
 		{
 			Crittercism_BeginTransactionWithValue(name, value);
 		}
 
-		public static void endTransaction(string name)
+		public static void EndTransaction(string name)
 		{
 			Crittercism_EndTransaction (name);
 		}
 
-		public static void failTransaction(string name)
+		public static void FailTransaction(string name)
 		{
 			Crittercism_FailTransaction (name);
 		}
 
-		public static void setTransactionValue(string name, int value)
+		public static void SetTransactionValue(string name, int value)
 		{
 			Crittercism_SetTransactionValue (name, value);
 		}
 
-		public static int getTransactionValue(string name)
+		public static int GetTransactionValue(string name)
 		{
 			return Crittercism_GetTransactionValue (name);
 		}

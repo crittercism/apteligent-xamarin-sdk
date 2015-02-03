@@ -14,7 +14,7 @@
     <AndroidApplication>True</AndroidApplication>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <AssemblyName>CrittercismSample.Android</AssemblyName>
-    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.4</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
   </PropertyGroup>
@@ -46,7 +46,7 @@
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
     <Reference Include="Crittercism.Android">
-      <HintPath>lib\Crittercism.Android.dll</HintPath>
+      <HintPath>..\..\..\Crittercism.Android\Crittercism.Android\bin\Release\Crittercism.Android.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

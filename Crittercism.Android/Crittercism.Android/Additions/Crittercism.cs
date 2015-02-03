@@ -81,27 +81,33 @@ namespace CrittercismAndroid
 			Com.Crittercism.App.Crittercism.SetMetadata( jso );
 		}
 
-		public static void beginTransaction(string name)
+		public static void BeginTransaction(string name)
 		{
 			Com.Crittercism.App.Crittercism.BeginTransaction (name);
 		}
 
-		public static void endTransaction(string name)
+		public static void BeginTransaction (string name, int value)
+		{
+			Com.Crittercism.App.Crittercism.BeginTransaction (name);
+			Com.Crittercism.App.Crittercism.SetTransactionValue (name, value);
+		}
+
+		public static void EndTransaction(string name)
 		{
 			Com.Crittercism.App.Crittercism.EndTransaction (name);
 		}
 
-		public static void failTransaction(string name)
+		public static void FailTransaction(string name)
 		{
 			Com.Crittercism.App.Crittercism.FailTransaction (name);
 		}
 
-		public static void setTransactionValue(string name, int value)
+		public static void SetTransactionValue(string name, int value)
 		{
 			Com.Crittercism.App.Crittercism.SetTransactionValue (name, value);
 		}
 
-		public static int getTransactionValue(string name)
+		public static int GetTransactionValue(string name)
 		{
 			return Com.Crittercism.App.Crittercism.GetTransactionValue (name);
 		}
