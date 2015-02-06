@@ -19,9 +19,16 @@ Crittercism API (iOS and Android )
 - void Crittercism.LeaveBreadcrumb(string breadcrumb)
 - void Crittercism.SetMetadata(string key, string value)
 - void Crittercism.SetUserName(string username)
-- bool Crittercism.DidCrashOnLastLoad()	
+- bool Crittercism.DidCrashOnLastLoad()
 - void Crittercism.LogUnHandledException(System.Exception e)
 - void Crittercism.LogHandledException(System.Exception e)
+- void Crittercism.BeginTransaction(string transactionName)
+- void Crittercism.BeginTransaction(string transactionName, int transactionValue)
+- void Crittercism.EndTransaction(string transactionName)
+- void Crittercism.FailTransaction(string transactionName)
+- void Crittercism.SetTransactionValue(string transactionName, transactionValue)
+- int Crittercism.GetTransactionValue(string transactionName)
+
 
 ##Getting Started
 
@@ -56,7 +63,7 @@ Crittercism.SetUsername ("ANDROID_USER_NAME");
 ```
 
 #### Mapping.txt file for Android
-1. Uploading the mapping.txt File 
+1. Uploading the mapping.txt File
 
 For more information regarding the Xamarin Android Crittercsim refer to the  [Crittercism docs](http://docs.crittercism.com/android/android.html)
 
@@ -65,8 +72,8 @@ For more information regarding the Xamarin Android Crittercsim refer to the  [Cr
 1. Create a new Xamarin iOS Project
 1. Add the Crittercsim Library
 1. Import namespace `using Crittercism;`
-1. Configure correct Provisions for 
-1. Initialize Crittercism 
+1. Configure correct Provisions for
+1. Initialize Crittercism
 
 For more information regarding the Xamarin Android Crittercsim refer to the  [Crittercism docs](http://docs.crittercism.com/android/ios.html)
 
@@ -137,7 +144,7 @@ API Key: jgamwbghdxpe7kolfnruhyds10bcxvna
 ```
 
 
-###Android 
+###Android
 
 [Xamarin-TestApp-Android crash-summary ](https://app.crittercism.com/developers/crash-summary/537fc935b573f15751000002)
 
@@ -153,7 +160,7 @@ Crittercism.initialize(getApplicationContext(), "537fc935b573f15751000002");
 
 ##Developer Notes
 
-### Build 
+### Build
 
 - Using Xamarin to Build
 - using Build Scripts
@@ -161,9 +168,9 @@ Crittercism.initialize(getApplicationContext(), "537fc935b573f15751000002");
 ### Test , User Test stories.
 
  - on Device Testing / Verification
- - Simulator Testing / Verification 
+ - Simulator Testing / Verification
 
-### Deploy 
+### Deploy
  - packaging the libarary for Xamarin Store
  - Submitting to the Xamarin Store
 
@@ -180,8 +187,8 @@ Crittercism.initialize(getApplicationContext(), "537fc935b573f15751000002");
 
 - Supports Xamarin 3.0
 - Created Crittercism.Workspace with both the binding libraries and Sample Applications `~/Crittercism.Workspace/Crittercism.mdw`
-- Updated README.md 
-- Lots of little Clean up 
+- Updated README.md
+- Lots of little Clean up
 	- Removed the /docs folder ( branched from docs repo instead)
 	- Removed the /misc folder
 
@@ -189,16 +196,10 @@ Crittercism.initialize(getApplicationContext(), "537fc935b573f15751000002");
 
 ###Misc Notes
 
-- [ ] CLR Stack tracing, clr update ( NSException - Hacky way ) 
-	- C# Exceptions 
+- [ ] CLR Stack tracing, clr update ( NSException - Hacky way )
+	- C# Exceptions
  	- logUnityException ( convert to the windows exception and sends to endpoint, as a Windows excption )
- 	- hook global exception handler it into 
+ 	- hook global exception handler it into
 	- Diagnostics ( app version, battery, etc ... )
 	- Check for an update on the unity library.
 	- https://github.com/crittercism/crittercism-unity-ios/blob/feature/exception-cleanup/Plugins/Crittercism_IOS_Scripts/CrittercismIOS.cs#L169
-
-
-
-
-
-
