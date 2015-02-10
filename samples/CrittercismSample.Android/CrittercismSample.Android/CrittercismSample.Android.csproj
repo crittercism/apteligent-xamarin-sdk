@@ -46,7 +46,7 @@
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
     <Reference Include="Crittercism.Android">
-      <HintPath>..\..\..\Crittercism.Android\Crittercism.Android\bin\Release\Crittercism.Android.dll</HintPath>
+      <HintPath>lib\Crittercism.Android.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

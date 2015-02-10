@@ -89,7 +89,7 @@
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
     <Reference Include="Crittercism.iOS">
-      <HintPath>..\..\..\Crittercism.iOS\Crittercism.iOS\bin\Debug\Crittercism.iOS.dll</HintPath>
+      <HintPath>lib\Crittercism.iOS.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
