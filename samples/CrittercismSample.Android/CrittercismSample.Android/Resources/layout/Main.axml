@@ -23,4 +23,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/buttonBreadcrumb" />
+    <Button
+        android:text="Begin Transaction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonBeginTransaction" />
+    <Button
+        android:text="End Transaction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonEndTransaction" />
+    <Button
+        android:text="Fail Transaction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonFailTransaction" />
+    <Button
+        android:text="Set Transaction Value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonSetTransactionValue" />
+    <Button
+        android:text="Get Transaction Value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonGetTransactionValue" />
 </LinearLayout>

@@ -48,6 +48,28 @@ namespace Sample.iOS
 				//crashNullReference();
 				//crashIndexOutOfRange();
 			};
+
+			ButtonBeginTransaction.TouchUpInside += (object sender, EventArgs e) => {
+				Crittercism.BeginTransaction("Transaction");
+			};
+
+			ButtonEndTransaction.TouchUpInside += (object sender, EventArgs e) => {
+				Crittercism.EndTransaction("Transaction");
+			};
+
+			ButtonFailTransaction.TouchUpInside += (object sender, EventArgs e) => {
+				Crittercism.FailTransaction("Transaction");
+			};
+
+			ButtonSetTransactionValue.TouchUpInside += (object sender, EventArgs e) => {
+				Crittercism.SetTransactionValue("Transaction", 500);
+				ButtonSetTransactionValue.SetTitle("Set value to 500", UIControlState.Normal);
+			};
+
+			ButtonGetTransactionValue.TouchUpInside += (object sender, EventArgs e) => {
+				int value = Crittercism.GetTransactionValue("Transaction");
+				ButtonGetTransactionValue.SetTitle(value.ToString(), UIControlState.Normal);
+			};
 		}
 
 		private void crashDivideByZero()

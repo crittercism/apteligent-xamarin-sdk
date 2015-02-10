@@ -103,6 +103,50 @@ Here’s an example of how to associate metadata with the current user:
     Crittercism.SetMetadata("5", "GameLevel");
 ```
 
+### Logging Transactions
+
+Transactions allows companies to track key interactions or user flows in their
+app such as login, account registration, and in app purchase.  By default, the
+SDK will automatically track application load time as a transaction.  You can
+specify additional transactions by adding a few more lines of code to your
+application. 
+
+Developers must add code to specify where a transaction starts and where a
+transaction ends. All other API calls are optional. If a crash occurs, all
+in-flight transactions will automatically be failed and reported with the
+crash. Use the ``BeginTransaction``, ``EndTransaction``, and ``FailTransaction``
+methods to log transactions. 
+
+Here's an example of how to log a single transaction:
+
+```csharp
+    Crittercism.BeginTransaction("login");
+    // Run the code you want to monitor
+    bool didLogin = RunMyLoginCode();
+    if (didLogin) {
+        Crittercism.EndTransaction("login");
+    } else {
+        Crittercism.FailTransaction("login");
+    }
+```
+
+When beginning a transaction, you can also assign the transaction a value:
+
+```csharp
+    int valueInCents = 100;
+    Crittercism.BeginTransaction("my_transaction", valueInCents);
+```
+
+Use the ``SetTransactionValue`` and ``GetTransactionValue`` methods to modify
+the value of a transaction. The value of a transaction should be specified in
+cents.
+
+```csharp
+    int itemValueInCents = 100;
+    int totalValueInCents = 100 + Crittercism.GetTransactionValue("shopping cart");
+    Crittercism.SetTransactionValue("shopping cart", totalValueInCents);
+```
+
 ### Other Resources
 
 View the full Crittercism documentation at http://docs.crittercism.com

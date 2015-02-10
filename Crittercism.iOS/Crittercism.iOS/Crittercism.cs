@@ -25,6 +25,24 @@ namespace CrittercismIOS
 		[DllImport("__Internal")]
 		private static extern void Crittercism_SetOptOutStatus(bool status);
 
+		[DllImport("__Internal")]
+		private static extern void Crittercism_BeginTransaction(string name);
+
+		[DllImport("__Internal")]
+		private static extern void Crittercism_BeginTransactionWithValue(string name, int value);
+
+		[DllImport("__Internal")]
+		private static extern void Crittercism_EndTransaction(string name);
+
+		[DllImport("__Internal")]
+		private static extern void Crittercism_FailTransaction(string name);
+
+		[DllImport("__Internal")]
+		private static extern void Crittercism_SetTransactionValue(string name, int value);
+
+		[DllImport("__Internal")]
+		private static extern int Crittercism_GetTransactionValue(string name);
+
 		[DllImport ("libc")]
 		private static extern int sigaction (Signal sig, IntPtr act, IntPtr oact);
 
@@ -117,6 +135,36 @@ namespace CrittercismIOS
 		public static bool GetOptOutStatus()
 		{
 			return Crittercism_GetOptOutStatus ();
+		}
+			
+		public static void BeginTransaction(string name)
+		{
+			Crittercism_BeginTransaction (name);
+		}
+
+		public static void BeginTransaction(string name, int value) 
+		{
+			Crittercism_BeginTransactionWithValue(name, value);
+		}
+
+		public static void EndTransaction(string name)
+		{
+			Crittercism_EndTransaction (name);
+		}
+
+		public static void FailTransaction(string name)
+		{
+			Crittercism_FailTransaction (name);
+		}
+
+		public static void SetTransactionValue(string name, int value)
+		{
+			Crittercism_SetTransactionValue (name, value);
+		}
+
+		public static int GetTransactionValue(string name)
+		{
+			return Crittercism_GetTransactionValue (name);
 		}
 
 	}

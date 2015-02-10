@@ -8,6 +8,11 @@
 	<attr path="/api/package[@name='com.crittercism.app']/class[@name='Crittercism']/method[@name='_logCrashException']" name="logCrashException"></attr>
 	<attr path="/api/package[@name='com.crittercism.app']/class[@name='Crittercism']/method[@name='logHandledException']" name="logHandledException"></attr>
 	<attr path="/api/package[@name='com.crittercism.app']/class[@name='Crittercism']/method[@name='leaveBreadcrumb']" name="leaveBreadcrumb"></attr>
+	<attr path="/api/package[@name='com.crittercism.app']/class[@name='Crittercism']/method[@name='beginTransaction']" name="beginTransaction"></attr>
+	<attr path="/api/package[@name='com.crittercism.app']/class[@name='Crittercism']/method[@name='endTransaction']" name="endTransaction"></attr>
+	<attr path="/api/package[@name='com.crittercism.app']/class[@name='Crittercism']/method[@name='failTransaction']" name="failTransaction"></attr>
+	<attr path="/api/package[@name='com.crittercism.app']/class[@name='Crittercism']/method[@name='setTransactionValue']" name="setTransactionValue"></attr>
+	<attr path="/api/package[@name='com.crittercism.app']/class[@name='Crittercism']/method[@name='getTransactionValue']" name="getTransactionValue"></attr>
 
 	<!--
   This sample removes the class: android.support.v4.content.AsyncTaskLoader.LoadTask:
