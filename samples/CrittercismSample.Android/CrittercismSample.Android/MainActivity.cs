@@ -27,8 +27,6 @@ namespace CrittercismSample.Android
 			//Set the Username
 			Crittercism.SetUserName ("ANDROID_USER_NAME");
 
-			Crittercism.OptOutStatus = true;
-
 			base.OnCreate (bundle);
 
 			SetContentView (Resource.Layout.Main);
