@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-
 using Foundation;
 
 namespace CrittercismIOS
@@ -84,7 +83,7 @@ namespace CrittercismIOS
 			// Disable service monitoring. There's issues with NSProxy
 			Crittercism_EnableWithAppID (appId, false);
 
-			// Restor or Destrory the handlers
+			// Restore or Destroy the handlers
 			sigaction (Signal.SIGABRT, sigabrt, IntPtr.Zero);  		//RESTORE
 			sigaction (Signal.SIGFPE, sigfpe, IntPtr.Zero);  		//RESTORE
 			sigaction (Signal.SIGBUS, sigbus, IntPtr.Zero);			//RESTORE
@@ -99,28 +98,59 @@ namespace CrittercismIOS
 			AppDomain.CurrentDomain.UnhandledException += (sender, args) => {
 				// Register to get notified of unhandled C# exceptions
 
-				System.Exception exception = (System.Exception)args.ExceptionObject;
+				Exception exception = (Exception)args.ExceptionObject;
 				LogUnhandledException ( exception );
 
 			};
 
 		}
 
-		private static void LogUnhandledException( System.Exception e )
-		{
-			Crittercism_LogUnhandledException (e.Message, e.Message, e.StackTrace, 1);
+		// Cf. Crittercism-ios CRPluginException.h crPlatformId crXamarinId = 1 .
+		private const int crXamarinId = 1;
 
-			NSDate date = NSDate.FromTimeIntervalSinceNow (2.0);
-			NSRunLoop.Current.RunUntil (date);
+		private static string StackTrace(Exception e)
+		{
+			// Allowing for the fact that the "name" and "reason" of the outermost
+			// exception e are already shown in the Crittercism portal, we don't
+			// need to repeat that bit of info.  However, for InnerException's, we
+			// will include this information in the StackTrace .  The horizontal
+			// lines (hyphens) separate InnerException's from each other and the
+			// outermost Exception e .
+			string answer = e.StackTrace;
+			if (answer == null) {
+				// Assuming the Exception e being passed in hasn't been thrown.  In this case,
+				// supply our own current "stacktrace".
+				try {
+					throw new Exception();
+				} catch (Exception e2) {
+					answer = e2.StackTrace;
+				}
+			} else {
+				Exception ie = e.InnerException;
+				while (ie != null) {
+					answer = ((ie.GetType().FullName + " : " + ie.Message + "\r\n")
+					+ (ie.StackTrace + "\r\n")
+					+ "----------------------------------------------------------------\r\n"
+					+ answer);
+					ie = ie.InnerException;
+				}
+			}
+			return answer;
 		}
 
-		public static void LogHandledException (System.Exception e)
+		private static void LogUnhandledException(Exception e)
+		{
+			Crittercism_LogUnhandledException(e.GetType().FullName, e.Message, StackTrace(e), crXamarinId);
+			NSDate date = NSDate.FromTimeIntervalSinceNow(2.0);
+			NSRunLoop.Current.RunUntil(date);
+		}
+
+		public static void LogHandledException(Exception e)
 		{
 			if (e == null) {
 				return;
 			}
-
-			Crittercism_LogHandledException (e.Message, e.Message, e.StackTrace, 1);
+			Crittercism_LogHandledException(e.GetType().FullName, e.Message, StackTrace(e), crXamarinId);
 		}
 
 		public static void SetMetadata (string key, string value)

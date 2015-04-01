@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Drawing;
-
-using Foundation;
 using UIKit;
-
 using CrittercismIOS;
 
 namespace Sample.iOS
@@ -37,14 +33,16 @@ namespace Sample.iOS
 
 			ButtonCLRException.TouchUpInside += (object sender, EventArgs e) => {
 				try {
-					crashCustomException();
-				} catch (System.Exception error) {
+					//crashCustomException();
+					crashInnerException();
+				} catch (Exception error) {
 					Crittercism.LogHandledException(error);
 				}
 			};
 
 			ButtonCrashCLR.TouchUpInside += (object sender, EventArgs e) => {
-				crashDivideByZero();
+				crashInnerException();
+				//crashDivideByZero();
 				//crashNullReference();
 				//crashIndexOutOfRange();
 			};
@@ -94,7 +92,25 @@ namespace Sample.iOS
 
 		public void crashCustomException()
 		{
-			throw new System.Exception("Custom Exception");
+			throw new Exception("Custom Exception");
+		}
+
+		public void DeepError(int n)
+		{
+			if (n == 0) {
+				throw new Exception("Deep Inner Exception");
+			} else {
+				DeepError(n - 1);
+			}
+		}
+
+		public void crashInnerException()
+		{
+			try {
+				DeepError(4);
+			} catch (Exception ie) {
+				throw new Exception("Outer Exception", ie);
+			}
 		}
 
 		public override void ViewWillAppear (bool animated)
