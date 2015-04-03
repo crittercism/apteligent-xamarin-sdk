@@ -22,10 +22,12 @@ namespace CrittercismSample.Android
 		protected override void OnCreate (Bundle bundle)
 		{
 			//Initialize Crittercism
-			Crittercism.Init( ApplicationContext,  "YOUR_APP_ID_GOES_HERE");
+			//  AppId "Crittercism Android Library Internal Testing"
+			Crittercism.Init( ApplicationContext,  "52e358a4400205569e000008");
 
 			//Set the Username
 			Crittercism.SetUserName ("ANDROID_USER_NAME");
+			Crittercism.LeaveBreadcrumb("Xamarin Studio needs to be licensed.  Pay up!!!");
 
 			base.OnCreate (bundle);
 
@@ -40,7 +42,8 @@ namespace CrittercismSample.Android
 			Button buttonHandledException = FindViewById<Button> (Resource.Id.buttonHandledException);
 			buttonHandledException.Click += delegate(object sender, EventArgs e) {
 				try {
-					throw new Exception();
+					//throw new Exception();
+					crashInnerException();
 				} catch (System.Exception error){
 					Crittercism.LogHandledException(error);
 				}
@@ -49,7 +52,8 @@ namespace CrittercismSample.Android
 			Button buttonCrashCLR = FindViewById<Button> (Resource.Id.buttonCrashCLR);
 			buttonCrashCLR.Click += delegate(object sender, EventArgs e) {
 				Crittercism.LeaveBreadcrumb( "Crash CLR");
-				crashCLR();
+				//crashCLR();
+				crashInnerException();
 			};
 
 			Button buttonLeaveBreadcrumb = FindViewById<Button> (Resource.Id.buttonBreadcrumb);
@@ -110,6 +114,24 @@ namespace CrittercismSample.Android
 		{
 			string[] arr	= new string[1];
 			arr[2]	= "Crash";
+		}
+
+		public void DeepError(int n)
+		{
+			if (n == 0) {
+				throw new Exception("Deep Inner Exception");
+			} else {
+				DeepError(n - 1);
+			}
+		}
+
+		public void crashInnerException()
+		{
+			try {
+				DeepError(4);
+			} catch (Exception ie) {
+				throw new Exception("Outer Exception", ie);
+			}
 		}
 
 		// +++++++++++++++++++++++++++++++++++++++
