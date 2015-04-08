@@ -27,7 +27,6 @@ namespace CrittercismSample.Android
 
 			//Set the Username
 			Crittercism.SetUserName ("ANDROID_USER_NAME");
-			Crittercism.LeaveBreadcrumb("Xamarin Studio needs to be licensed.  Pay up!!!");
 
 			base.OnCreate (bundle);
 
