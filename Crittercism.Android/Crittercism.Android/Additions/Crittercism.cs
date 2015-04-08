@@ -28,16 +28,50 @@ namespace CrittercismAndroid
 			};
 		}
 
+		private static string StackTrace(System.Exception e)
+		{
+			// Allowing for the fact that the "name" and "reason" of the outermost
+			// exception e are already shown in the Crittercism portal, we don't
+			// need to repeat that bit of info.  However, for InnerException's, we
+			// will include this information in the StackTrace .  The horizontal
+			// lines (hyphens) separate InnerException's from each other and the
+			// outermost Exception e .
+			string answer = e.StackTrace;
+			if (answer == null) {
+				// Assuming the Exception e being passed in hasn't been thrown.  In this case,
+				// supply our own current "stacktrace".
+				try {
+					throw new System.Exception();
+				} catch (System.Exception e2) {
+					answer = e2.StackTrace;
+				}
+			} else {
+				System.Exception ie = e.InnerException;
+				while (ie != null) {
+					answer = ((ie.GetType().FullName + " : " + ie.Message + "\r\n")
+						+ (ie.StackTrace + "\r\n")
+						+ "----------------------------------------------------------------\r\n"
+						+ answer);
+					ie = ie.InnerException;
+				}
+			}
+			return answer;
+		}
+
+		public static void LogHandledException(System.Exception e)
+		{
+			string name = e.GetType().FullName;
+			string message = e.Message;
+			string stack = StackTrace(e);
+			Com.Crittercism.App.Crittercism._logHandledException(name, message, stack);
+		}
+
 		private static void LogUnhandledException(RaiseThrowableEventArgs e)
 		{
-			Java.Lang.Exception javaLangException = ExceptionHelper.createJavaException(e.Exception);
-			Com.Crittercism.App.Crittercism._logCrashException(javaLangException);
-		}
-			
-		public static void LogHandledException (System.Exception e)
-		{
-			Java.Lang.Exception javaLangException = ExceptionHelper.createJavaException (e);
-			Com.Crittercism.App.Crittercism.LogHandledException (javaLangException);
+			string name = e.Exception.GetType().FullName;
+			string message = e.Exception.Message;
+			string stack = StackTrace(e.Exception);
+			Com.Crittercism.App.Crittercism._logCrashException(name, message, stack);
 		}
 
 		public static void LeaveBreadcrumb (string breadcrumb)

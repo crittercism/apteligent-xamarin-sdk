@@ -119,7 +119,7 @@ namespace CrittercismSample.Android
 		public void DeepError(int n)
 		{
 			if (n == 0) {
-				throw new Exception("Deep Inner Exception");
+				throw new CrittercismSampleException("Deep Inner Exception");
 			} else {
 				DeepError(n - 1);
 			}
@@ -130,7 +130,7 @@ namespace CrittercismSample.Android
 			try {
 				DeepError(4);
 			} catch (Exception ie) {
-				throw new Exception("Outer Exception", ie);
+				throw new CrittercismSampleException("Outer Exception", ie);
 			}
 		}
 
