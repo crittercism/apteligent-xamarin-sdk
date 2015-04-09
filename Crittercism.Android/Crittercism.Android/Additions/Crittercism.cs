@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Android.Runtime;
 using Android.Content;
 using Android.App;
@@ -37,23 +38,24 @@ namespace CrittercismAndroid
 			// lines (hyphens) separate InnerException's from each other and the
 			// outermost Exception e .
 			string answer = e.StackTrace;
-			if (answer == null) {
-				// Assuming the Exception e being passed in hasn't been thrown.  In this case,
-				// supply our own current "stacktrace".
-				try {
-					throw new System.Exception();
-				} catch (System.Exception e2) {
-					answer = e2.StackTrace;
-				}
-			} else {
+			// Using seen for cycle detection to break cycling.
+			List<System.Exception> seen = new List<System.Exception>();
+			seen.Add(e);
+			if (answer != null) {
+				// There has to be some way of telling where InnerException ie stacktrace
+				// ends and main Exception e stacktrace begins.  This is it.
+				answer = ((e.GetType().FullName + " : " + e.Message + "\r\n")
+				          + answer);
 				System.Exception ie = e.InnerException;
-				while (ie != null) {
+				while ((ie != null) && (seen.IndexOf(ie) < 0)) {
+					seen.Add(ie);
 					answer = ((ie.GetType().FullName + " : " + ie.Message + "\r\n")
-						+ (ie.StackTrace + "\r\n")
-						+ "----------------------------------------------------------------\r\n"
-						+ answer);
+					          + (ie.StackTrace + "\r\n")
+					          + answer);
 					ie = ie.InnerException;
 				}
+			} else {
+				answer = "";
 			}
 			return answer;
 		}

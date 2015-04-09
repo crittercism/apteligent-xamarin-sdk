@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using System.Collections.Generic;
 using Foundation;
 
 namespace CrittercismIOS
@@ -105,10 +106,10 @@ namespace CrittercismIOS
 
 		}
 
-		// Cf. Crittercism-ios CRPluginException.h crPlatformId crXamarinId = 1 .
+		// Crittercism-ios CRPluginException.h defines crPlatformId crXamarinId = 1 .
 		private const int crXamarinId = 1;
 
-		private static string StackTrace(Exception e)
+		private static string StackTrace(System.Exception e)
 		{
 			// Allowing for the fact that the "name" and "reason" of the outermost
 			// exception e are already shown in the Crittercism portal, we don't
@@ -117,23 +118,24 @@ namespace CrittercismIOS
 			// lines (hyphens) separate InnerException's from each other and the
 			// outermost Exception e .
 			string answer = e.StackTrace;
-			if (answer == null) {
-				// Assuming the Exception e being passed in hasn't been thrown.  In this case,
-				// supply our own current "stacktrace".
-				try {
-					throw new Exception();
-				} catch (Exception e2) {
-					answer = e2.StackTrace;
-				}
-			} else {
-				Exception ie = e.InnerException;
-				while (ie != null) {
-					answer = ((ie.GetType().FullName + " : " + ie.Message + "\r\n")
-					+ (ie.StackTrace + "\r\n")
-					+ "----------------------------------------------------------------\r\n"
+			// Using seen for cycle detection to break cycling.
+			List<System.Exception> seen = new List<System.Exception>();
+			seen.Add(e);
+			if (answer != null) {
+				// There has to be some way of telling where InnerException ie stacktrace
+				// ends and main Exception e stacktrace begins.  This is it.
+				answer = ((e.GetType().FullName + " : " + e.Message + "\r\n")
 					+ answer);
+				System.Exception ie = e.InnerException;
+				while ((ie != null) && (seen.IndexOf(ie) < 0)) {
+					seen.Add(ie);
+					answer = ((ie.GetType().FullName + " : " + ie.Message + "\r\n")
+						+ (ie.StackTrace + "\r\n")
+						+ answer);
 					ie = ie.InnerException;
 				}
+			} else {
+				answer = "";
 			}
 			return answer;
 		}
