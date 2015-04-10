@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using Android.Runtime;
 using Android.Content;
 using Android.App;
 using Org.Json;
 using Java.Lang;
 using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace CrittercismAndroid
 {
@@ -27,40 +29,51 @@ namespace CrittercismAndroid
 			};
 		}
 
-		// Takes the contents of a C# exception and stuffs them into a java exception.
-		// This is used to feed into the Crittercism Android SDK.
-		private static Java.Lang.Exception createJavaException( System.Exception e )
+		private static string StackTrace(System.Exception e)
 		{
-			Java.Lang.Exception javaLangException = new Java.Lang.Exception (e.Message);
-
-			StackTrace stackTrace = new StackTrace (e, true);
-			Java.Lang.StackTraceElement[] javaStackElements = new StackTraceElement[stackTrace.FrameCount];
-
-			for (int i = 0; i < stackTrace.FrameCount; i++) {
-				StackFrame frame = stackTrace.GetFrame (i);
-
-				javaStackElements[i] = new Java.Lang.StackTraceElement (
-					frame.GetMethod().DeclaringType.Name,
-					frame.GetMethod().Name,
-					frame.GetFileName(),
-					frame.GetFileLineNumber());
+			// Allowing for the fact that the "name" and "reason" of the outermost
+			// exception e are already shown in the Crittercism portal, we don't
+			// need to repeat that bit of info.  However, for InnerException's, we
+			// will include this information in the StackTrace .  The horizontal
+			// lines (hyphens) separate InnerException's from each other and the
+			// outermost Exception e .
+			string answer = e.StackTrace;
+			// Using seen for cycle detection to break cycling.
+			List<System.Exception> seen = new List<System.Exception>();
+			seen.Add(e);
+			if (answer != null) {
+				// There has to be some way of telling where InnerException ie stacktrace
+				// ends and main Exception e stacktrace begins.  This is it.
+				answer = ((e.GetType().FullName + " : " + e.Message + "\r\n")
+				          + answer);
+				System.Exception ie = e.InnerException;
+				while ((ie != null) && (seen.IndexOf(ie) < 0)) {
+					seen.Add(ie);
+					answer = ((ie.GetType().FullName + " : " + ie.Message + "\r\n")
+					          + (ie.StackTrace + "\r\n")
+					          + answer);
+					ie = ie.InnerException;
+				}
+			} else {
+				answer = "";
 			}
-
-			javaLangException.SetStackTrace (javaStackElements);
-
-			return javaLangException;
+			return answer;
 		}
 
-		private static void LogUnhandledException( RaiseThrowableEventArgs e )
+		public static void LogHandledException(System.Exception e)
 		{
-			Java.Lang.Exception javaLangException = createJavaException (e.Exception);
-			Com.Crittercism.App.Crittercism._logCrashException( javaLangException );
+			string name = e.GetType().FullName;
+			string message = e.Message;
+			string stack = StackTrace(e);
+			Com.Crittercism.App.Crittercism._logHandledException(name, message, stack);
 		}
-			
-		public static void LogHandledException (System.Exception e)
+
+		private static void LogUnhandledException(RaiseThrowableEventArgs e)
 		{
-			Java.Lang.Exception javaLangException = createJavaException (e);
-			Com.Crittercism.App.Crittercism.LogHandledException (javaLangException);
+			string name = e.Exception.GetType().FullName;
+			string message = e.Exception.Message;
+			string stack = StackTrace(e.Exception);
+			Com.Crittercism.App.Crittercism._logCrashException(name, message, stack);
 		}
 
 		public static void LeaveBreadcrumb (string breadcrumb)
