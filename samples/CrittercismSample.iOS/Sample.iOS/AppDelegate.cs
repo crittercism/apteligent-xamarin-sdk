@@ -20,7 +20,7 @@ namespace Sample.iOS
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
 			// "Internal Demo App - iOS" 
-			Crittercism.Init("53ed06a70729df13a4000004");
+			Crittercism.Init("YOUR APP ID GOES HERE");
 			return true;
 		}
 		

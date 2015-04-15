@@ -23,7 +23,7 @@ namespace CrittercismSample.Android
 		{
 			//Initialize Crittercism
 			//  AppId "Crittercism Android Library Internal Testing"
-			Crittercism.Init( ApplicationContext,  "52e358a4400205569e000008");
+			Crittercism.Init( ApplicationContext,  "YOUR APP ID GOES HERE");
 
 			//Set the Username
 			Crittercism.SetUserName ("ANDROID_USER_NAME");
