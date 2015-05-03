@@ -21,17 +21,26 @@ namespace Sample.iOS
 		{
 			base.ViewDidLoad ();
 
-			Crittercism.Username = "MyUserName";
-
-			ButtonAttachUserMeta.TouchUpInside += (object sender, EventArgs e) => {
-				Crittercism.SetMetadata("Game Level","5");
-			};
-
 			ButtonLeaveBreadcrumb.TouchUpInside += (object sender, EventArgs e) => {
 				Crittercism.LeaveBreadcrumb("My Breadcrumb");
 			};
 
-			ButtonCLRException.TouchUpInside += (object sender, EventArgs e) => {
+			ButtonSetUsername.TouchUpInside += (object sender, EventArgs e) => {
+				Crittercism.Username = "MrsCritter";
+			};
+
+			ButtonSetMetadata.TouchUpInside += (object sender, EventArgs e) => {
+				Crittercism.SetMetadata("Game Level","5");
+			};
+
+			ButtonCrash.TouchUpInside += (object sender, EventArgs e) => {
+				crashInnerException();
+				//crashDivideByZero();
+				//crashNullReference();
+				//crashIndexOutOfRange();
+			};
+
+			ButtonHandledException.TouchUpInside += (object sender, EventArgs e) => {
 				try {
 					//crashCustomException();
 					crashInnerException();
@@ -40,11 +49,15 @@ namespace Sample.iOS
 				}
 			};
 
-			ButtonCrashCLR.TouchUpInside += (object sender, EventArgs e) => {
-				crashInnerException();
-				//crashDivideByZero();
-				//crashNullReference();
-				//crashIndexOutOfRange();
+			ButtonLogNetworkRequest.TouchUpInside += (object sender, EventArgs e) => {
+				Crittercism.LogNetworkRequest(
+					"GET",
+					"http://docs.crittercism.com",
+					0.1,
+					8765,
+					234,
+					200,
+					0);
 			};
 
 			ButtonBeginTransaction.TouchUpInside += (object sender, EventArgs e) => {

@@ -17,6 +17,15 @@ namespace CrittercismIOS
 		private static extern void Crittercism_LogUnhandledException (string name, string reason, string stack, int platformId);
 
 		[DllImport("__Internal")]
+		private static extern bool Crittercism_LogNetworkRequest(string method,
+			string url,
+			double latency,
+			int bytesRead,
+			int bytesSent,
+			int responseCode,
+			int errorCode);
+
+		[DllImport("__Internal")]
 		private static extern void Crittercism_SetValue(string value, string key);
 
 		[DllImport("__Internal")]
@@ -82,7 +91,7 @@ namespace CrittercismIOS
 			sigaction (Signal.SIGSEGV,IntPtr.Zero, sigsegv);
 
 			// Disable service monitoring. There's issues with NSProxy
-			Crittercism_EnableWithAppID (appId, false);
+			Crittercism_EnableWithAppID (appId, true);
 
 			// Restore or Destroy the handlers
 			sigaction (Signal.SIGABRT, sigabrt, IntPtr.Zero);  		//RESTORE
@@ -114,9 +123,7 @@ namespace CrittercismIOS
 			// Allowing for the fact that the "name" and "reason" of the outermost
 			// exception e are already shown in the Crittercism portal, we don't
 			// need to repeat that bit of info.  However, for InnerException's, we
-			// will include this information in the StackTrace .  The horizontal
-			// lines (hyphens) separate InnerException's from each other and the
-			// outermost Exception e .
+			// will include this information in the StackTrace .
 			string answer = e.StackTrace;
 			// Using seen for cycle detection to break cycling.
 			List<System.Exception> seen = new List<System.Exception>();
@@ -153,6 +160,17 @@ namespace CrittercismIOS
 				return;
 			}
 			Crittercism_LogHandledException(e.GetType().FullName, e.Message, StackTrace(e), crXamarinId);
+		}
+
+		public static bool LogNetworkRequest(string method,
+		                                     string url,
+		                                     double latency,
+		                                     int bytesRead,
+		                                     int bytesSent,
+		                                     int responseCode,
+		                                     int errorCode)
+		{
+			return Crittercism_LogNetworkRequest(method, url, latency, bytesRead, bytesSent, responseCode, errorCode);
 		}
 
 		public static void SetMetadata (string key, string value)
