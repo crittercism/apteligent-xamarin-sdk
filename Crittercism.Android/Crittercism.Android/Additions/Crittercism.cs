@@ -76,6 +76,25 @@ namespace CrittercismAndroid
 			Com.Crittercism.App.Crittercism._logCrashException(name, message, stack);
 		}
 
+		public static void LogNetworkRequest(
+			string method,
+			string url,
+			long responseTime,
+			long bytesRead,
+			long bytesSent,
+			int responseCode,
+			int errorCode)
+		{
+			Com.Crittercism.App.Crittercism.LogNetworkRequest(
+				method,
+				url,
+				responseTime,
+				bytesRead,
+				bytesSent,
+				responseCode,
+				errorCode);
+		}
+
 		public static void LeaveBreadcrumb (string breadcrumb)
 		{
 			Com.Crittercism.App.Crittercism.LeaveBreadcrumb (breadcrumb);

@@ -4,48 +4,58 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
     <Button
-        android:id="@+id/buttonAttachMeta"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/hello" />
-    <Button
-        android:text="Crash CLR"
+        android:text="Leave Breadcrumb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonCrashCLR" />
+        android:id="@+id/ButtonBreadcrumb" />
     <Button
-        android:text="Log Handled Exception"
+        android:text="Set Username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonHandledException" />
+        android:id="@+id/ButtonSetUserName" />
     <Button
-        android:text="Leave breadcrumb"
+        android:text="Set Metadata"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonBreadcrumb" />
+        android:id="@+id/ButtonSetMetadata" />
+    <Button
+        android:text="Crash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ButtonCrash" />
+    <Button
+        android:text="Handled Exception"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ButtonHandledException" />
+    <Button
+        android:text="Log Network Request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ButtonLogNetworkRequest" />
     <Button
         android:text="Begin Transaction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonBeginTransaction" />
+        android:id="@+id/ButtonBeginTransaction" />
     <Button
         android:text="End Transaction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonEndTransaction" />
+        android:id="@+id/ButtonEndTransaction" />
     <Button
         android:text="Fail Transaction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonFailTransaction" />
+        android:id="@+id/ButtonFailTransaction" />
     <Button
         android:text="Set Transaction Value"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonSetTransactionValue" />
+        android:id="@+id/ButtonSetTransactionValue" />
     <Button
         android:text="Get Transaction Value"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonGetTransactionValue" />
+        android:id="@+id/ButtonGetTransactionValue" />
 </LinearLayout>
