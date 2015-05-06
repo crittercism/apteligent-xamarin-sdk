@@ -50,13 +50,26 @@ namespace Sample.iOS
 			};
 
 			ButtonLogNetworkRequest.TouchUpInside += (object sender, EventArgs e) => {
+				Random random = new Random();
+				string[] methods = {"GET","POST","HEAD"};
+				string method=methods[random.Next(methods.Length)];
+				string[] urls = {"http://www.critterwebservice.com",
+					"http://www.crittersearchengine.com/?ilove=critters",
+					"http://www.critterdatingservice.com/nutlovers",
+					"http://www.crittergourmetfood.com/nutsandberries.htm",
+					"http://www.critterworldnews.com/summerfun",
+					"http://www.crittermoviereviews.com/starring=mrscritter",
+					"http://www.critterburrowdecor.com"};
+				string url=urls[random.Next(urls.Length)];
+				int[] responseCodes={200,202,400,404};
+				int responseCode=responseCodes[random.Next(responseCodes.Length)];
 				Crittercism.LogNetworkRequest(
-					"GET",
-					"http://docs.crittercism.com",
-					0.1,
-					8765,
-					234,
-					200,
+					method,
+					url,
+					random.NextDouble(),
+					random.Next(10000),
+					random.Next(1000),
+					responseCode,
 					0);
 			};
 
