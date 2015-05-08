@@ -61,7 +61,7 @@ namespace CrittercismSample.Android
 				}
 			};
 				
-			Button ButtonLogNetworkRequest = FindViewById<Button>(Resource.Id.ButtonHandledException);
+			Button ButtonLogNetworkRequest = FindViewById<Button>(Resource.Id.ButtonLogNetworkRequest);
 			ButtonLogNetworkRequest.Click += delegate(object sender, EventArgs e) {
 				Random random = new Random();
 				string[] methods = { "GET", "POST", "HEAD" };
