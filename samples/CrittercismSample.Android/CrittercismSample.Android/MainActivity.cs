@@ -21,7 +21,7 @@ namespace CrittercismSample.Android
 	{
 		protected override void OnCreate(Bundle bundle)
 		{
-			//Initialize Crittercism
+			// Initialize Crittercism
 			Crittercism.Init(ApplicationContext, "YOUR APP ID GOES HERE");
 
 			base.OnCreate(bundle);

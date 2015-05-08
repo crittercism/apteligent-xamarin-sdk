@@ -90,7 +90,6 @@ namespace CrittercismIOS
 			sigaction (Signal.SIGBUS, IntPtr.Zero, sigbus);
 			sigaction (Signal.SIGSEGV,IntPtr.Zero, sigsegv);
 
-			// Disable service monitoring. There's issues with NSProxy
 			Crittercism_EnableWithAppID (appId, true);
 
 			// Restore or Destroy the handlers
