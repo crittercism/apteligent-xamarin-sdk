@@ -17,50 +17,59 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIV-AE-aMz">
-                                <rect key="frame" x="20" y="77" width="280" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Attach User Metadata" backgroundImage="button-backround.png">
-                                    <color key="titleColor" red="0.2506581182" green="0.2506581182" blue="0.2506581182" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Crittercism Sample" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WkL-pg-nsw">
-                                <rect key="frame" x="43" y="31" width="234" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="crittercism_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="tOV-zY-LZH">
                                 <rect key="frame" x="78" y="778" width="163" height="87"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4uB-H5-3Cn">
-                                <rect key="frame" x="22" y="119" width="280" height="34"/>
+                                <rect key="frame" x="20" y="30" width="280" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Leave Breadcrumb" backgroundImage="button-backround.png">
                                     <color key="titleColor" red="0.2506581182" green="0.2506581182" blue="0.2506581182" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYb-QH-1t0">
-                                <rect key="frame" x="22" y="161" width="280" height="34"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15">
+                                <rect key="frame" x="20" y="70" width="280" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Log Handled Exception" backgroundImage="button-backround.png">
+                                <state key="normal" title="Set Username" backgroundImage="button-backround.png">
                                     <color key="titleColor" red="0.2506581182" green="0.2506581182" blue="0.2506581182" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIV-AE-aMz">
+                                <rect key="frame" x="20" y="110" width="280" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Set Metadata" backgroundImage="button-backround.png">
+                                    <color key="titleColor" red="0.2506581182" green="0.2506581182" blue="0.2506581182" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6x-ql-CV9">
-                                <rect key="frame" x="22" y="203" width="280" height="34"/>
+                                <rect key="frame" x="20" y="150" width="280" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Crash" backgroundImage="button-backround.png">
                                     <color key="titleColor" red="0.2506581182" green="0.2506581182" blue="0.2506581182" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYb-QH-1t0">
+                                <rect key="frame" x="20" y="190" width="280" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Handled Exception" backgroundImage="button-backround.png">
+                                    <color key="titleColor" red="0.2506581182" green="0.2506581182" blue="0.2506581182" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="16">
+                                <rect key="frame" x="20" y="230" width="280" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log Network Request" backgroundImage="button-backround.png">
+                                    <color key="titleColor" red="0.2506581182" green="0.2506581182" blue="0.2506581182" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5">
-                                <rect key="frame" x="22" y="245" width="280" height="34"/>
+                                <rect key="frame" x="20" y="270" width="280" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Begin Transaction" backgroundImage="button-backround.png">
                                     <color key="titleColor" red="0.2506581182" green="0.2506581182" blue="0.2506581182" alpha="1" colorSpace="calibratedRGB"/>
@@ -68,7 +77,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6">
-                                <rect key="frame" x="22" y="287" width="280" height="34"/>
+                                <rect key="frame" x="20" y="310" width="280" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="End Transaction" backgroundImage="button-backround.png">
                                     <color key="titleColor" red="0.2506581182" green="0.2506581182" blue="0.2506581182" alpha="1" colorSpace="calibratedRGB"/>
@@ -76,7 +85,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7">
-                                <rect key="frame" x="22" y="329" width="280" height="34"/>
+                                <rect key="frame" x="20" y="350" width="280" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Fail Transaction" backgroundImage="button-backround.png">
                                     <color key="titleColor" red="0.2506581182" green="0.2506581182" blue="0.2506581182" alpha="1" colorSpace="calibratedRGB"/>
@@ -84,7 +93,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8">
-                                <rect key="frame" x="20" y="371" width="280" height="34"/>
+                                <rect key="frame" x="20" y="390" width="280" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Set Transaction Value" backgroundImage="button-backround.png">
                                     <color key="titleColor" red="0.2506581182" green="0.2506581182" blue="0.2506581182" alpha="1" colorSpace="calibratedRGB"/>
@@ -92,7 +101,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9">
-                                <rect key="frame" x="20" y="413" width="280" height="34"/>
+                                <rect key="frame" x="20" y="430" width="280" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Get Transaction Value" backgroundImage="button-backround.png">
                                     <color key="titleColor" red="0.2506581182" green="0.2506581182" blue="0.2506581182" alpha="1" colorSpace="calibratedRGB"/>
@@ -102,19 +111,22 @@
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="ButtonAttachUserMeta" destination="vIV-AE-aMz" id="name-outlet-vIV-AE-aMz"/>
+                        <outlet property="ButtonSetMetadata" destination="vIV-AE-aMz" id="name-outlet-vIV-AE-aMz"/>
                         <outlet property="ButtonLeaveBreadcrumb" destination="4uB-H5-3Cn" id="name-outlet-4uB-H5-3Cn"/>
-                        <outlet property="ButtonCLRException" destination="QYb-QH-1t0" id="name-outlet-QYb-QH-1t0"/>
-                        <outlet property="ButtonCrashCLR" destination="w6x-ql-CV9" id="name-outlet-w6x-ql-CV9"/>
+                        <outlet property="ButtonHandledException" destination="QYb-QH-1t0" id="name-outlet-QYb-QH-1t0"/>
+                        <outlet property="ButtonCrash" destination="w6x-ql-CV9" id="name-outlet-w6x-ql-CV9"/>
                         <outlet property="ButtonBeginTransaction" destination="5" id="name-outlet-5"/>
                         <outlet property="ButtonEndTransaction" destination="6" id="name-outlet-6"/>
                         <outlet property="ButtonFailTransaction" destination="7" id="name-outlet-7"/>
                         <outlet property="ButtonSetTransactionValue" destination="8" id="name-outlet-8"/>
                         <outlet property="ButtonGetTransactionValue" destination="9" id="name-outlet-9"/>
+                        <outlet property="ButtonSetUsername" destination="15" id="name-outlet-15"/>
+                        <outlet property="ButtonLogNetworkRequest" destination="16" id="name-outlet-16"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

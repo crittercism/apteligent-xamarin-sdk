@@ -14,7 +14,7 @@ namespace CrittercismSample.Android
 		}
 
 		public CrittercismSampleException(string message, Exception innerException)
-			: base(message,innerException)
+			: base(message, innerException)
 		{
 		}
 	}

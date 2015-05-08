@@ -16,19 +16,11 @@ namespace Sample.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonAttachUserMeta { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonBeginTransaction { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonCLRException { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonCrashCLR { get; set; }
+		UIButton ButtonCrash { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -44,29 +36,37 @@ namespace Sample.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonHandledException { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonLeaveBreadcrumb { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonLogNetworkRequest { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonSetMetadata { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonSetTransactionValue { get; set; }
 
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonSetUsername { get; set; }
+
 		void ReleaseDesignerOutlets ()
 		{
-			if (ButtonAttachUserMeta != null) {
-				ButtonAttachUserMeta.Dispose ();
-				ButtonAttachUserMeta = null;
-			}
 			if (ButtonBeginTransaction != null) {
 				ButtonBeginTransaction.Dispose ();
 				ButtonBeginTransaction = null;
 			}
-			if (ButtonCLRException != null) {
-				ButtonCLRException.Dispose ();
-				ButtonCLRException = null;
-			}
-			if (ButtonCrashCLR != null) {
-				ButtonCrashCLR.Dispose ();
-				ButtonCrashCLR = null;
+			if (ButtonCrash != null) {
+				ButtonCrash.Dispose ();
+				ButtonCrash = null;
 			}
 			if (ButtonEndTransaction != null) {
 				ButtonEndTransaction.Dispose ();
@@ -80,13 +80,29 @@ namespace Sample.iOS
 				ButtonGetTransactionValue.Dispose ();
 				ButtonGetTransactionValue = null;
 			}
+			if (ButtonHandledException != null) {
+				ButtonHandledException.Dispose ();
+				ButtonHandledException = null;
+			}
 			if (ButtonLeaveBreadcrumb != null) {
 				ButtonLeaveBreadcrumb.Dispose ();
 				ButtonLeaveBreadcrumb = null;
 			}
+			if (ButtonLogNetworkRequest != null) {
+				ButtonLogNetworkRequest.Dispose ();
+				ButtonLogNetworkRequest = null;
+			}
+			if (ButtonSetMetadata != null) {
+				ButtonSetMetadata.Dispose ();
+				ButtonSetMetadata = null;
+			}
 			if (ButtonSetTransactionValue != null) {
 				ButtonSetTransactionValue.Dispose ();
 				ButtonSetTransactionValue = null;
+			}
+			if (ButtonSetUsername != null) {
+				ButtonSetUsername.Dispose ();
+				ButtonSetUsername = null;
 			}
 		}
 	}

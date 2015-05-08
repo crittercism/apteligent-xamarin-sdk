@@ -16,100 +16,123 @@ using CrittercismAndroid;
 
 namespace CrittercismSample.Android
 {
-	[Activity (Label = "CrittercismSample.Android", MainLauncher = true)]
+	[Activity(Label = "CrittercismSample.Android", MainLauncher = true)]
 	public class MainActivity : Activity
 	{
-		protected override void OnCreate (Bundle bundle)
+		protected override void OnCreate(Bundle bundle)
 		{
-			//Initialize Crittercism
-			//  AppId "Crittercism Android Library Internal Testing"
-			Crittercism.Init( ApplicationContext,  "YOUR APP ID GOES HERE");
+			// Initialize Crittercism
+			Crittercism.Init(ApplicationContext, "YOUR APP ID GOES HERE");
 
-			//Set the Username
-			Crittercism.SetUserName ("ANDROID_USER_NAME");
+			base.OnCreate(bundle);
 
-			base.OnCreate (bundle);
+			SetContentView(Resource.Layout.Main);
 
-			SetContentView (Resource.Layout.Main);
+			Button ButtonLeaveBreadcrumb = FindViewById<Button>(Resource.Id.ButtonBreadcrumb);
+			ButtonLeaveBreadcrumb.Click += delegate(object sender, EventArgs e) {
+				Crittercism.LeaveBreadcrumb("My Breadcrumb");
+			};
 
-			Button buttonAttachMetadata = FindViewById<Button> (Resource.Id.buttonAttachMeta);
-			buttonAttachMetadata.Click += delegate {
-				Crittercism.SetMetadata( "MyKey", "MyValue" );
-				buttonAttachMetadata.Text = string.Format ("Metadata sent!");
+			Button ButtonSetUserName = FindViewById<Button>(Resource.Id.ButtonSetUserName);
+			ButtonSetUserName.Click += delegate {
+				Crittercism.SetUserName("MrsCritter");
+			};
+
+			Button ButtonSetMetadata = FindViewById<Button>(Resource.Id.ButtonSetMetadata);
+			ButtonSetMetadata.Click += delegate {
+				Crittercism.SetMetadata("Game Level", "5");
+			};
+
+			Button ButtonCrash = FindViewById<Button>(Resource.Id.ButtonCrash);
+			ButtonCrash.Click += delegate(object sender, EventArgs e) {
+				CrashInnerException();
+				//CrashDivideByZero();
+				//CrashNullReference();
+				//CrashIndexOutOfRange();
+				//CrashCustomException();
 			};
 				
-			Button buttonHandledException = FindViewById<Button> (Resource.Id.buttonHandledException);
-			buttonHandledException.Click += delegate(object sender, EventArgs e) {
+			Button ButtonHandledException = FindViewById<Button>(Resource.Id.ButtonHandledException);
+			ButtonHandledException.Click += delegate(object sender, EventArgs e) {
 				try {
-					//throw new Exception();
-					crashInnerException();
-				} catch (System.Exception error){
+					CrashInnerException();
+				} catch (System.Exception error) {
 					Crittercism.LogHandledException(error);
 				}
 			};
-
-			Button buttonCrashCLR = FindViewById<Button> (Resource.Id.buttonCrashCLR);
-			buttonCrashCLR.Click += delegate(object sender, EventArgs e) {
-				Crittercism.LeaveBreadcrumb( "Crash CLR");
-				//crashCLR();
-				crashInnerException();
+				
+			Button ButtonLogNetworkRequest = FindViewById<Button>(Resource.Id.ButtonLogNetworkRequest);
+			ButtonLogNetworkRequest.Click += delegate(object sender, EventArgs e) {
+				Random random = new Random();
+				string[] methods = { "GET", "POST", "HEAD" };
+				string method = methods[random.Next(methods.Length)];
+				string[] urls = {"http://www.critterwebservice.com",
+					"http://www.crittersearchengine.com/?ilove=critters",
+					"http://www.critterdatingservice.com/nutlovers",
+					"http://www.crittergourmetfood.com/nutsandberries.htm",
+					"http://www.critterworldnews.com/summerfun",
+					"http://www.crittermoviereviews.com/starring=mrscritter",
+					"http://www.critterburrowdecor.com"
+				};
+				string url = urls[random.Next(urls.Length)];
+				int[] responseCodes = { 200, 202, 400, 404 };
+				int responseCode = responseCodes[random.Next(responseCodes.Length)];
+				Crittercism.LogNetworkRequest(
+					method,
+					url,
+					(long)(1000 * random.NextDouble()),
+					random.Next(10000),
+					random.Next(1000),
+					responseCode,
+					0);
 			};
 
-			Button buttonLeaveBreadcrumb = FindViewById<Button> (Resource.Id.buttonBreadcrumb);
-			buttonLeaveBreadcrumb.Click += delegate(object sender, EventArgs e) {
-				Crittercism.LeaveBreadcrumb( "Android BreadCrumb");
-				buttonLeaveBreadcrumb.Text = string.Format( "just left a breadcrumb");
+			Button ButtonBeginTransaction = FindViewById<Button>(Resource.Id.ButtonBeginTransaction);
+			ButtonBeginTransaction.Click += delegate(object sender, EventArgs e) {
+				Crittercism.BeginTransaction("Exercise");
 			};
 
-			Button buttonBeginTransaction = FindViewById<Button> (Resource.Id.buttonBeginTransaction);
-			buttonBeginTransaction.Click += delegate(object sender, EventArgs e) {
-				Crittercism.BeginTransaction( "Android Transaction");
-				buttonBeginTransaction.Text = string.Format( "just began a transaction");
+			Button ButtonEndTransaction = FindViewById<Button>(Resource.Id.ButtonEndTransaction);
+			ButtonEndTransaction.Click += delegate(object sender, EventArgs e) {
+				Crittercism.EndTransaction("Exercise");
 			};
 
-			Button buttonEndTransaction = FindViewById<Button> (Resource.Id.buttonEndTransaction);
-			buttonEndTransaction.Click += delegate(object sender, EventArgs e) {
-				Crittercism.EndTransaction( "Android Transaction");
-				buttonEndTransaction.Text = string.Format( "just ended a transaction");
+			Button ButtonFailTransaction = FindViewById<Button>(Resource.Id.ButtonFailTransaction);
+			ButtonFailTransaction.Click += delegate(object sender, EventArgs e) {
+				Crittercism.FailTransaction("Exercise");
 			};
 
-			Button buttonFailTransaction = FindViewById<Button> (Resource.Id.buttonFailTransaction);
-			buttonFailTransaction.Click += delegate(object sender, EventArgs e) {
-				Crittercism.FailTransaction( "Android Transaction");
-				buttonFailTransaction.Text = string.Format( "just failed a transaction");
+			Button ButtonSetTransactionValue = FindViewById<Button>(Resource.Id.ButtonSetTransactionValue);
+			Button ButtonGetTransactionValue = FindViewById<Button>(Resource.Id.ButtonGetTransactionValue);
+			ButtonSetTransactionValue.Click += delegate(object sender, EventArgs e) {
+				Random random = new Random();
+				Crittercism.SetTransactionValue("Exercise", random.Next(1000));
+				ButtonGetTransactionValue.Text = "Get Transaction Value";
 			};
-
-			Button buttonSetTransactionValue = FindViewById<Button> (Resource.Id.buttonSetTransactionValue);
-			buttonSetTransactionValue.Click += delegate(object sender, EventArgs e) {
-				Crittercism.SetTransactionValue( "Android Transaction", 500);
-				buttonSetTransactionValue.Text = string.Format( "just set transaction value to 500");
-			};
-
-			Button buttonGetTransactionValue = FindViewById<Button> (Resource.Id.buttonGetTransactionValue);
-			buttonGetTransactionValue.Click += delegate(object sender, EventArgs e) {
-				int value = Crittercism.GetTransactionValue( "Android Transaction");
-				buttonGetTransactionValue.Text = string.Format("Value is: " + value.ToString());
+			ButtonGetTransactionValue.Click += delegate(object sender, EventArgs e) {
+				int value = Crittercism.GetTransactionValue("Exercise");
+				ButtonGetTransactionValue.Text = value.ToString();
 			};
 		}
 
-		public void crashCLR()
+		public void Crash()
 		{
-			crashNullReference ();
+			CrashNullReference();
 		}
 
-		private void crashNullReference()
+		private void CrashNullReference()
 		{
 			object o = null;
-			o.GetHashCode ();
+			o.GetHashCode();
 		}
 
-		public void crashDivideByZero()
+		public void CrashDivideByZero()
 		{
 			int i = 0;
 			i = 2 / i;
 		}
 
-		public void crashIndexOutOfRange()
+		public void CrashIndexOutOfRange()
 		{
 			string[] arr	= new string[1];
 			arr[2]	= "Crash";
@@ -124,7 +147,7 @@ namespace CrittercismSample.Android
 			}
 		}
 
-		public void crashInnerException()
+		public void CrashInnerException()
 		{
 			try {
 				DeepError(4);
@@ -142,11 +165,11 @@ namespace CrittercismSample.Android
 			throw new Java.Lang.IllegalArgumentException();
 		}
 
-		public void crashBackgroundThread()
+		public void CrashBackgroundThread()
 		{
 			ThreadPool.QueueUserWorkItem(o => { 
 				throw new Exception("Crashed Background thread."); 
-			} );
+			});
 		}
 
 		public async Task CrashAsync()
