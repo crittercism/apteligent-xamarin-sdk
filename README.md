@@ -1,8 +1,6 @@
 Xamarin, Crittercism Component Package
 =======
 
-**Work In Progresss**
-
 Performance Monitor, prioritize, troubleshoot, and trend your mobile cross-platform [Xamarin](http://xamarin.com) mobile app with [Crittercism](http://crittercism.com) C# Component.
 
 A cross-platform Component for leveraging Crittercism SDK and Services from Xamarin ( Mono  C# ) iOS and Android Applicaion
@@ -178,8 +176,18 @@ See component/README.md
 
 ### Test , User Test stories.
 
-- on Device Testing / Verification
+Replace "YOUR APP ID GOES HERE" with a suitable App ID acquired
+from platform in either AppDelegate.cs (iOS) or MainActivity.cs (Android).
+
 - Simulator Testing / Verification
+
+Build and run CrittercismSample.iOS or CrittercismSample.Android
+on your chosen iOS simulator or Android virtual device available
+in the Android Studio toolbar comboxbox.
+
+- On Device Testing / Verification
+
+Identical to Simulator Testing, but on a real iOS or Android device.
 
 ### Deploy
 - Submitting to the Xamarin Store
