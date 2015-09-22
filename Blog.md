@@ -1,3 +1,0 @@
-Crittercism Xamarin Support
-===
-

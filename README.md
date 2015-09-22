@@ -42,7 +42,7 @@ Crittercism API (iOS and Android )
 ###Getting Started with Android
 
 1. Create a new Xamarin Android Project
-1. Add the Crittercsim Library
+1. Add the Crittercism Library
 1. Import namespace `using Com.Crittercism.App;`
 1. Configure Manifest Provisions for [Xamarin Android Applicaion configuration](/screenshots/Xam-Android-Manifest.png)
 	- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -65,17 +65,17 @@ Crittercism.SetUsername ("ANDROID_USER_NAME");
 #### Mapping.txt file for Android
 1. Uploading the mapping.txt File
 
-For more information regarding the Xamarin Android Crittercsim refer to the  [Crittercism docs](http://docs.crittercism.com/android/android.html)
+For more information regarding the Xamarin Android Crittercism refer to the  [Crittercism docs](http://docs.crittercism.com/android/android.html)
 
 ###Getting Started with iOS
 
 1. Create a new Xamarin iOS Project
-1. Add the Crittercsim Library
+1. Add the Crittercism Library
 1. Import namespace `using Crittercism;`
 1. Configure correct Provisions for
 1. Initialize Crittercism
 
-For more information regarding the Xamarin Android Crittercsim refer to the  [Crittercism docs](http://docs.crittercism.com/android/ios.html)
+For more information regarding the Xamarin Android Crittercism refer to the  [Crittercism docs](http://docs.crittercism.com/android/ios.html)
 
 
 ### Dsym file for iOS
@@ -91,7 +91,7 @@ API_KEY="gkozoru9btnlxu870pa5w4vj1fwgfi36"
 source ${SRCROOT}/CrittercismSDK/dsym_upload.sh
 ```
 
-For more information regarding how to upload a Xamarin iOS Crittercsim refer to the  [Crittercism docs](http://docs.crittercism.com/ios/ios.html)
+For more information regarding how to upload a Xamarin iOS Crittercism refer to the  [Crittercism docs](http://docs.crittercism.com/ios/ios.html)
 
 
 
@@ -103,7 +103,7 @@ Sample Application demonstrating using the Crittercsism Xamarin Component for iO
 
 ![image](screenshots/ios-sample.png)
 
-Open and run  the iOS Sample app located at `samples/CrittercismSample.iOS/CrittercismSample.iOS.sln`
+Open and run the iOS Sample app located at `samples/CrittercismSample.iOS/CrittercismSample.iOS.sln`
 
 ###Android Sample Application
 
@@ -129,7 +129,7 @@ Instructions on building Xamarin.iOS and Xamarin.Android dlls and and the critte
 
 
 
-##Testing User Storis
+##Testing User Stories
 
 ###iOS
 
@@ -163,43 +163,45 @@ Crittercism.initialize(getApplicationContext(), "537fc935b573f15751000002");
 ### Build
 
 - Using Xamarin to Build
-- using Build Scripts
+
+Open Crittercism.Workspace/Crittercism.mdw in Xamarin Studio
+(e.g. double click Crittercism.mdw in Finder).  "Rebuild All"
+to clean and build again from scratch.  "Build All" to only
+build sources which have changed.  "Build Crittercism.iOS" to
+only build Crittercism.iOS sources which have changed.
+
+- Using Build Scripts
+
+sh scripts/build.sh
+"run '../component/ and then rake' to build the component"
+See component/README.md
 
 ### Test , User Test stories.
 
- - on Device Testing / Verification
- - Simulator Testing / Verification
+- on Device Testing / Verification
+- Simulator Testing / Verification
 
 ### Deploy
- - packaging the libarary for Xamarin Store
- - Submitting to the Xamarin Store
+- Submitting to the Xamarin Store
+
+Ask a Crittcism admin to upload the built Xamarin component to
+https://components.xamarin.com/view/crittercism
 
 
 ### How to update Android libs Jar
 
+Add new crittercism_TITANIUM_vX_X_X_sdkonly.jar to
+Crittercism.Android/Jars folder.  Inside Xamarin Studio, on
+the "Solution" tree control, "Delete" the old
+crittercism_TITANIUM_vX_X_X_sdkonly.jar , and
+"Add" the new crittercism_TITANIUM_vX_X_X_sdkonly.jar .
+
 ### How to update the iOS .a libarary
 
+Add new libCrittercism_vX_X_X.a to Crittercism.iOS folder.
+Inside Xamarin Studio, on the "Solution" tree control,
+"Delete" the old libCrittercism_vX_X_X.a , and
+"Add" the new libCrittercism_vX_X_X.a .  The "Add" operation
+will automatically generate libCrittercism_vX_X_X.linkwith.cs
+in the Crittercism.iOS folder .
 
-
-
-
-##Release Notes
-
-- Supports Xamarin 3.0
-- Created Crittercism.Workspace with both the binding libraries and Sample Applications `~/Crittercism.Workspace/Crittercism.mdw`
-- Updated README.md
-- Lots of little Clean up
-	- Removed the /docs folder ( branched from docs repo instead)
-	- Removed the /misc folder
-
-
-
-###Misc Notes
-
-- [ ] CLR Stack tracing, clr update ( NSException - Hacky way )
-	- C# Exceptions
- 	- logUnityException ( convert to the windows exception and sends to endpoint, as a Windows excption )
- 	- hook global exception handler it into
-	- Diagnostics ( app version, battery, etc ... )
-	- Check for an update on the unity library.
-	- https://github.com/crittercism/crittercism-unity-ios/blob/feature/exception-cleanup/Plugins/Crittercism_IOS_Scripts/CrittercismIOS.cs#L169

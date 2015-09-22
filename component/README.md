@@ -1,6 +1,6 @@
-# Xamarin Crittercsim Component
+# Xamarin Crittercism Component
 
-Xamarin Crittercsim Component
+Xamarin Crittercism Component
 
 To build this component:
 
