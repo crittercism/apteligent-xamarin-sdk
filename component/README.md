@@ -4,16 +4,18 @@ Xamarin Crittercism Component
 
 To build this component:
 
-# Use Xamarin Studio to do "Release" builds of all projects
-#in Crittercism.Workspace/Crittercism.mdw .
+Use Xamarin Studio to do "Release" builds of all projects
+in Crittercism.Workspace/Crittercism.mdw .
 
-# Run scripts/build.sh while connected to the scripts directory
-#to get *.dll's copied to file locations where rake with Rakefile
-#will expect to find them.
+Run scripts/build.sh while connected to the scripts directory
+to get *.dll's copied to file locations where rake with Rakefile
+will expect to find them.
+
+```shell
+# Run build.sh
 cd scripts
 sh build.sh
 
-```shell
 # Download xpkg
 cd component
 curl -L https://components.xamarin.com/submit/xpkg > xpkg.zip
