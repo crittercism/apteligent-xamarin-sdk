@@ -5,7 +5,7 @@ require "rake/clean"
 CLEAN.include "*.xam"
 CLEAN.include "crittercism-component"
 
-COMPONENT = "crittercism-2.3.xam"
+COMPONENT = "crittercism-2.4.xam"
 
 file "xamarin-component/xamarin-component.exe" do
 	puts "* Downloading xamarin-component..."
