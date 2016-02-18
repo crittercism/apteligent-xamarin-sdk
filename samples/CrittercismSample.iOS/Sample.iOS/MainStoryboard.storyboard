@@ -28,6 +28,9 @@
                                     <color key="titleColor" red="0.2506581182" green="0.2506581182" blue="0.2506581182" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="LeaveBreadcrumbButton_TouchUpInside:" destination="vXZ-lx-hvc" id="30" eventType="touchUpInside"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15">
                                 <rect key="frame" x="20" y="70" width="280" height="34"/>
@@ -36,6 +39,9 @@
                                     <color key="titleColor" red="0.2506581182" green="0.2506581182" blue="0.2506581182" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="SetUsernameButton_TouchUpInside:" destination="vXZ-lx-hvc" id="31" eventType="touchUpInside"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIV-AE-aMz">
                                 <rect key="frame" x="20" y="110" width="280" height="34"/>
@@ -43,6 +49,9 @@
                                 <state key="normal" title="Set Metadata" backgroundImage="button-backround.png">
                                     <color key="titleColor" red="0.2506581182" green="0.2506581182" blue="0.2506581182" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="SetMetadataButton_TouchUpInside:" destination="vXZ-lx-hvc" id="32" eventType="touchUpInside"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6x-ql-CV9">
                                 <rect key="frame" x="20" y="150" width="280" height="34"/>
@@ -51,6 +60,9 @@
                                     <color key="titleColor" red="0.2506581182" green="0.2506581182" blue="0.2506581182" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="CrashButton_TouchUpInside:" destination="vXZ-lx-hvc" id="33" eventType="touchUpInside"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYb-QH-1t0">
                                 <rect key="frame" x="20" y="190" width="280" height="34"/>
@@ -59,6 +71,9 @@
                                     <color key="titleColor" red="0.2506581182" green="0.2506581182" blue="0.2506581182" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="HandledExceptionButton_TouchUpInside:" destination="vXZ-lx-hvc" id="40" eventType="touchUpInside"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="16">
                                 <rect key="frame" x="20" y="230" width="280" height="34"/>
@@ -67,38 +82,53 @@
                                     <color key="titleColor" red="0.2506581182" green="0.2506581182" blue="0.2506581182" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="LogNetworkRequestButton_TouchUpInside:" destination="vXZ-lx-hvc" id="39" eventType="touchUpInside"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5">
                                 <rect key="frame" x="20" y="270" width="280" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Begin Transaction" backgroundImage="button-backround.png">
+                                <state key="normal" title="Begin Userflow" backgroundImage="button-backround.png">
                                     <color key="titleColor" red="0.2506581182" green="0.2506581182" blue="0.2506581182" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="BeginUserflowButton_TouchUpInside:" destination="vXZ-lx-hvc" id="38" eventType="touchUpInside"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6">
                                 <rect key="frame" x="20" y="310" width="280" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="End Transaction" backgroundImage="button-backround.png">
+                                <state key="normal" title="End Userflow" backgroundImage="button-backround.png">
                                     <color key="titleColor" red="0.2506581182" green="0.2506581182" blue="0.2506581182" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="EndUserflowButton_TouchUpInside:" destination="vXZ-lx-hvc" id="37" eventType="touchUpInside"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7">
                                 <rect key="frame" x="20" y="350" width="280" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Fail Transaction" backgroundImage="button-backround.png">
+                                <state key="normal" title="Fail Userflow" backgroundImage="button-backround.png">
                                     <color key="titleColor" red="0.2506581182" green="0.2506581182" blue="0.2506581182" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="FailUserflowButton_TouchUpInside:" destination="vXZ-lx-hvc" id="36" eventType="touchUpInside"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8">
                                 <rect key="frame" x="20" y="390" width="280" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Set Transaction Value" backgroundImage="button-backround.png">
+                                <state key="normal" title="Set Userflow Value" backgroundImage="button-backround.png">
                                     <color key="titleColor" red="0.2506581182" green="0.2506581182" blue="0.2506581182" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="SetUserflowValueButton_TouchUpInside:" destination="vXZ-lx-hvc" id="35" eventType="touchUpInside"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9">
                                 <rect key="frame" x="20" y="430" width="280" height="34"/>
@@ -107,6 +137,9 @@
                                     <color key="titleColor" red="0.2506581182" green="0.2506581182" blue="0.2506581182" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="GetUserflowValueButton_TouchUpInside:" destination="vXZ-lx-hvc" id="34" eventType="touchUpInside"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20">
                                 <rect key="frame" x="20" y="472" width="280" height="34"/>
@@ -122,17 +155,17 @@
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="ButtonSetMetadata" destination="vIV-AE-aMz" id="name-outlet-vIV-AE-aMz"/>
-                        <outlet property="ButtonLeaveBreadcrumb" destination="4uB-H5-3Cn" id="name-outlet-4uB-H5-3Cn"/>
-                        <outlet property="ButtonHandledException" destination="QYb-QH-1t0" id="name-outlet-QYb-QH-1t0"/>
-                        <outlet property="ButtonCrash" destination="w6x-ql-CV9" id="name-outlet-w6x-ql-CV9"/>
-                        <outlet property="ButtonBeginTransaction" destination="5" id="name-outlet-5"/>
-                        <outlet property="ButtonEndTransaction" destination="6" id="name-outlet-6"/>
-                        <outlet property="ButtonFailTransaction" destination="7" id="name-outlet-7"/>
-                        <outlet property="ButtonSetTransactionValue" destination="8" id="name-outlet-8"/>
-                        <outlet property="ButtonGetTransactionValue" destination="9" id="name-outlet-9"/>
-                        <outlet property="ButtonSetUsername" destination="15" id="name-outlet-15"/>
-                        <outlet property="ButtonLogNetworkRequest" destination="16" id="name-outlet-16"/>
+                        <outlet property="SetMetadataButton" destination="vIV-AE-aMz" id="name-outlet-vIV-AE-aMz"/>
+                        <outlet property="LeaveBreadcrumbButton" destination="4uB-H5-3Cn" id="name-outlet-4uB-H5-3Cn"/>
+                        <outlet property="HandledExceptionButton" destination="QYb-QH-1t0" id="name-outlet-QYb-QH-1t0"/>
+                        <outlet property="CrashButton" destination="w6x-ql-CV9" id="name-outlet-w6x-ql-CV9"/>
+                        <outlet property="BeginUserflowButton" destination="5" id="name-outlet-5"/>
+                        <outlet property="EndUserflowButton" destination="6" id="name-outlet-6"/>
+                        <outlet property="FailUserflowButton" destination="7" id="name-outlet-7"/>
+                        <outlet property="SetUserflowValueButton" destination="8" id="name-outlet-8"/>
+                        <outlet property="GetUserflowValueButton" destination="9" id="name-outlet-9"/>
+                        <outlet property="SetUsernameButton" destination="15" id="name-outlet-15"/>
+                        <outlet property="LogNetworkRequestButton" destination="16" id="name-outlet-16"/>
                         <outlet property="httpGetButton" destination="20" id="name-outlet-20"/>
                     </connections>
                 </viewController>

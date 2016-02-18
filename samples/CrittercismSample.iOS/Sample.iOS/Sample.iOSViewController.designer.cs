@@ -16,105 +16,149 @@ namespace Sample.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonBeginTransaction { get; set; }
+		UIButton BeginUserflowButton { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonCrash { get; set; }
+		UIButton CrashButton { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonEndTransaction { get; set; }
+		UIButton EndUserflowButton { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonFailTransaction { get; set; }
+		UIButton FailUserflowButton { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonGetTransactionValue { get; set; }
+		UIButton GetUserflowValueButton { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonHandledException { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonLeaveBreadcrumb { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonLogNetworkRequest { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonSetMetadata { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonSetTransactionValue { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonSetUsername { get; set; }
+		UIButton HandledExceptionButton { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton httpGetButton { get; set; }
 
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton LeaveBreadcrumbButton { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton LogNetworkRequestButton { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton SetMetadataButton { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton SetUserflowValueButton { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton SetUsernameButton { get; set; }
+
+		[Action ("BeginUserflowButton_TouchUpInside:")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void BeginUserflowButton_TouchUpInside (UIButton sender);
+
+		[Action ("CrashButton_TouchUpInside:")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void CrashButton_TouchUpInside (UIButton sender);
+
+		[Action ("EndUserflowButton_TouchUpInside:")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void EndUserflowButton_TouchUpInside (UIButton sender);
+
+		[Action ("FailUserflowButton_TouchUpInside:")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void FailUserflowButton_TouchUpInside (UIButton sender);
+
+		[Action ("GetUserflowValueButton_TouchUpInside:")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void GetUserflowValueButton_TouchUpInside (UIButton sender);
+
+		[Action ("HandledExceptionButton_TouchUpInside:")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void HandledExceptionButton_TouchUpInside (UIButton sender);
+
 		[Action ("HttpGetButton_TouchUpInside:")]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		partial void HttpGetButton_TouchUpInside (UIButton sender);
 
+		[Action ("LeaveBreadcrumbButton_TouchUpInside:")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void LeaveBreadcrumbButton_TouchUpInside (UIButton sender);
+
+		[Action ("LogNetworkRequestButton_TouchUpInside:")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void LogNetworkRequestButton_TouchUpInside (UIButton sender);
+
+		[Action ("SetMetadataButton_TouchUpInside:")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void SetMetadataButton_TouchUpInside (UIButton sender);
+
+		[Action ("SetUserflowValueButton_TouchUpInside:")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void SetUserflowValueButton_TouchUpInside (UIButton sender);
+
+		[Action ("SetUsernameButton_TouchUpInside:")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void SetUsernameButton_TouchUpInside (UIButton sender);
+
 		void ReleaseDesignerOutlets ()
 		{
-			if (ButtonBeginTransaction != null) {
-				ButtonBeginTransaction.Dispose ();
-				ButtonBeginTransaction = null;
+			if (BeginUserflowButton != null) {
+				BeginUserflowButton.Dispose ();
+				BeginUserflowButton = null;
 			}
-			if (ButtonCrash != null) {
-				ButtonCrash.Dispose ();
-				ButtonCrash = null;
+			if (CrashButton != null) {
+				CrashButton.Dispose ();
+				CrashButton = null;
 			}
-			if (ButtonEndTransaction != null) {
-				ButtonEndTransaction.Dispose ();
-				ButtonEndTransaction = null;
+			if (EndUserflowButton != null) {
+				EndUserflowButton.Dispose ();
+				EndUserflowButton = null;
 			}
-			if (ButtonFailTransaction != null) {
-				ButtonFailTransaction.Dispose ();
-				ButtonFailTransaction = null;
+			if (FailUserflowButton != null) {
+				FailUserflowButton.Dispose ();
+				FailUserflowButton = null;
 			}
-			if (ButtonGetTransactionValue != null) {
-				ButtonGetTransactionValue.Dispose ();
-				ButtonGetTransactionValue = null;
+			if (GetUserflowValueButton != null) {
+				GetUserflowValueButton.Dispose ();
+				GetUserflowValueButton = null;
 			}
-			if (ButtonHandledException != null) {
-				ButtonHandledException.Dispose ();
-				ButtonHandledException = null;
-			}
-			if (ButtonLeaveBreadcrumb != null) {
-				ButtonLeaveBreadcrumb.Dispose ();
-				ButtonLeaveBreadcrumb = null;
-			}
-			if (ButtonLogNetworkRequest != null) {
-				ButtonLogNetworkRequest.Dispose ();
-				ButtonLogNetworkRequest = null;
-			}
-			if (ButtonSetMetadata != null) {
-				ButtonSetMetadata.Dispose ();
-				ButtonSetMetadata = null;
-			}
-			if (ButtonSetTransactionValue != null) {
-				ButtonSetTransactionValue.Dispose ();
-				ButtonSetTransactionValue = null;
-			}
-			if (ButtonSetUsername != null) {
-				ButtonSetUsername.Dispose ();
-				ButtonSetUsername = null;
+			if (HandledExceptionButton != null) {
+				HandledExceptionButton.Dispose ();
+				HandledExceptionButton = null;
 			}
 			if (httpGetButton != null) {
 				httpGetButton.Dispose ();
 				httpGetButton = null;
+			}
+			if (LeaveBreadcrumbButton != null) {
+				LeaveBreadcrumbButton.Dispose ();
+				LeaveBreadcrumbButton = null;
+			}
+			if (LogNetworkRequestButton != null) {
+				LogNetworkRequestButton.Dispose ();
+				LogNetworkRequestButton = null;
+			}
+			if (SetMetadataButton != null) {
+				SetMetadataButton.Dispose ();
+				SetMetadataButton = null;
+			}
+			if (SetUserflowValueButton != null) {
+				SetUserflowValueButton.Dispose ();
+				SetUserflowValueButton = null;
+			}
+			if (SetUsernameButton != null) {
+				SetUsernameButton.Dispose ();
+				SetUsernameButton = null;
 			}
 		}
 	}
