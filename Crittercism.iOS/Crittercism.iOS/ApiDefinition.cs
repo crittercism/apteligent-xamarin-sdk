@@ -5,6 +5,7 @@ using ObjCRuntime;
 using Foundation;
 using UIKit;
 
+
 namespace CrittercismIOS
 {
 
@@ -24,5 +25,33 @@ namespace CrittercismIOS
 		string Username { set; }
 	}
 
+	/// <summary>
+	/// To get service monitoring working, we have to trick Xamarin into thinking that these classes
+	/// inhertit from NSObject rather than NSProxy. Xamarin doesn't support NSProxy.
+	/// </summary>
+
+	// @interface CRNSURLSessionProxy : NSProxy
+	[BaseType (typeof(NSObject))]
+	interface CRNSURLSessionProxy
+	{
+	}
+
+	// @interface CRNSURLSessionTaskProxy : NSProxy
+	[BaseType (typeof(NSObject))]
+	interface CRNSURLSessionTaskProxy
+	{
+	}
+
+	// @interface CRNSURLSessionDelegateProxy : NSProxy <NSURLSessionDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate, NSURLSessionDownloadDelegate, NSURLSessionStreamDelegate>
+	[BaseType (typeof(NSObject))]
+	interface CRNSURLSessionDelegateProxy : INSUrlSessionDelegate, INSUrlSessionTaskDelegate, INSUrlSessionDataDelegate, INSUrlSessionDownloadDelegate, INSUrlSessionStreamDelegate
+	{
+	}
+
+	// @interface CRNSURLConnectionDelegateProxy : NSProxy <NSURLConnectionDelegate, NSURLConnectionDataDelegate>
+	[BaseType (typeof(NSObject))]
+	interface CRNSURLConnectionDelegateProxy : INSUrlConnectionDelegate, INSUrlConnectionDataDelegate
+	{
+	}
 }
 
