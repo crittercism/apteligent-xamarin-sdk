@@ -1,6 +1,8 @@
 ﻿using System;
 using UIKit;
 using CrittercismIOS;
+using ModernHttpClient;
+using System.Net.Http;
 
 namespace Sample.iOS
 {
@@ -97,6 +99,7 @@ namespace Sample.iOS
 				int value = Crittercism.GetTransactionValue("Exercise");
 				ButtonGetTransactionValue.SetTitle(value.ToString(), UIControlState.Normal);
 			};
+
 		}
 
 		private void CrashDivideByZero()
@@ -161,7 +164,19 @@ namespace Sample.iOS
 		{
 			base.ViewDidDisappear(animated);
 		}
+			
+		partial void HttpGetButton_TouchUpInside (UIButton sender)
+		{
+			var httpClient = new HttpClient (new NativeMessageHandler ());
 
+			var response = httpClient.GetAsync ("https://httpbin.org/status/418").Result;
+
+			var responseContent = response.Content;
+
+			string responseString = responseContent.ReadAsStringAsync ().Result;
+
+			Console.WriteLine (responseString);
+		}
 		#endregion
 	}
 }

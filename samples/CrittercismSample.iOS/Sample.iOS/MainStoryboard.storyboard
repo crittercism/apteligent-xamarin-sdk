@@ -108,6 +108,17 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20">
+                                <rect key="frame" x="20" y="472" width="280" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="HTTP Get" backgroundImage="button-backround.png">
+                                    <color key="titleColor" red="0.2506581182" green="0.2506581182" blue="0.2506581182" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="HttpGetButton_TouchUpInside:" destination="vXZ-lx-hvc" id="23" eventType="touchUpInside"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
@@ -122,6 +133,7 @@
                         <outlet property="ButtonGetTransactionValue" destination="9" id="name-outlet-9"/>
                         <outlet property="ButtonSetUsername" destination="15" id="name-outlet-15"/>
                         <outlet property="ButtonLogNetworkRequest" destination="16" id="name-outlet-16"/>
+                        <outlet property="httpGetButton" destination="20" id="name-outlet-20"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -135,7 +147,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <resources>
-        <image name="Default-568h.png" width="640" height="1136"/>
+        <image name="Default-568h.png" width="320" height="568"/>
         <image name="button-backround.png" width="154" height="44"/>
         <image name="crittercism_icon.png" width="57" height="57"/>
     </resources>

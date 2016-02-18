@@ -58,6 +58,14 @@ namespace Sample.iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonSetUsername { get; set; }
 
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton httpGetButton { get; set; }
+
+		[Action ("HttpGetButton_TouchUpInside:")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void HttpGetButton_TouchUpInside (UIButton sender);
+
 		void ReleaseDesignerOutlets ()
 		{
 			if (ButtonBeginTransaction != null) {
@@ -103,6 +111,10 @@ namespace Sample.iOS
 			if (ButtonSetUsername != null) {
 				ButtonSetUsername.Dispose ();
 				ButtonSetUsername = null;
+			}
+			if (httpGetButton != null) {
+				httpGetButton.Dispose ();
+				httpGetButton = null;
 			}
 		}
 	}
