@@ -6,7 +6,6 @@ using Android.App;
 using Org.Json;
 using Java.Lang;
 using System.Diagnostics;
-using System.Collections.Generic;
 
 namespace CrittercismAndroid
 {
@@ -113,35 +112,35 @@ namespace CrittercismAndroid
 			Com.Crittercism.App.Crittercism.SetMetadata( jso );
 		}
 
-		public static void BeginTransaction(string name)
+		public static void BeginUserflow(string name)
 		{
-			Com.Crittercism.App.Crittercism.BeginTransaction (name);
+			Com.Crittercism.App.Crittercism.BeginUserflow (name);
 		}
 
-		public static void BeginTransaction (string name, int value)
+		public static void BeginUserflow (string name, int value)
 		{
-			Com.Crittercism.App.Crittercism.BeginTransaction (name);
-			Com.Crittercism.App.Crittercism.SetTransactionValue (name, value);
+			Com.Crittercism.App.Crittercism.BeginUserflow (name);
+			Com.Crittercism.App.Crittercism.SetUserflowValue (name, value);
 		}
 
-		public static void EndTransaction(string name)
+		public static void EndUserflow(string name)
 		{
-			Com.Crittercism.App.Crittercism.EndTransaction (name);
+			Com.Crittercism.App.Crittercism.EndUserflow (name);
 		}
 
-		public static void FailTransaction(string name)
+		public static void FailUserflow(string name)
 		{
-			Com.Crittercism.App.Crittercism.FailTransaction (name);
+			Com.Crittercism.App.Crittercism.FailUserflow (name);
 		}
 
-		public static void SetTransactionValue(string name, int value)
+		public static void SetUserflowValue(string name, int value)
 		{
-			Com.Crittercism.App.Crittercism.SetTransactionValue (name, value);
+			Com.Crittercism.App.Crittercism.SetUserflowValue (name, value);
 		}
 
-		public static int GetTransactionValue(string name)
+		public static int GetUserflowValue(string name)
 		{
-			return Com.Crittercism.App.Crittercism.GetTransactionValue (name);
+			return Com.Crittercism.App.Crittercism.GetUserflowValue (name);
 		}
 			
 		public static bool DidCrashOnLastLoad()
@@ -154,6 +153,47 @@ namespace CrittercismAndroid
 			get { return Com.Crittercism.App.Crittercism.OptOutStatus; }
 			set { Com.Crittercism.App.Crittercism.OptOutStatus = value; }
 		}
+
+		#region Deprecated Methods
+
+		[System.Obsolete("Use BeginUserflow", false)]
+		public static void BeginTransaction(string name)
+		{
+			BeginUserflow (name);
+		}
+
+		[System.Obsolete("Use BeginUserflow", false)]
+		public static void BeginTransaction (string name, int value)
+		{
+			BeginUserflow (name);
+			SetUserflowValue (name, value);
+		}
+
+		[System.Obsolete("Use EndUserflow", false)]
+		public static void EndTransaction(string name)
+		{
+			EndUserflow (name);
+		}
+
+		[System.Obsolete("Use FailUserflow", false)]
+		public static void FailTransaction(string name)
+		{
+			FailUserflow (name);
+		}
+
+		[System.Obsolete("Use SetUserflowValue", false)]
+		public static void SetTransactionValue(string name, int value)
+		{
+			SetUserflowValue (name, value);
+		}
+
+		[System.Obsolete("Use GetUserflowValue", false)]
+		public static int GetTransactionValue(string name)
+		{
+			return GetUserflowValue (name);
+		}
+
+		#endregion
 	}
 }
 
