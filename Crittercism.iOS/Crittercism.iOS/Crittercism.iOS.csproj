@@ -44,6 +44,9 @@
     <Compile Include="libCrittercism_v5_4_2.linkwith.cs">
       <DependentUpon>libCrittercism_v5_4_2.a</DependentUpon>
     </Compile>
+    <Compile Include="libCrittercism_v5_5_2.linkwith.cs">
+      <DependentUpon>libCrittercism_v5_5_2.a</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
@@ -51,8 +54,9 @@
   <ItemGroup>
     <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Xamarin.ObjcBinding.CSharp.targets" />
   <ItemGroup>
     <ObjcBindingNativeLibrary Include="libCrittercism_v5_4_2.a" />
+    <ObjcBindingNativeLibrary Include="libCrittercism_v5_5_2.a" />
   </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>
