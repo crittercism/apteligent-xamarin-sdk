@@ -219,37 +219,37 @@ namespace CrittercismIOS
 
 		#region Deprecated Methods
 
-		[System.Obsolete("Use BeginUserflow", true)]
+		[System.Obsolete("Use BeginUserflow", false)]
 		public static void BeginTransaction(string name)
 		{
 			BeginUserflow (name);
 		}
 
-		[System.Obsolete("Use BeginUserflow", true)]
+		[System.Obsolete("Use BeginUserflow", false)]
 		public static void BeginTransaction(string name, int value)
 		{
 			BeginUserflow(name, value);
 		}
 
-		[System.Obsolete("Use EndUserflow", true)]
+		[System.Obsolete("Use EndUserflow", false)]
 		public static void EndTransaction(string name)
 		{
 			EndUserflow (name);
 		}
 
-		[System.Obsolete("Use FailUserflow", true)]
+		[System.Obsolete("Use FailUserflow", false)]
 		public static void FailTransaction(string name)
 		{
 			FailUserflow (name);
 		}
 
-		[System.Obsolete("Use SetUserflowValue", true)]
+		[System.Obsolete("Use SetUserflowValue", false)]
 		public static void SetTransactionValue(string name, int value)
 		{
 			SetUserflowValue (name, value);
 		}
 
-		[System.Obsolete("Use GetUserflowValue", true)]
+		[System.Obsolete("Use GetUserflowValue", false)]
 		public static int GetTransactionValue(string name)
 		{
 			return GetUserflowValue (name);
