@@ -107,7 +107,6 @@ namespace CrittercismSample.Android
 			ButtonSetTransactionValue.Click += delegate(object sender, EventArgs e) {
 				Random random = new Random();
 				Crittercism.SetUserflowValue("Exercise", random.Next(1000));
-				ButtonGetUserflowValue.Text = "Get Transaction Value";
 			};
 			ButtonGetTransactionValue.Click += delegate(object sender, EventArgs e) {
 				int value = Crittercism.GetUserflowValue("Exercise");
