@@ -119,17 +119,17 @@ Here’s an example of how to associate metadata with the current user:
 
 Userflows allows companies to track key interactions or user flows in their
 app such as login, account registration, and in app purchase.  By default, the
-SDK will automatically track application load time as a transaction.  You can
-specify additional transactions by adding a few more lines of code to your
+SDK will automatically track application load time as a userflow.  You can
+specify additional userflows by adding a few more lines of code to your
 application. 
 
-Developers must add code to specify where a transaction starts and where a
-transaction ends. All other API calls are optional. If a crash occurs, all
-in-flight transactions will automatically be failed and reported with the
+Developers must add code to specify where a userflow starts and where a
+userflow ends. All other API calls are optional. If a crash occurs, all
+in-flight userflows will automatically be failed and reported with the
 crash. Use the ``BeginUserflow``, ``EndUserflow``, and ``FailUserflow``
-methods to log transactions. 
+methods to log userflows. 
 
-Here's an example of how to log a single transaction:
+Here's an example of how to log a single userflow:
 
 ```csharp
     Crittercism.BeginUserflow("login");
@@ -142,15 +142,15 @@ Here's an example of how to log a single transaction:
     }
 ```
 
-When beginning a transaction, you can also assign the transaction a value:
+When beginning a userflow, you can also assign the userflow a value:
 
 ```csharp
     int valueInCents = 100;
-    Crittercism.BeginUserflow("my_transaction", valueInCents);
+    Crittercism.BeginUserflow("my_userflow", valueInCents);
 ```
 
 Use the ``SetUserflowValue`` and ``GetUserflowValue`` methods to modify
-the value of a transaction. The value of a transaction should be specified in
+the value of a userflow. The value of a userflow should be specified in
 cents.
 
 ```csharp
