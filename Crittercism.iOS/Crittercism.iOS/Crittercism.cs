@@ -35,22 +35,22 @@ namespace CrittercismIOS
 		private static extern void Crittercism_SetOptOutStatus(bool status);
 
 		[DllImport("__Internal")]
-		private static extern void Crittercism_BeginTransaction(string name);
+		private static extern void Crittercism_BeginUserflow(string name);
 
 		[DllImport("__Internal")]
-		private static extern void Crittercism_BeginTransactionWithValue(string name, int value);
+		private static extern void Crittercism_BeginUserflowWithValue(string name, int value);
 
 		[DllImport("__Internal")]
-		private static extern void Crittercism_EndTransaction(string name);
+		private static extern void Crittercism_EndUserflow(string name);
 
 		[DllImport("__Internal")]
-		private static extern void Crittercism_FailTransaction(string name);
+		private static extern void Crittercism_FailUserflow(string name);
 
 		[DllImport("__Internal")]
-		private static extern void Crittercism_SetTransactionValue(string name, int value);
+		private static extern void Crittercism_SetUserflowValue(string name, int value);
 
 		[DllImport("__Internal")]
-		private static extern int Crittercism_GetTransactionValue(string name);
+		private static extern int Crittercism_GetUserflowValue(string name);
 
 		[DllImport ("libc")]
 		private static extern int sigaction (Signal sig, IntPtr act, IntPtr oact);
@@ -187,36 +187,75 @@ namespace CrittercismIOS
 			return Crittercism_GetOptOutStatus ();
 		}
 			
+		public static void BeginUserflow(string name)
+		{
+			Crittercism_BeginUserflow (name);
+		}
+
+		public static void BeginUserflow(string name, int value)
+		{
+			Crittercism_BeginUserflowWithValue(name, value);
+		}
+
+		public static void EndUserflow(string name)
+		{
+			Crittercism_EndUserflow (name);
+		}
+
+		public static void FailUserflow(string name)
+		{
+			Crittercism_FailUserflow (name);
+		}
+
+		public static void SetUserflowValue(string name, int value)
+		{
+			Crittercism_SetUserflowValue (name, value);
+		}
+
+		public static int GetUserflowValue(string name)
+		{
+			return Crittercism_GetUserflowValue (name);
+		}
+
+		#region Deprecated Methods
+
+		[System.Obsolete("Use BeginUserflow", false)]
 		public static void BeginTransaction(string name)
 		{
-			Crittercism_BeginTransaction (name);
+			BeginUserflow (name);
 		}
 
-		public static void BeginTransaction(string name, int value) 
+		[System.Obsolete("Use BeginUserflow", false)]
+		public static void BeginTransaction(string name, int value)
 		{
-			Crittercism_BeginTransactionWithValue(name, value);
+			BeginUserflow(name, value);
 		}
 
+		[System.Obsolete("Use EndUserflow", false)]
 		public static void EndTransaction(string name)
 		{
-			Crittercism_EndTransaction (name);
+			EndUserflow (name);
 		}
 
+		[System.Obsolete("Use FailUserflow", false)]
 		public static void FailTransaction(string name)
 		{
-			Crittercism_FailTransaction (name);
+			FailUserflow (name);
 		}
 
+		[System.Obsolete("Use SetUserflowValue", false)]
 		public static void SetTransactionValue(string name, int value)
 		{
-			Crittercism_SetTransactionValue (name, value);
+			SetUserflowValue (name, value);
 		}
 
+		[System.Obsolete("Use GetUserflowValue", false)]
 		public static int GetTransactionValue(string name)
 		{
-			return Crittercism_GetTransactionValue (name);
+			return GetUserflowValue (name);
 		}
 
+		#endregion
 	}
 }
 

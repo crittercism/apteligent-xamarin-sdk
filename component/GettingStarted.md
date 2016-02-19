@@ -3,6 +3,21 @@
 
 Use the ``Crittercism.Init`` API to initialize Crittercism.
 
+#### For iOS Apps
+
+In your AppDelegate.cs: 
+
+```csharp
+    using CrittercismIOS;
+
+    public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
+    {
+        //Initialize Crittercism with your App ID from crittercism.com
+        Crittercism.Init("YOUR APP ID GOES HERE");
+        return true;
+    }
+```
+
 #### For Android Apps
 
 In your main activity class:
@@ -17,18 +32,15 @@ In your main activity class:
     }
 ```
 
-#### For iOS Apps
-
-In your AppDelegate.cs: 
+If you are using MvvmCross with Android, you should initialize the app
+in your Setup.cs file:
 
 ```csharp
-    using CrittercismIOS;
+    using CrittercismAndroid;
 
-    public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
+    public Setup(Context applicationContext) : base(applicationContext)
     {
-        //Initialize Crittercism with your App ID from crittercism.com
-        Crittercism.Init("YOUR APP ID GOES HERE");
-        return true;
+          Crittercism.Init (applicationContext, "YOUR APP ID GOES HERE");
     }
 ```
 
@@ -103,48 +115,48 @@ Here’s an example of how to associate metadata with the current user:
     Crittercism.SetMetadata("5", "GameLevel");
 ```
 
-### Logging Transactions
+### Logging Userflows
 
-Transactions allows companies to track key interactions or user flows in their
+Userflows allows companies to track key interactions or user flows in their
 app such as login, account registration, and in app purchase.  By default, the
-SDK will automatically track application load time as a transaction.  You can
-specify additional transactions by adding a few more lines of code to your
+SDK will automatically track application load time as a userflow.  You can
+specify additional userflows by adding a few more lines of code to your
 application. 
 
-Developers must add code to specify where a transaction starts and where a
-transaction ends. All other API calls are optional. If a crash occurs, all
-in-flight transactions will automatically be failed and reported with the
-crash. Use the ``BeginTransaction``, ``EndTransaction``, and ``FailTransaction``
-methods to log transactions. 
+Developers must add code to specify where a userflow starts and where a
+userflow ends. All other API calls are optional. If a crash occurs, all
+in-flight userflows will automatically be failed and reported with the
+crash. Use the ``BeginUserflow``, ``EndUserflow``, and ``FailUserflow``
+methods to log userflows. 
 
-Here's an example of how to log a single transaction:
+Here's an example of how to log a single userflow:
 
 ```csharp
-    Crittercism.BeginTransaction("login");
+    Crittercism.BeginUserflow("login");
     // Run the code you want to monitor
     bool didLogin = RunMyLoginCode();
     if (didLogin) {
-        Crittercism.EndTransaction("login");
+        Crittercism.EndUserflow("login");
     } else {
-        Crittercism.FailTransaction("login");
+        Crittercism.FailUserflow("login");
     }
 ```
 
-When beginning a transaction, you can also assign the transaction a value:
+When beginning a userflow, you can also assign the userflow a value:
 
 ```csharp
     int valueInCents = 100;
-    Crittercism.BeginTransaction("my_transaction", valueInCents);
+    Crittercism.BeginUserflow("my_userflow", valueInCents);
 ```
 
-Use the ``SetTransactionValue`` and ``GetTransactionValue`` methods to modify
-the value of a transaction. The value of a transaction should be specified in
+Use the ``SetUserflowValue`` and ``GetUserflowValue`` methods to modify
+the value of a userflow. The value of a userflow should be specified in
 cents.
 
 ```csharp
     int itemValueInCents = 100;
-    int totalValueInCents = 100 + Crittercism.GetTransactionValue("shopping cart");
-    Crittercism.SetTransactionValue("shopping cart", totalValueInCents);
+    int totalValueInCents = 100 + Crittercism.GetUserflowValue("shopping cart");
+    Crittercism.SetUserflowValue("shopping cart", totalValueInCents);
 ```
 
 ### Other Resources
