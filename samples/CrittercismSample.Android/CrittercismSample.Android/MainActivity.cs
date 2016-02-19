@@ -89,28 +89,28 @@ namespace CrittercismSample.Android
 
 			Button ButtonBeginTransaction = FindViewById<Button>(Resource.Id.ButtonBeginTransaction);
 			ButtonBeginTransaction.Click += delegate(object sender, EventArgs e) {
-				Crittercism.BeginTransaction("Exercise");
+				Crittercism.BeginUserflow("Exercise");
 			};
 
 			Button ButtonEndTransaction = FindViewById<Button>(Resource.Id.ButtonEndTransaction);
 			ButtonEndTransaction.Click += delegate(object sender, EventArgs e) {
-				Crittercism.EndTransaction("Exercise");
+				Crittercism.EndUserflow("Exercise");
 			};
 
 			Button ButtonFailTransaction = FindViewById<Button>(Resource.Id.ButtonFailTransaction);
 			ButtonFailTransaction.Click += delegate(object sender, EventArgs e) {
-				Crittercism.FailTransaction("Exercise");
+				Crittercism.FailUserflow("Exercise");
 			};
 
 			Button ButtonSetTransactionValue = FindViewById<Button>(Resource.Id.ButtonSetTransactionValue);
 			Button ButtonGetTransactionValue = FindViewById<Button>(Resource.Id.ButtonGetTransactionValue);
 			ButtonSetTransactionValue.Click += delegate(object sender, EventArgs e) {
 				Random random = new Random();
-				Crittercism.SetTransactionValue("Exercise", random.Next(1000));
-				ButtonGetTransactionValue.Text = "Get Transaction Value";
+				Crittercism.SetUserflowValue("Exercise", random.Next(1000));
+				ButtonGetUserflowValue.Text = "Get Transaction Value";
 			};
 			ButtonGetTransactionValue.Click += delegate(object sender, EventArgs e) {
-				int value = Crittercism.GetTransactionValue("Exercise");
+				int value = Crittercism.GetUserflowValue("Exercise");
 				ButtonGetTransactionValue.Text = value.ToString();
 			};
 		}

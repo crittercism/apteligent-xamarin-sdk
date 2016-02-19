@@ -113,15 +113,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
-    <Compile Include="Sample.iOSViewController.designer.cs">
-    </Compile>
+    <Compile Include="ErrorViewController.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="Sample.iOSViewController.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <InterfaceDefinition Include="MainStoryboard.storyboard">
-      <DependentUpon>Sample.iOSViewController.cs</DependentUpon>
-    </InterfaceDefinition>
+    <Compile Include="ErrorViewController.designer.cs">
+      <DependentUpon>ErrorViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MetadataViewController.cs" />
+    <Compile Include="MetadataViewController.designer.cs">
+      <DependentUpon>MetadataViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NetworkViewController.cs" />
+    <Compile Include="NetworkViewController.designer.cs">
+      <DependentUpon>NetworkViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserflowViewController.cs" />
+    <Compile Include="UserflowViewController.designer.cs">
+      <DependentUpon>UserflowViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="lib\" />
@@ -132,5 +140,8 @@
       <Version>2.4.2</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Main.storyboard" />
   </ItemGroup>
 </Project>
