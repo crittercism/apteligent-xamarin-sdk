@@ -6,14 +6,18 @@ using Android.App;
 using Org.Json;
 using Java.Lang;
 using System.Diagnostics;
+using CrittercismAndroid;
 
 namespace CrittercismAndroid
 {
 	public partial class Crittercism
 	{
 		public static void Init(Context appContext, string appId) {
+			Com.Crittercism.App.CrittercismConfig config = new Com.Crittercism.App.CrittercismConfig ();
+			config.LogcatReportingEnabled = true;
 
-			Com.Crittercism.App.Crittercism.Initialize( appContext, appId );
+			Com.Crittercism.App.Crittercism.Initialize( appContext, appId , config);
+
 
 			//Appdomain Exception handlers
 			AppDomain.CurrentDomain.UnhandledException += (object sender, UnhandledExceptionEventArgs e) =>

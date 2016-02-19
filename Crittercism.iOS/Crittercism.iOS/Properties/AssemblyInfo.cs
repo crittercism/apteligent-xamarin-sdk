@@ -15,9 +15,9 @@ using Foundation;
 [assembly: AssemblyTitle ("Crittercism.iOS")]
 [assembly: AssemblyDescription ("")]
 [assembly: AssemblyConfiguration ("")]
-[assembly: AssemblyCompany ("")]
+[assembly: AssemblyCompany ("Apteligent")]
 [assembly: AssemblyProduct ("")]
-[assembly: AssemblyCopyright ("Crittercism")]
+[assembly: AssemblyCopyright ("Apteligent © 2016")]
 [assembly: AssemblyTrademark ("")]
 [assembly: AssemblyCulture ("")]
 
@@ -25,7 +25,7 @@ using Foundation;
 // The form "{Major}.{Minor}.*" will automatically update the build and revision,
 // and "{Major}.{Minor}.{Build}.*" will update just the revision.
 
-[assembly: AssemblyVersion ("2.1.*")]
+[assembly: AssemblyVersion ("2.5.*")]
 
 // The following attributes are used to specify the signing key for the assembly,
 // if desired. See the Mono documentation for more information about signing.
