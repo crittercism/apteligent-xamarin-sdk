@@ -1,11 +1,11 @@
-Xamarin, Crittercism Component Package
+Apteligent (formerly Crittercism) Xamarin Component Package
 =======
 
-Performance Monitor, prioritize, troubleshoot, and trend your mobile cross-platform [Xamarin](http://xamarin.com) mobile app with [Crittercism](http://crittercism.com) C# Component.
+Performance Monitor, prioritize, troubleshoot, and trend your cross-platform [Xamarin](http://xamarin.com) mobile apps with the [Apteligent](http://crittercism.com) C# Component.
 
-A cross-platform Component for leveraging Crittercism SDK and Services from Xamarin ( Mono  C# ) iOS and Android Applicaion
+A cross-platform component for leveraging the Apteligent SDK and Services from Xamarin ( Mono  C# ) iOS and Android Applications
 
-Please read Getting Started to learn how to use the component library.
+Please read Getting Started below to learn how to use the component library.
 
 ##Crittercism API
 
@@ -34,7 +34,7 @@ Crittercism API (iOS and Android )
 
 - Xamarin Studio in your developer machine, you can download it from [Xamarin.com/download](http://xamarin.com/download).
 - Native Tools for iOS and Android
-- [Crittercism](http://crittercism.com) Account and Application Keys
+- [Apteligent](http://www.apteligent.com) Account and Application Keys
 
 
 ###Getting Started with Android
@@ -42,28 +42,22 @@ Crittercism API (iOS and Android )
 1. Create a new Xamarin Android Project
 1. Add the Crittercism Library
 1. Import namespace `using Com.Crittercism.App;`
-1. Configure Manifest Provisions for [Xamarin Android Applicaion configuration](/screenshots/Xam-Android-Manifest.png)
-	- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-	- <uses-permission android:name="android.permission.GET_TASKS"/>
-	- <uses-permission android:name="android.permission.INTERNET"/>
-	- <uses-permission android:name="android.permission.READ_LOGS"/>
+1. Configure Manifest Provisions for [Xamarin Android Application configuration](/screenshots/Xam-Android-Manifest.png)
+	* <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	* <uses-permission android:name="android.permission.GET_TASKS"/>
+	* <uses-permission android:name="android.permission.INTERNET"/>
+	* <uses-permission android:name="android.permission.READ_LOGS"/>
 1. Initialize Crittercism in `protected override void OnCreate (Bundle bundle)`
 
 ```
 //Initialize Crittercism
 Crittercism.Initialize( ApplicationContext, "537fc935b573f15751000002");
 
-//Set the Username
-Crittercism.SetUsername ("ANDROID_USER_NAME");
-
-//Handle Exception
-
 ```
-
 #### Mapping.txt file for Android
-1. Uploading the mapping.txt File
+If you are using Proguard or Dexguard, you can upload your mapping files so that Apteligent will automatically symbolicate crashes: [Configuring Proguard Symbolication](https://docs.apteligent.com/android/android.html#configuring-proguard-symbolication)
 
-For more information regarding the Xamarin Android Crittercism refer to the  [Crittercism docs](http://docs.crittercism.com/android/android.html)
+For more information regarding the Apteligent Xamarin Android component refer to the [Apteligent docs](https://docs.apteligent.com/android/android.html)
 
 ###Getting Started with iOS
 
@@ -73,7 +67,7 @@ For more information regarding the Xamarin Android Crittercism refer to the  [Cr
 1. Configure correct Provisions for
 1. Initialize Crittercism
 
-For more information regarding the Xamarin Android Crittercism refer to the  [Crittercism docs](http://docs.crittercism.com/android/ios.html)
+For more information regarding the Apteligent Xamarin iOS component refer to the [Apteligent docs](https://docs.apteligent.com/ios/ios.html)
 
 
 ### Dsym file for iOS
@@ -89,13 +83,13 @@ API_KEY="gkozoru9btnlxu870pa5w4vj1fwgfi36"
 source ${SRCROOT}/CrittercismSDK/dsym_upload.sh
 ```
 
-For more information regarding how to upload a Xamarin iOS Crittercism refer to the  [Crittercism docs](http://docs.crittercism.com/ios/ios.html)
+For more information regarding how to upload a Xamarin iOS Crittercism refer to the [Crittercism docs](https://docs.apteligent.com/ios/ios.html)
 
 
 
 ##Sample Application
 
-Sample Application demonstrating using the Crittercsism Xamarin Component for iOS and Android
+Sample Application demonstrating using the Crittercism Xamarin Component for iOS and Android
 
 ###iOS Sample Application
 
@@ -121,39 +115,9 @@ Open run the Android Sample app located at `samples/CrittercismSample.Android/Cr
 
 ##Building and Updating the Xamarin Component
 
-you can build all the projects in this repository by opening the Crittercism.Workspace `open ~/Crittercism.Workspace/Crittercism.mdw`
+You can build all the projects in this repository by opening the Crittercism.Workspace `open ~/Crittercism.Workspace/Crittercism.mdw`
 
 Instructions on building Xamarin.iOS and Xamarin.Android dlls and and the crittercism-1.0.xam component refer to the  [component README.md](/component/README.md )
-
-
-
-##Testing User Stories
-
-###iOS
-
-[Xamarin-TestApp-iOS crash-summary ](https://app.crittercism.com/developers/crash-summary/5342d5a70ee9483d74000007)
-
-```
-App Name: Xamarin-TestApp-iOS
-Crittercism App ID: 53433aee40ec926441000002
-API Key: jgamwbghdxpe7kolfnruhyds10bcxvna
-
-[Crittercism enableWithAppID:@"53433aee40ec926441000002"];
-```
-
-
-###Android
-
-[Xamarin-TestApp-Android crash-summary ](https://app.crittercism.com/developers/crash-summary/537fc935b573f15751000002)
-
-```
-App Name: Xamarin-TestApp-Android
-Crittercism App ID: 537fc935b573f15751000002
-API Key: CR0TyOGLxLe5u5cLnH4TGYo7z7yDiyyk
-
-Crittercism.initialize(getApplicationContext(), "537fc935b573f15751000002");
-```
-
 
 
 ##Developer Notes
@@ -192,7 +156,7 @@ Identical to Simulator Testing, but on a real iOS or Android device.
 ### Deploy
 - Submitting to the Xamarin Store
 
-Ask a Crittcism admin to upload the built Xamarin component to
+Email support@apteligent.com to upload the built Xamarin component to
 https://components.xamarin.com/view/crittercism
 
 
@@ -204,7 +168,7 @@ the "Solution" tree control, "Delete" the old
 crittercism_TITANIUM_vX_X_X_sdkonly.jar , and
 "Add" the new crittercism_TITANIUM_vX_X_X_sdkonly.jar .
 
-### How to update the iOS .a libarary
+### How to update the iOS .a library
 
 Add new libCrittercism_vX_X_X.a to Crittercism.iOS folder.
 Inside Xamarin Studio, on the "Solution" tree control,
