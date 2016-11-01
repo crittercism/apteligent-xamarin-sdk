@@ -43,10 +43,12 @@ Crittercism API (iOS and Android )
 1. Add the Crittercism Library
 1. Import namespace `using Com.Crittercism.App;`
 1. Configure Manifest Provisions for [Xamarin Android Application configuration](/screenshots/Xam-Android-Manifest.png)
-	* <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-	* <uses-permission android:name="android.permission.GET_TASKS"/>
-	* <uses-permission android:name="android.permission.INTERNET"/>
-	* <uses-permission android:name="android.permission.READ_LOGS"/>
+```
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<uses-permission android:name="android.permission.GET_TASKS"/>
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.READ_LOGS"/>
+```
 1. Initialize Crittercism in `protected override void OnCreate (Bundle bundle)`
 
 ```
