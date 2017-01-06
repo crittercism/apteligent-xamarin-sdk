@@ -101,8 +101,6 @@ Open and run the iOS Sample app located at `samples/CrittercismSample.iOS/Critte
 
 ###Android Sample Application
 
-![image](screenshots/android-sample.png)
-
 Open run the Android Sample app located at `samples/CrittercismSample.Android/CrittercismSample.Android.sln`
 
 
